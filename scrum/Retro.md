@@ -1,6 +1,7 @@
 # Ceremonia Retrospectiva
 
-![Imagen Ilustrativa Ceremonia Retro](/scrum/retro.png)
+<img width="424" height="296" alt="retro" src="https://github.com/user-attachments/assets/3651483f-1621-4b23-993b-f024114ededf" />
+
 
 ## Introducción  
 Este documento reúne las conclusiones de la retrospectiva realizada al finalizar el Sprint.  
