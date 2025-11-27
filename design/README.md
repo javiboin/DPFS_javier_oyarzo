@@ -8,8 +8,8 @@
 - **Fuente Principal - Título:** "Bebas Neue", sans-serif
   <img width="684" height="216" alt="image" src="https://github.com/user-attachments/assets/310d82a0-29ce-4696-8daa-6b564bff1f8a" />
 
-- **Fuente Secundaria - Texto:** "Public Sans", sans-serif
-<img width="510" height="125" alt="image" src="https://github.com/user-attachments/assets/b5f706dd-b6db-446e-8f0a-80d1551c0809" />
+- **Fuente Secundaria - Texto:** "Public Sans", sans-serif  
+  <img width="510" height="125" alt="image" src="https://github.com/user-attachments/assets/b5f706dd-b6db-446e-8f0a-80d1551c0809" />
 
 
 ## Colorización del Sitio:
