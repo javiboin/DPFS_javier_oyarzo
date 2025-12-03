@@ -116,9 +116,13 @@ h2 {
 
 @media (max-width: 900px) {
     .product-detail {
-        display: block;
+        display: inline-block;
         width: 90%;
         text-align: center;
+    }
+
+    .product-detail * {
+        margin: 0 auto;
     }
 
     #price {
@@ -130,18 +134,16 @@ h2 {
     }
 
     .product-quantity button {
-        height: 80px;
-        width: 80px;
-        font-size: 40px;
+        height: 50px;
+        width: 50px;
+        font-size: 30px;
         margin: auto 10px;
     }
     
     .add-cart {
         width: 80%;
         height: 3rem;
+        margin: 1rem auto;
     }
 
-    .product-spec {
-        font-size: 15px;
-    }
 }
