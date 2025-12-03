@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound City Music</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header>
+        <a href="./index.html" class="title">
+            <img src="./assets/logo-b.png" alt="Sound City Instrumentos Músicales">
+            <h1>Sound City Instrumentos</h1>
+        </a>
+
+        <form class="busquedas" role="search">
+            <input type="search" placeholder="Buscar productos, marcas..." aria-label="Buscar productos, marcas..."/>
+            <button type="submit"><img src="./assets/search-b.png" alt="Buscar"></button> 
+        </form>
+
+        <div class="user-tools">
+            <a class="login" href="./views/login.html">
+                <img src="./assets/user-w.png" alt="Inicio de sesion" >
+                
+            </a>
+            <a class="cart position-relative" href="./views/cart.html">
+                <img src="./assets/cart-w.png" alt="Carrito de compras" >
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+            </a>
+        </div>
+
+    </header>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse menu-h" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">Categorías</a> -->
+                        <p>Categorías</p>
+                        <ul class="menu-v">
+                            <li><a href="">Guitarras y Bajos</a></li>
+                            <li><a href="">Teclados</a></li>
+                            <li><a href="">Baterias y Percusion</a></li>
+                            <li><a href="">Estudio y Grabación</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#">Marcas</a> -->
+                        <p>Marcas</p>
+                        <ul class="menu-v">
+                            <li><a href="">Fender</a></li>
+                            <li><a href="">Arturia</a></li>
+                            <li><a href="">Tama</a></li>
+                            <li><a href="">Shure</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <h2>Productos</h2>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Productos</a></li>
+        </ol>
+        
+        <div class="container">
+            <div class="card">
+                <a href="./views/detail-product.html"><img src="./assets/Placeholder_view_vector.svg" class="card-img-top" alt="Imagen temporal"></a>
+                <div class="card-body">
+                    <h5 style="margin-bottom: 10px;">Arturia MiniLab 3 Controlador MIDI 25 Teclas</h5>
+                    <p class="price"><b>$ 1.000.000</b></p>
+                    <p style="color: grey; font-size: 14px;">$ 950.000 con Transferencia o depósito</p>
+                    <p style="color: red; font-size: 12px;">6 Coutas de $ 300.000</p>
+                    <button><a href="./views/cart.html">Comprar</a></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="./views/detail-product.html"><img src="./assets/Placeholder_view_vector.svg" class="card-img-top" alt="Imagen temporal"></a>
+                <div class="card-body">
+                    <h5 style="margin-bottom: 10px;">Arturia MiniLab 3 Controlador MIDI 25 Teclas</h5>
+                    <p class="price"><b>$ 1.000.000</b></p>
+                    <p style="color: grey; font-size: 14px;">$ 950.000 con Transferencia o depósito</p>
+                    <p style="color: red; font-size: 12px;">6 Coutas de $ 300.000</p>
+                    <button><a href="./views/cart.html">Comprar</a></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="./views/detail-product.html"><img src="./assets/Placeholder_view_vector.svg" class="card-img-top" alt="Imagen temporal"></a>
+                <div class="card-body">
+                    <h5 style="margin-bottom: 10px;">Arturia MiniLab 3 Controlador MIDI 25 Teclas</h5>
+                    <p class="price"><b>$ 1.000.000</b></p>
+                    <p style="color: grey; font-size: 14px;">$ 950.000 con Transferencia o depósito</p>
+                    <p style="color: red; font-size: 12px;">6 Coutas de $ 300.000</p>
+                    <button><a href="./views/cart.html">Comprar</a></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="./views/detail-product.html"><img src="./assets/Placeholder_view_vector.svg" class="card-img-top" alt="Imagen temporal"></a>
+                <div class="card-body">
+                    <h5 style="margin-bottom: 10px;">Arturia MiniLab 3 Controlador MIDI 25 Teclas</h5>
+                    <p class="price"><b>$ 1.000.000</b></p>
+                    <p style="color: grey; font-size: 14px;">$ 950.000 con Transferencia o depósito</p>
+                    <p style="color: red; font-size: 12px;">6 Coutas de $ 300.000</p>
+                    <button><a href="./views/cart.html">Comprar</a></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-5 py-5 my-5 border-top"> 
+            <div class="col mb-3 pe-4 d-flex align-items-center ps-lg-5">
+                <img src="./assets/logo-b.png" alt="Sound City Instrumentos Músicales">
+                <h3 class="titulo">Sound City Instrumentos</h3>
+            </div> 
+            <div class="col mb-3"></div> 
+            <div class="col mb-3"></div> 
+            <div class="col mb-3"> 
+                <h5>Cuenta</h5> 
+                <ul class="nav flex-column"> 
+                    <li class="mb-2"><a href="./views/account.html" class="p-0">Mi Cuenta</a></li> 
+                    <li class="mb-2"><a href="./views/cart.html" class="p-0">Carrito</a></li> 
+                </ul> 
+            </div> 
+            <div class="col mb-3"> 
+                <h5>Contacto</h5> 
+                <ul class="nav flex-column"> 
+                    <li class="mb-2">(2964)-819900</li> 
+                    <li class="mb-2"><a class="ms-0" href="mailto://hola@soundcitymusic.com.ar">Email: hola@soundcitymusic.com.ar</a></li> 
+                    <li class="mb-2">Dirección: Calle Falsa 123</li> 
+                    <li class="mb-2">
+                        <img style="height:22px;" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/visa@2x.png" alt="">&nbsp;
+                        <img style="height:22px;" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/mastercard@2x.png" alt="">&nbsp;
+                        <img style="height:22px;" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/amex@2x.png" alt=""> 
+                        <img style="height:22px;" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/ar/cabal@2x.png" alt=""> 
+                        <img style="height:22px;" src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/visadebit@2x.png" alt="">
+                    </li> 
+                </ul> 
+            </div> 
+        </div>
+        <p class="legal">Todos los derechos reservados. © 2025 - Hecho por Javier Oyarzo.<a href="https://github.com/javiboin">@javiboin</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+:root{
+    --color1: #E64229;
+    --color2: #E68329;
+    --color3: #E6632A;
+    --color4: #312F2F;
+    --color5: #050414;
+    --color6: #FAF0F0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* ----------------HEADER---------------- */
+
+h1 {
+    color: var(--color5);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 16px;
+    transition: color .8s ease;
+}
+
+h1:hover{
+    color: var(--color6);
+}
+
+header{
+    background: linear-gradient(4deg, var(--color2) 1%, var(--color3) 55%, var(--color5) 95%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+header a {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+
+.busquedas{
+    display: flex;
+    align-items: center;
+    width: 600px;
+}
+
+.busquedas input[type='search'] {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border-radius: 10px 0 0 10px;
+    border: 1px var(--color4) solid;
+}
+
+.busquedas button {
+    background-color: var(--color6);
+    height: 38px;
+    width: 60px;
+    border: 1px var(--color4) solid;
+    border-radius: 0 10px 10px 0;
+    transition: all .4s ease;
+}
+
+.busquedas button:hover {
+    background-color: #b8afaf;
+}
+
+.busquedas button img{
+    width: 30px;
+    height: 30px;
+}
+
+.user-tools{
+    display: flex;
+    align-items: center;
+}
+
+.user-tools a{
+    margin-left: 1rem;  
+}
+
+.cart img{
+    width: 43px;
+    height: 43px;
+}
+
+.user-tools a img:hover{
+    transform: scale(1.1);
+}
+
+/* ----------------NAVIGATION---------------- */
+
+ul {
+    padding-left: 1rem;
+}
+
+.navbar-nav {
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar-nav li, a, p {
+    color: var(--color6);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0.5rem 1rem;
+    transition: all .5s ease;
+}
+
+.navbar-nav p:hover {
+    color: var(--color1);
+}
+
+.menu-h{
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    padding: auto 1rem ;
+}
+
+.menu-h li:hover .menu-v{
+    display: block;
+    z-index: 1000;
+}
+
+.menu-h li a{
+    color: var(--color6);
+    transition: all .5s ease;
+}
+
+.menu-h li a:hover{
+    color: #E64229;
+}
+
+.menu-v {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+    background-color: #312F2F;
+}
+
+/* ----------------MAIN---------------- */
+
+main {
+    padding: 1.2rem ;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    float: none;
+}
+
+.breadcrumb li a{
+    text-decoration: none;
+    color: var(--color5);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.card {
+    width: 18rem;
+    margin: 1rem;
+}
+
+.card button {
+    background-color: var(--color2);
+    height: 38px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    transition: all .8s ease;
+}
+
+.card button:hover {
+    background-color: var(--color1);
+}
+
+.card a {
+    text-decoration: none;
+    color: var(--color6);
+}
+
+.price {
+    color: var(--color5);
+}
+
+.card-body button {
+    height: 3rem;
+}
+
+/* ----------------FOOTER---------------- */
+
+footer{
+    height: 100%;
+    background-color: var(--color4);
+    color: var(--color6);
+}
+
+footer a{
+    text-decoration: none;
+    color: inherit;
+}
+
+footer .titulo{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 16px;
+}
+
+.legal {
+    display: block;
+    line-height: 0.8;
+    padding-bottom: 0.8rem;
+}
+
+@media (max-width: 728px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        padding: 0.6rem;
+    }
+
+    header img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .busquedas input[type='search'] {
+        width: 80%;
+    }
+
+    .cart img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .title {
+        align-items: center;
+    }
+
+    h1 {
+        margin-top: 1rem;
+    }
+
+    .busquedas {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    .user-tools a{
+        margin: 0 4rem;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+    
+    footer {
+        padding: 0 2rem;
+    }
+
+}
