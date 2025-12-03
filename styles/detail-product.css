@@ -1,0 +1,149 @@
+:root{
+    --color1: #E64229;
+    --color2: #E68329;
+    --color3: #E6632A;
+    --color4: #312F2F;
+    --color5: #050414;
+    --color6: #FAF0F0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+}
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.product-img { 
+    grid-area: product-img; 
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+}
+
+.product-name { grid-area: product-name; }
+
+.product-delete { 
+    grid-area: product-delete;
+    cursor: pointer; 
+}
+.product-quantity { 
+    grid-area: product-quantity;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-quantity button {
+    height: 70px;
+    width: 70px;
+    border: none;
+    border-radius: 5px;
+    font-size: 36px;
+}
+
+.product-quantity button:hover {
+    background-color: #928e8e;
+}
+
+.product-quantity input {
+    width: 80px;
+    height: 70px;
+}
+
+.product-price { grid-area: product-price; }
+
+#price {
+    font-size: 2rem;
+}
+
+.product-detail{
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
+    display: grid;
+    justify-items: start;
+    align-items: center;
+    grid-template-rows: 0.6fr 1fr 1fr;
+    grid-template-columns: 1fr 0.5fr 0.5fr;
+    column-gap: 0;
+    grid-template-areas: 
+    "product-img product-name product-name"
+    "product-img product-price product-price"
+    "product-img product-quantity add-cart";
+}
+
+.product-spec {
+    font-size: 28px;
+    display: block;
+    margin: 1rem 4rem;
+}
+
+.add-cart {
+    grid-area: add-cart;
+    background-color: rgb(131, 190, 131);
+    width: 90%;
+    align-self: center;
+    height: 4rem;
+    border: none;
+    border-radius: 5px;
+    transform: width .5s ease;
+}
+
+.add-cart:hover {
+    background-color: rgb(52, 112, 52);
+    color: var(--color6);
+}
+
+.product-spec {
+        width: 80%;
+    }
+
+@media (max-width: 900px) {
+    .product-detail {
+        display: block;
+        width: 90%;
+        text-align: center;
+    }
+
+    #price {
+        font-size: 1.5rem;
+    }
+
+    .product-quantity {
+        margin: 2rem auto;
+    }
+
+    .product-quantity button {
+        height: 80px;
+        width: 80px;
+        font-size: 40px;
+        margin: auto 10px;
+    }
+    
+    .add-cart {
+        width: 80%;
+        height: 3rem;
+    }
+
+    .product-spec {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de productos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/detail-product.css">
+</head>
+<body>
+
+    <main>
+
+        <div class="product-detail">
+
+            <div id="carouselExampleFade" class="carousel slide carousel-fade product-img">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="../assets/1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../assets/2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../assets/3.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+            <h3 class="product-name">Arturia MiniLab 3 Controlador MIDI 25 Teclas</h3>
+
+            <div class="product-quantity">
+                <button>-</button>
+                <input type="number" name="quantity" id="quantity">
+                <button>+</button>
+            </div>
+
+            <div class="product-price">
+                <p id="price">$ 1.000.000</p>
+                <p>Contado o transferencia. Precio sin impuestos $902.166,12</p>
+                <p>12 cuotas de $161.559,91</p>
+            </div>
+            
+            <button class="add-cart">Agregar al Carrito</button>
+
+        </div>
+
+        <div class="product-spec">
+            <h3>Descripción</h3>
+            <h4>Mas vendido 1° en Controladores Midi</h4>
+            <p>El MiniLab 3 es la última version del celebrado controlador icónico de Arturia. Pensado para quienes buscan teclas y no solo pads en un controlador de pequeño tamaño. Además de las teclas y los pads cuenta con knobs, faders y una pantalla OLED. Una combinación atípica en este formato de controlador, pero que se encuentra bien resuelta en esta presentación.</p>
+            <p>Con varias plantillas personalizables (hasta 5: de user1 a user5) en las que el usuario puede definir el tipo de mensaje que desea en cada control, y una plantilla adicional centrada en la conectividad con los plugins de Arturia para ofrecer mayores posibilidades entre el controlador y estos plugins vía MIDI.</p>
+            <p>Posee un modo 'DAW' a base de potentes scripts (disponibles para Logic, Bitwig, Live, FL Studio y Reason) y que consiguen dejar atrás al mouse para realizar muchas de las acciones más habituales desde el propio Minilab 3 gracias a su excelente integración que no requiere engorrosas configuraciones.</p>
+            <p>En definitiva, el MiniLab 3 es un controlador MIDI USB lo suficientemente sencillo pero a su vez altamente versatil, que se adapta fácilmente a tus necesidades, tu estilo y tu flujo de trabajo, para que puedas hacer música de la manera que más te gusta.&nbsp;</p>
+            <p>Especificaciones:</p>
+            <p>- 25 Teclas sentitivas&nbsp;<br>- 8 Pads sensitivos a velocidad y presión con retroiluminacion RGB<br>- 8 Knobs<br>- 4 Sliders<br>- Pitch bend &amp; modulación tipo ribbon<br>- Display con perilla de control</p>
+            <p>- Arpegiador<br>- Modo "Acordes"<br>- Hold function<br>- Control de octavas<br>- Transposición de semitono</p>
+            <p>- Conexión y alimentación USB<br>- Salida MIDI 5 pines<br>- Entrada de pedal (sustain, expresión, footswitch)</p>
+            <p>- Compatibilidad con Native Kontrol Standard (NKS)</p>
+            <p>Dimensiones: 355 x 220 x 50mm<br>Peso: 1.5 Kg<br>&nbsp;</p>
+            <p>Requerimientos:</p>
+            <p>Win 8.1+ (64bit) o superior<br>Mac OS 10.13+ o superior<br>4 GB RAM<br>4 cores CPU, 3.4 GHz (4.0 GHz Turbo-boost)<br>3GB de espacio libre en el disco duro<br>OpenGL 2.0 compatible GPU</p>
+            <p><br>Que incluye:</p>
+            <p>- Arturia Minilab 3<br>- Cable USB<br>- Guía de inicio rápido<br>- Licencia de Aanalog Lag INTRO<br>- Licencia de Ableton Live Lite<br>- VST UVI Model D<br>- VST The Gentleman Piano (Native Instruments)<br>- Suscripción de Loopcloud<br>- Suscripciíon de Melodics</p>
+            <p>- Paquete Native Instruments Komplete 15 Select de tu elección (Select Beats, Select Band o Select Electronic)</p>
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
