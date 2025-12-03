@@ -1,0 +1,61 @@
+:root{
+    --color1: #E64229;
+    --color2: #E68329;
+    --color3: #E6632A;
+    --color4: #312F2F;
+    --color5: #050414;
+    --color6: #FAF0F0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+.register {
+    width: 40%;
+    margin: 1rem auto;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.register #submit {
+    color: var(--color6);
+    background-color: var(--color1);
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    transition: all .4s ease;
+}
+
+.register #submit:hover {
+    background-color: var(--color4);
+    color: var(--color1);
+}
+
+.register p, div {
+    margin-top: 1rem;
+}
+
+#show-hide{
+    color: #575555;
+    float: right;
+}
+
+@media (max-width: 920px) {
+    .register {
+        width: 80%;
+    }
+}
