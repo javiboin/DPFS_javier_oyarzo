@@ -1,0 +1,50 @@
+:root{
+    --color1: #E64229;
+    --color2: #E68329;
+    --color3: #E6632A;
+    --color4: #312F2F;
+    --color5: #050414;
+    --color6: #FAF0F0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    width: 100%;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+.mis-compras {
+    background-color: #d6cece;
+    border: none;
+    border-radius: 8px;
+    width: 80%;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+.mis-datos {
+    background-color: #d6cece;
+    border: none;
+    border-radius: 8px;
+    width: 60%;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+#edit-btn {
+    float: right;
+    color: var(--color1);
+    text-decoration: none;
+}
