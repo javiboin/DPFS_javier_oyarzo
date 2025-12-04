@@ -1,0 +1,49 @@
+:root{
+    --color1: #E64229;
+    --color2: #E68329;
+    --color3: #E6632A;
+    --color4: #312F2F;
+    --color5: #050414;
+    --color6: #FAF0F0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.edit-user {
+    width: 40%;
+    margin: auto;
+}
+
+.edit-user #submit {
+    color: var(--color6);
+    background-color: var(--color1);
+    height: 4rem;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    transition: all .4s ease;
+}
+
+.edit-user #submit:hover {
+    background-color: var(--color4);
+    color: var(--color1);
+}
+
+.edit-user button, div {
+    margin-top: 1rem;
+}

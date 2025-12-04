@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar datos Personales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/edit-user.css">
+</head>
+<body>
+
+        <form class="edit-user"> 
+        <h2>Editar datos Personales</h2> 
+
+        <div class="form-floating"> 
+            <input type="text" class="form-control" id="user" placeholder="Nombre de Usuario" > 
+            <label for="user">Nombre de Usuario</label> 
+        </div>
+
+        <div class="form-floating"> 
+            <input type="email" class="form-control" id="email" placeholder="name@example.com"> 
+            <label for="email">Correo Electrónico</label> 
+        </div>
+
+        <div class="form-floating"> 
+            <input type="text" class="form-control" id="firstName" placeholder="Nombre" > 
+            <label for="firstName">Nombre</label> 
+        </div>
+
+        <div class="form-floating"> 
+            <input type="text" class="form-control" id="lastName" placeholder="Apellido" > 
+            <label for="lastName">Apellido</label> 
+        </div>
+        
+        <div class="form-floating"> 
+            <input type="number" class="form-control" id="phone" placeholder="Telefono" > 
+            <label for="phone">Teléfono</label> 
+        </div>
+
+        <button id="submit" type="submit">Guardar</button> 
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
