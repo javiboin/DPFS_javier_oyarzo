@@ -3,6 +3,10 @@ Con esta aplicación doy el primer paso en el mundo del desarrollo fullstack, cr
 
 Para esto, crearemos una aplicación monolítica con HTML, CSS, NodeJs, Express, MySQL, y con React haremos un dashboard para consumir una API que también crearemos.
 
+## Enlace al Proyecto en GitHub:
+ [Proyecto E-Commerce - Sound City Instrumentos](https://github.com/users/javiboin/projects/6)
+
+
 ## Objetivos del Proyecto:
 
 - 🛒 Implementar un carrito de compras dinámico.
@@ -44,6 +48,7 @@ A través de esta iniciativa busco unir tecnología y creatividad, creando una p
 ## Referentes del Mercado
 Estos son algunos referentes del mercado que me ayudaron a definir ideas sobre cómo construir el sitio y qué funcionalidades esenciales debía incluir.
 
+- [BairesRocks](https://www.baires.rocks/)
 - [Kairon Music](https://www.kaironmusic.com.ar/)
 - [La Tienda](https://latienda.com.ar/)
 - [PC Midi Center](https://www.pcmidi.com.ar/)
