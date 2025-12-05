@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/register.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <form class="register"> 
+        <h2>Recuperar Contraseña</h2> 
+
+        <p>Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+        <div class="form-floating"> 
+            <input type="email" class="form-control" id="email" placeholder="name@example.com"> 
+            <label for="email">Correo Electrónico</label> 
+        </div>
+        <br>
+        <button id="submit" type="submit">Enviar enlace</button> 
+    </form>
+    
+    <%- include('../partials/footer') %>
+    <script src="/javascripts/register.js"></script>
+</body>
+</html>

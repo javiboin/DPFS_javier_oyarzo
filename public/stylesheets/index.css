@@ -1,0 +1,66 @@
+main {
+    padding: 1.2rem ;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    float: none;
+}
+
+.breadcrumb li a{
+    text-decoration: none;
+    color: var(--color5);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.card {
+    width: 18rem;
+    margin: 1rem;
+}
+
+.card button {
+    background-color: var(--color2);
+    height: 38px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    transition: all .8s ease;
+}
+
+.card button:hover {
+    background-color: var(--color1);
+}
+
+.card a {
+    text-decoration: none;
+    color: var(--color6);
+}
+
+.price {
+    color: var(--color5);
+}
+
+.card-body button {
+    height: 3rem;
+}
+
+@media (max-width: 869px) {
+    .breadcrumb {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    } 
+
+    .cart img {
+        width: 30px;
+        height: 30px;
+    }
+}

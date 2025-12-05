@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/account.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <%- include('../partials/nav') %>
+
+    <h2>Mi cuenta</h2>
+    <div class="mis-datos">
+        <h3>Datos Personales</h3>
+        <span><a id="edit-btn" href="/users/edit-user">Editar</a></span>
+        <div>
+            <p>Nombre Completo: Winston Reinhardt</p>
+            <p>Email: sirwr@gmail.com</p>
+            <p>Teléfono: 0123 45676</p>
+        </div>
+
+    </div>
+
+    <div class="mis-compras">
+        <h3>Mis compras</h3>
+        <p>Orden #N</p>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                Column
+                </div>
+                <div class="col">
+                Column
+                </div>
+                <div class="col">
+                Column
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

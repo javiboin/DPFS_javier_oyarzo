@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/adm-create-update.css"> 
+</head>
+<body>
+    <%- include('../../partials/header') %>
+
+    <%- include('../../partials/nav') %>
+    
+    <form> 
+        <h2>Modificar Usuario</h2>
+
+    <div class="form-floating"> 
+            <input type="text" class="form-control" id="user" placeholder="Nombre de Usuario" > 
+            <label for="user">Nombre de Usuario</label> 
+        </div>
+
+        <div class="form-floating"> 
+            <input type="email" class="form-control" id="email" placeholder="name@example.com"> 
+            <label for="email">Correo Electrónico</label> 
+        </div>
+
+        <div class="form-floating"> 
+            <input type="text" class="form-control" id="firstName" placeholder="Nombre" > 
+            <label for="firstName">Nombre</label> 
+        </div>
+
+        <div class="form-floating"> 
+            <input type="text" class="form-control" id="lastName" placeholder="Apellido" > 
+            <label for="lastName">Apellido</label> 
+        </div>
+
+        <div class="form-floating"> 
+            <input type="number" class="form-control" id="phone" placeholder="Teléfono" > 
+            <label for="phone">Teléfono</label> 
+        </div>
+        
+        <div class="form-floating"> 
+            <input type="password" class="form-control" id="password" placeholder="password" >
+            <label for="password">Constraseña</label> 
+        </div>
+
+        <div class="form-floating"> 
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña" > 
+            <label for="confirmPassword">Confirmar constraseña</label> 
+            <span id="show-hide">Mostrar</span>
+        </div> 
+
+        <button id="submit" type="submit">Guardar</button> 
+        <button id="delete" type="submit">Eliminar</button> 
+    </form>
+
+    <%- include('../../partials/footer') %>
+    <script src="/javascripts/register.js"></script>
+</body>
+</html>

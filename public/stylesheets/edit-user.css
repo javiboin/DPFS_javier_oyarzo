@@ -1,0 +1,23 @@
+.edit-user {
+    width: 40%;
+    margin: 2rem auto;
+}
+
+.edit-user #submit {
+    color: var(--color6);
+    background-color: var(--color1);
+    height: 4rem;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    transition: all .4s ease;
+}
+
+.edit-user #submit:hover {
+    background-color: var(--color4);
+    color: var(--color1);
+}
+
+.edit-user button, .form-floating {
+    margin-top: 1rem;
+}

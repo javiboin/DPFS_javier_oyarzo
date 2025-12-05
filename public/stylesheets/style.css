@@ -108,18 +108,19 @@ ul {
 .navbar-nav {
     align-items: center;
     cursor: pointer;
+    margin: 0;
 }
 
-.navbar-nav li, a, p {
+.navbar-nav * {
     color: var(--color6);
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-    margin: 0.5rem 1rem;
-    transition: all .5s ease;
+    margin: 0.2rem 1rem;
+    transition: all .8s ease;
 }
 
-.navbar-nav p:hover {
+.navbar-nav *:hover {
     color: var(--color1);
 }
 
@@ -132,7 +133,7 @@ ul {
 
 .menu-h li:hover .menu-v{
     display: block;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .menu-h li a{
@@ -141,67 +142,16 @@ ul {
 }
 
 .menu-h li a:hover{
-    color: #E64229;
+    color: var(--color1);
 }
 
 .menu-v {
     position: absolute;
     display: none;
     list-style: none;
+    margin: 0;
     width: 200px;
-    background-color: #312F2F;
-}
-
-/* ----------------MAIN---------------- */
-
-main {
-    padding: 1.2rem ;
-}
-
-.breadcrumb-item+.breadcrumb-item::before {
-    float: none;
-}
-
-.breadcrumb li a{
-    text-decoration: none;
-    color: var(--color5);
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-}
-
-.card {
-    width: 18rem;
-    margin: 1rem;
-}
-
-.card button {
-    background-color: var(--color2);
-    height: 38px;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    transition: all .8s ease;
-}
-
-.card button:hover {
-    background-color: var(--color1);
-}
-
-.card a {
-    text-decoration: none;
-    color: var(--color6);
-}
-
-.price {
-    color: var(--color5);
-}
-
-.card-body button {
-    height: 3rem;
+    background-color: var(--color4);
 }
 
 /* ----------------FOOTER---------------- */
@@ -230,11 +180,13 @@ footer .titulo{
     padding-bottom: 0.8rem;
 }
 
-@media (max-width: 728px) {
+@media (max-width: 869px) {
     header {
         display: flex;
         flex-direction: column;
+
         padding: 0.6rem;
+        width: 100%;
     }
 
     header img {
@@ -242,13 +194,16 @@ footer .titulo{
         height: 40px;
     }
 
+    .busquedas {
+        justify-content: center;
+    }
+
     .busquedas input[type='search'] {
         width: 80%;
     }
 
-    .cart img {
-        width: 30px;
-        height: 30px;
+     .busquedas button {
+        width: 10%;
     }
 
     .title {
@@ -267,19 +222,13 @@ footer .titulo{
     .user-tools a{
         margin: 0 4rem;
     }
-
-    .breadcrumb {
-        display: none;
-    }
-
-    .container {
-        flex-direction: column;
-        align-items: center;
-        width: 90%;
-    }
     
     footer {
         padding: 0 2rem;
+    }
+
+    .logo-footer{
+        margin-bottom: 4rem !important;
     }
 
 }
