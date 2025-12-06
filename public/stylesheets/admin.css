@@ -18,7 +18,7 @@ a {
     color: var(--color5);
 }
 
-button {
+.adm button {
     background-color: var(--color6);
     height: 4rem;
     width: 100%;
@@ -28,7 +28,7 @@ button {
     transition: all .4s ease;
 }
 
-button:hover {
+.adm button:hover {
     background-color: var(--color3);
 }
 
