@@ -71,3 +71,30 @@ A continuación, se presentan las principales conclusiones obtenidas en el Sprin
 
 ### Lecciones Aprendidas:
 "Quizás sea tiempo de enfocarse más lo positivo que lo negativo. Quizás lo mejor sea hacer foco en el trabajo ya hecho, más que en lo que falta". Este sprint me ha ayudado en esto, y creo que la confianza va a ser clave para llegar al final del proyecto.
+
+## Sprint 3  
+A continuación, se presentan las principales conclusiones obtenidas en el Sprint 3.
+
+### Starfish retrospective:
+
+**Start Doing**  
+- Planificación más minusiosa de las tareas en el tablero de trabajo.
+
+**More of**  
+- Se propone mejorar el registro de las tareas.
+
+**Keep Doing** 
+- Documentar las tareas hechas con screenshots. 
+- Trabajar por tarea del tablero y mantener seguimiendo.
+- Mantener la metodología de trabajo estructurada
+
+**Less of**  
+- Evitar que la actualización del tablero de trabajo quede para el final del sprint y perder visibilidad del progreso.
+- Evitar sesiones demasiado largas sin pausas.  
+
+**Stop Doing**  
+- Dejar de dispersars durante los bloques de trabajo para hacer revisiones de todo el proyecto. Enfocarme en lo puntual.
+- Dejar la actualización del tablero de trabajo quede para el final del sprint y perder visibilidad del progreso.
+
+### Lecciones Aprendidas:
+Bastante mejor, se optimizo el tiempo de trabajo gracias a una mejor planificación y priorización de tareas, y la claridad en la definición de las tareas permitió avanzar con menos dudas y bloqueos. 
