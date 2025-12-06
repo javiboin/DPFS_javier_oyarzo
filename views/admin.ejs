@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+</head>
+<body>
+    <%- include('./partials/header') %>
+
+    <%- include('./partials/nav') %>
+
+    <h2>Panel de Administración</h2>
+    
+    <div class="adm">
+        <h3>Productos</h3>
+
+        <button><a href="/products/read-products">Ver Productos</a></button>
+        <button><a href="/products/create-products">Agregar Productos</a></button>
+    </div>
+
+    <div class="adm">
+        <h3>Usuarios</h3>
+
+        <button><a href="/admin/read-users">Ver Usuarios</a></button>
+        <button><a href="/admin/create-users">Agregar Usuarios</a></button>
+        <p>Nota Importante: Las contraseñas no se pueden modificar</p>
+    </div>
+    
+    <%- include('./partials/footer') %>
+</body>
+</html>
