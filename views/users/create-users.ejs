@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <%- include('../../partials/head') %>
+    <%- include('../partials/head') %>
     <link rel="stylesheet" href="/stylesheets/adm-create-update.css"> 
 </head>
 <body>
-    <%- include('../../partials/header') %>
+    <%- include('../partials/header') %>
 
-    <%- include('../../partials/nav') %>
+    <%- include('../partials/nav') %>
     
     <form> 
-        <h2>Modificar Usuario</h2>
+        <h2>Dar de Alta Usuarios</h2>
 
-    <div class="form-floating"> 
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Seleccione el tipo de usuario</option>
+            <option value="admin">Administrador</option>
+            <option value="user">Regular</option>
+        </select>
+
+        <div class="form-floating"> 
             <input type="text" class="form-control" id="user" placeholder="Nombre de Usuario" > 
             <label for="user">Nombre de Usuario</label> 
         </div>
@@ -49,10 +55,9 @@
         </div> 
 
         <button id="submit" type="submit">Guardar</button> 
-        <button id="delete" type="submit">Eliminar</button> 
     </form>
 
-    <%- include('../../partials/footer') %>
+    <%- include('../partials/footer') %>
     <script src="/javascripts/register.js"></script>
 </body>
 </html>

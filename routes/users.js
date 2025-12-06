@@ -26,4 +26,20 @@ router.get('/edit-user', function(req, res, next) {
   res.render('users/edit-user', { title: 'Modificar mis datos' });
 });
 
+router.get('/read-users', function(req, res, next) {
+  res.render('users/read-users', { title: 'Ver Usuarios' });
+});
+
+router.get('/create-users', function(req, res, next) {
+  res.render('users/create-users', { title: 'Alta de Usuarios' });
+});
+
+router.get('/update-users', function(req, res, next) {
+  res.render('users/update-users', { title: 'Modificar Usuario' });
+});
+
+router.get('/delete-product', function(req, res, next) {
+  res.send('ELIMINAR USUARIO');
+});
+
 module.exports = router;
