@@ -1,11 +1,12 @@
 .adm {
-   width: 40%;
+    width: 50%;
     margin: auto; 
 }
 
 h2 {
     margin: 3rem auto;
     font-size: 2rem;
+    text-align: center;
 }
 
 h3 {
