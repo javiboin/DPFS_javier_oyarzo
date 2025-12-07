@@ -14,8 +14,8 @@
         <h2>Productos</h2>
 
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Productos</a></li>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/">Productos</a></li>
         </ol>
         
         <div class="container">
@@ -26,26 +26,12 @@
                 <div class="card-body">
                     <h5 style="margin-bottom: 10px;"><%= products[i].name %></h5>
                     <p class="price"><b><%= products[i].price %></b></p>
-                    <p style="color: grey; font-size: 14px;">$ 950.000 con Transferencia o depósito</p>
-                    <p style="color: red; font-size: 12px;">6 Coutas de $ 300.000</p>
+                    <p style="color: grey; font-size: 14px;"><%= products[i].price_cash %> con Transferencia o depósito</p>
+                    <p style="color: red; font-size: 12px;"><%= products[i].price_installment_count %> Coutas de <%= products[i].price_installment %></p>
                     <button><a href="/products/product-cart">Comprar</a></button>
                 </div>
             </div>
         <% } %>
-
-
-<!--           
-            <div class="card">
-                <a href="/products/product-detail"><img src="/images/placeholder_view_vector.svg" class="card-img-top" alt="Imagen temporal"></a>
-                <div class="card-body">
-                    <h5 style="margin-bottom: 10px;">Arturia MiniLab 3 Controlador MIDI 25 Teclas</h5>
-                    <p class="price"><b>$ 1.000.000</b></p>
-                    <p style="color: grey; font-size: 14px;">$ 950.000 con Transferencia o depósito</p>
-                    <p style="color: red; font-size: 12px;">6 Coutas de $ 300.000</p>
-                    <button><a href="/products/product-cart">Comprar</a></button>
-                </div>
-            </div> 
--->
 
         </div>
     </main>
