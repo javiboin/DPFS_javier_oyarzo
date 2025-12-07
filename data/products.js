@@ -1,5 +1,5 @@
 module.exports = {
-	list:	[
+	db:	[
         {
             id: 1,
             name: "none",
