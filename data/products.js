@@ -1,14 +1,14 @@
 module.exports = {
-	db:	[
+	data:	[
         {
             id: 1,
-            name: "none",
-            brand: "none",
+            name: "Arturia MiniLab 3 Controlador MIDI 25 Teclas",
+            brand: "Arturia",
             description: "none",
             image: "product.jpg",
             category: "none",
-            colores: "none",
-            price: "none"
+            subcategory: "none",
+            price: "$ 1.000.000"
         }, {
             id: 2,
             name: "none",
@@ -16,6 +16,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }, {
@@ -25,6 +26,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }, {
@@ -34,6 +36,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }, {
@@ -43,6 +46,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }, {
@@ -52,6 +56,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }, {
@@ -61,6 +66,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }, {
@@ -70,6 +76,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }, {
@@ -79,6 +86,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }, {
@@ -88,6 +96,7 @@ module.exports = {
             description: "none",
             image: "product.jpg",
             category: "none",
+            subcategory: "none",
             colores: "none",
             price: "none"
         }

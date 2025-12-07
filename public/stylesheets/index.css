@@ -13,13 +13,25 @@ main {
 
 .container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     margin-top: 2rem;
+    max-width: 100%;
 }
 
 .card {
-    width: 18rem;
-    margin: 1rem;
+    min-width: 18rem;
+    max-width: 18rem;
+    margin: 1rem;    
+}
+
+.card img {
+    width: 286px;
+    height: auto;
+}
+
+.card h5 {
+    height: 80px;
 }
 
 .card button {
