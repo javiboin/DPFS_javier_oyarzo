@@ -8,10 +8,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "$ 1.000.000",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 2,
             name: "none",
@@ -20,10 +20,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 3,
             name: "none",
@@ -32,10 +32,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 4,
             name: "none",
@@ -44,10 +44,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 5,
             name: "none",
@@ -56,10 +56,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 6,
             name: "none",
@@ -68,10 +68,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 7,
             name: "none",
@@ -80,10 +80,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 8,
             name: "none",
@@ -92,10 +92,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 9,
             name: "none",
@@ -104,10 +104,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }, {
             id: 10,
             name: "none",
@@ -116,10 +116,10 @@ module.exports = {
             image: "product.jpg",
             category: "none",
             subcategory: "none",
-            price: "none",
-            price_cash: "$ 900.000",
-            price_installment_count: "6",
-            price_installment: "$ 166.666,70"
+            price: 1000000,
+            price_cash: 900000,
+            price_installment_count: 6,
+            price_installment: 166666.70
         }
 	]
 }
