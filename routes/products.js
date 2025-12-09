@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const productController = require("../controllers/products")
 
+router.get('/read-products', productController.index_admin);
+
 router.get('/product-detail/:id', productController.show);
 
 router.get('/product-cart', function(req, res, next) {
@@ -10,10 +12,6 @@ router.get('/product-cart', function(req, res, next) {
 
 router.get('/create-products', function(req, res, next) {
   res.render('products/create-products', { title: 'Alta de Productos' });
-});
-
-router.get('/read-products', function(req, res, next) {
-  res.render('products/read-products', { title: 'Ver Productos' });
 });
 
 router.get('/update-products', function(req, res, next) {

@@ -16,24 +16,33 @@
         <table>
             <tr>
                 <th>Título</th>
+                <th>Marca</th>
+                <th>Categoria</th>
+                <th>Subcategoria</th>
                 <th>Precio</th>
-                <th>Descripción</th>
+                <th>Contado</th>
+                <th>Cant Coutas</th>
+                <th>$ Couta</th>
             </tr>
+
+            <% for (i=0; i < products.length; i++) { %>
             <tr>
-                <td><a href="/products/update-products">Arturia MiniLab 3 Controlador MIDI 25 Teclas</a></td>
-                <td>$ 1.000.000,00</td>
-                <td>Mas vendido 1° en Controladores Midi...</td>
+                <td>
+                    <a href="/products/update-products">
+                        <%= products[i].name %>
+                    </a>
+                </td>
+                <td><%= products[i].brand %></td>
+                <td><%= products[i].category %></td>
+                <td><%= products[i].subcategory %></td>
+                <td><%= products[i].price %></td>
+                <td><%= products[i].price_cash %></td>
+                <td><%= products[i].price_installment_count %></td>
+                <td><%= products[i].price_installment %></td>
             </tr>
-            <tr>
-                <td><a href="/products/update-products">Arturia MiniLab 3 Controlador MIDI 25 Teclas</a></td>
-                <td>$ 1.000.000,00</td>
-                <td>Mas vendido 1° en Controladores Midi...</td>
-            </tr>
-            <tr>
-                <td><a href="/products/update-products">Arturia MiniLab 3 Controlador MIDI 25 Teclas</a></td>
-                <td>$ 1.000.000,00</td>
-                <td>Mas vendido 1° en Controladores Midi...</td>
-            </tr>
+            
+            <% } %>
+            
         </table>
     </main>
 
