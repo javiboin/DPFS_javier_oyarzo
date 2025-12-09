@@ -28,7 +28,7 @@
             <% for (i=0; i < products.length; i++) { %>
             <tr>
                 <td>
-                    <a href="/products/update-products">
+                    <a href="/products/edit/<%= products[i].id %>">
                         <%= products[i].name %>
                     </a>
                 </td>

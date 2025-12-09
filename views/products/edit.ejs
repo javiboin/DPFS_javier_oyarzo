@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/adm-create-update.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <%- include('../partials/nav') %>
+
+    <form> 
+
+        <h2>Modificar Producto</h2>
+
+        <img id="product-img" src="/images/<%= image %>" alt="<%= name %>">
+    
+        <input type="file" name="product-img" id="product-img-file" >
+
+        <div class="form-floating inputs"> 
+            <input type="text" class="form-control" id="title" value="<%= name %>"> 
+            <label for="title">Nombre</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="text" class="form-control" id="brand" value="<%= brand %>"> 
+            <label for="brand">Marca</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="text" class="form-control" id="category" value="<%= category %>"> 
+            <label for="category">Categoría</label> 
+        </div>
+        
+        <div class="form-floating inputs"> 
+            <input type="text" class="form-control" id="subcategory" value="<%= subcategory %>"> 
+            <label for="subcategory">Subcategoría</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="number" class="form-control" id="price" value="<%= price %>" step="0.01" min="0"> 
+            <label for="price">Precio ($)</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="number" class="form-control" id="price" value="<%= price_cash %>" step="0.01" min="0"> 
+            <label for="price">Precio al contado o transferencia ($)</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="number" class="form-control" id="price_installment_count" value="<%= price_installment_count %>" min="1"> 
+            <label for="price_installment_count">Cantidad de coutas</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="number" class="form-control" id="price_installment" value="<%= price_installment %>" step="0.01" min="0"> 
+            <label for="price_installment">Precio en coutas ($)</label> 
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" name="description" id="description" style="resize: none; height: 400px;"><%= description %></textarea>
+            <label for="description">Descripción</label>
+        </div>
+
+        <button id="submit" type="submit">Guardar</button> 
+        <button id="delete"><a href="/products/delete-product">Eliminar</a></button> 
+    </form>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>
