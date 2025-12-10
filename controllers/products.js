@@ -41,6 +41,27 @@ const productController = {
     create: (req, res, next) => {
         res.render('products/create', { title: 'Alta de Productos' });
     },
+    store: (req, res, next) => {
+        const { name, brand, description, image, category, subcategory, price, price_cash, price_installment_count, price_installment} = req.body
+       
+        const newProduct = {
+            id: products.data.length + 1,
+            name: name,
+            brand: brand,
+            description: description,
+            image: image,
+            category: category,
+            subcategory: subcategory,
+            price: parseFloat(price),
+            price_cash: parseFloat(price_cash),
+            price_installment_count: parseInt(price_installment_count),
+            price_installment: parseFloat(price_installment)
+       };
+        // cargar el payload y cargar el nuevo id
+        products.data.push(newProduct);
+        // redirigir a la página de listado
+        res.redirect('/products/read-products');
+    },
     edit: (req, res, next) => {
         const id = req.params.id;
         const product = searchProduct(id);
