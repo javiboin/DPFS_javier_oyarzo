@@ -26,8 +26,11 @@ main {
 }
 
 .card img {
-    width: 286px;
-    height: auto;
+    display: block;
+    width: 260px;       
+    height: 260px;
+    object-fit: contain;
+    max-height: 286px;   
 }
 
 .card h5 {
