@@ -38,12 +38,15 @@ const productController = {
             price_installment: product.price_installment
         });
     },
+    create: (req, res, next) => {
+        res.render('products/create', { title: 'Alta de Productos' });
+    },
     edit: (req, res, next) => {
         const id = req.params.id;
         const product = searchProduct(id);
         
         if (!product) {
-            return res.status(404).render('Producto no encontrado');
+            res.send('Producto no encontrado');
         }
         
         res.render('products/edit', { 

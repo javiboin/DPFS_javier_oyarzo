@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/adm-create-update.css"> 
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <%- include('../partials/nav') %>
+
+    <form action="/products/create" method="post"> 
+
+        <h2>Dar de Alta Productos</h2>
+    
+        <input type="file" name="image" id="product-img-file" >
+
+        <div class="form-floating inputs"> 
+            <input type="text" class="form-control" id="title" name="name" placeholder="Nombre" > 
+            <label for="title">Nombre</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="text" class="form-control" id="brand" name="brand" placeholder="Ej: Ibanez, Shure, Gibson" > 
+            <label for="brand">Marca</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="text" class="form-control" id="category" name="category" placeholder="Nombre de la categoría" > 
+            <label for="category">Categoría</label> 
+        </div>
+        
+        <div class="form-floating inputs"> 
+            <input type="text" class="form-control" id="subcategory" name="subcategory" placeholder="Nombre de la subcategoría" > 
+            <label for="subcategory">Subcategoría</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="number" class="form-control" id="price" name="price" step="0.01" min="0" placeholder="$ 00,00" > 
+            <label for="price">Precio ($)</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="number" class="form-control" id="price_cash" name="price_cash" step="0.01" min="0" placeholder="$ 00,00" > 
+            <label for="price_cash">Precio al contado o transferencia ($)</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="number" class="form-control" id="price_installment_count" name="price_installment_count" min="1" placeholder="Cantidad" >  
+            <label for="price_installment_count">Cantidad de coutas</label> 
+        </div>
+
+        <div class="form-floating inputs"> 
+            <input type="number" class="form-control" id="price_installment" name="price_installment" step="0.01" min="0" placeholder="$ 00,00" > 
+            <label for="price_installment">Precio en coutas ($)</label> 
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" name="description" id="description" name="description" style="resize: none; height: 400px;" placeholder="Descripción" ></textarea>
+            <label for="description">Descripción</label>
+        </div>
+
+        <button id="submit" type="submit">Guardar</button> 
+    </form>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>
