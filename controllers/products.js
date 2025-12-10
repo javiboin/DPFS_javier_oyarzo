@@ -93,7 +93,18 @@ const productController = {
         }
         
         return res.status(200).redirect('/');
-    } 
+    },
+    destroy: (req, res, next) => {
+        let id = parseInt(req.params.id);
+        let indice = products.data.findIndex(p => p.id === id);
+
+        if (indice !== -1) {
+            products.data.splice(indice, 1);
+            return res.redirect('/');
+        } else {
+            return res.status(404).send("Producto no encontrado");
+        }
+    }
 }
 
 module.exports = productController;

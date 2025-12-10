@@ -14,9 +14,7 @@ router.get('/create-products', function(req, res, next) {
   res.render('products/create-products', { title: 'Alta de Productos' });
 });
 
-router.get('/delete-product', function(req, res, next) {
-  res.send('ELIMINAR PRODUCTO');
-});
+router.post('/delete-product/:id', productController.destroy);
 
 router.get('/product-cart', function(req, res, next) {
   res.render('products/productCart', { title: 'Carrito de Compras' });
