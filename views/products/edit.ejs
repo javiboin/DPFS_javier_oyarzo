@@ -9,7 +9,7 @@
 
     <%- include('../partials/nav') %>
 
-    <form action="/products/update/<%= id %>" method="post"> 
+    <form action="/products/update/<%= id %>?_method=PUT" method="post" > 
 
         <h2>Modificar Producto</h2>
 
@@ -65,7 +65,7 @@
         <button id="submit" type="submit">Guardar</button> 
     </form>
 
-    <form action="/products/delete-product/<%= id %>" method="post">
+    <form action="/products/delete-product/<%= id %>?_method=DELETE" method="post">
         <button id="delete" type="submit">Eliminar</button> 
     </form>
 
