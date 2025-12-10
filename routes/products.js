@@ -6,7 +6,9 @@ router.get('/read-products', productController.index_admin);
 
 router.get('/product-detail/:id', productController.show);
 
-router.get('/edit/:id', productController.edit);
+router.get('/:id', productController.edit);
+
+router.post('/update/:id', productController.update);
 
 router.get('/create-products', function(req, res, next) {
   res.render('products/create-products', { title: 'Alta de Productos' });
