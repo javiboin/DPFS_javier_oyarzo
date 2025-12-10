@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productController = require("../controllers/products")
 
-router.get('/read-products', productController.index_admin);
+router.get('/', productController.index_admin);
 router.get('/product-detail/:id', productController.show);
 router.get('/new-product', productController.create);
 router.post('/create', productController.store);
