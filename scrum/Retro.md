@@ -98,3 +98,32 @@ A continuación, se presentan las principales conclusiones obtenidas en el Sprin
 
 ### Lecciones Aprendidas:
 Bastante mejor, se optimizo el tiempo de trabajo gracias a una mejor planificación y priorización de tareas, y la claridad en la definición de las tareas permitió avanzar con menos dudas y bloqueos. 
+
+## Sprint 4  
+A continuación, se presentan las principales conclusiones obtenidas en el Sprint 4.
+
+### Starfish retrospective:
+
+**Start Doing**  
+- Comenzar a definir objetivos diarios al inicio de cada bloque de trabajo, para reforzar el foco.
+
+**More of**  
+- Profundizar más en la investigación previa y reforzar el repaso de apuntes para consolidar conocimientos.
+
+**Keep Doing**
+- Mantener la planificación detallada de las tareas en el tablero de trabajo.
+- Seguir registrando las tareas de manera ordenada para sostener un flujo de trabajo prolijo y transparente.
+
+**Less of**  
+- Menos multitarea: priorizar terminar una tarea antes de abrir otra.
+
+**Stop Doing**  
+- Evitar postergar la actualización del tablero, manteniéndolo al día para reflejar el estado real del sprint.
+- Dejar de usar el tablero solo como cierre; transformarlo en una herramienta viva de seguimiento.
+
+### Lecciones Aprendidas:
+A esta altura del proyecto, se han ido resolviendo algunas cuestiones relacionadas con el desorden de las tareas y su priorización. 
+Para obtener un panorama completo, podemos decir que:
+- La planificación detallada funciona: mantener un tablero prolijo y minucioso aporta claridad y confianza al equipo.
+- El tiempo debe cuidarse: las sesiones largas sin pausas generan desgaste; incorporar descansos breves ayuda a sostener el ritmo de trabajo.
+- El aprendizaje se potencia con el repaso: dedicar más espacio a la investigación y a la revisión de apuntes consolida los conocimientos y los vuelve aplicables.
