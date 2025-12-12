@@ -9,7 +9,7 @@
 
     <%- include('../partials/nav') %>
 
-    <form class="login"> 
+    <form class="login" action="/users/login" method="post"> 
         <h2>Iniciar sesión</h2> 
 
         <div class="form-floating"> 
@@ -30,7 +30,7 @@
         
         <button  type="submit">Ingresar</button> 
 
-        <p>¿Olvidaste tu contraseña? <a href="/users/recovery-user">Haz clic aquí para recuperarla</a></p>
+        <p>¿Olvidaste tu contraseña? <a href="/users/forgot">Haz clic aquí para recuperarla</a></p>
     </form>
        
     <%- include('../partials/footer') %>

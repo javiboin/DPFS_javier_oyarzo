@@ -1,45 +1,35 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const userController = require('../controllers/users');
+const authController = require('../controllers/auth');
+const adminUsersController = require('../controllers/adminUsers');
 
-router.get('/login', function(req, res, next) {
-  res.render('users/login', { title: 'Inicio de Sesión' });
-});
+// Admin
+router.get('/list-users', adminUsersController.index); 
+router.get('/create-user', adminUsersController.create); 
+router.post('/create-user', adminUsersController.store);
+router.get('/update-user', adminUsersController.edit); 
+router.put('/update-user', adminUsersController.update); 
+router.get('/delete-user', adminUsersController.delete); 
+router.delete('/delete-user', adminUsersController.destroy); 
 
-router.get('/register', function(req, res, next) {
-  res.render('users/register', { title: 'Registro' });
-});
 
-router.get('/recovery-user', function(req, res, next) {
-  res.render('users/recovery-user', { title: 'Recuperar contraseña' });
-});
+// Usuarios
+router.get('/profile', userController.show); 
+router.get('/edit-user', userController.editUser); 
+router.put('/edit-user', userController.updateUser);
+router.get('/delete-profile', userController.delete); 
+router.delete('/delete-profile', userController.destroy);
 
-router.get('/account', function(req, res, next) {
-  res.render('users/account', { title: 'Mi cuenta' });
-});
 
-router.get('/edit-user', function(req, res, next) {
-  res.render('users/edit-user', { title: 'Modificar mis datos' });
-});
-
-router.get('/read-users', function(req, res, next) {
-  res.render('users/read-users', { title: 'Ver Usuarios' });
-});
-
-router.get('/create-users', function(req, res, next) {
-  res.render('users/create-users', { title: 'Alta de Usuarios' });
-});
-
-router.get('/update-users', function(req, res, next) {
-  res.render('users/update-users', { title: 'Modificar Usuario' });
-});
-
-router.get('/delete-product', function(req, res, next) {
-  res.send('ELIMINAR USUARIO');
-});
+// Autenticación
+router.get('/login', authController.login);  
+router.post('/login', authController.access); 
+router.post('/logout', authController.logout); 
+router.get('/register', authController.signup); 
+router.post('/register', authController.register); 
+router.get('/forgot', authController.forgot); 
+router.post('/forgot-sent', authController.forgotSent);
 
 module.exports = router;
