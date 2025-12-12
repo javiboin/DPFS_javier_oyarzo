@@ -7,37 +7,55 @@
 <body>
     <%- include('../partials/header') %>
 
-    <%- include('../partials/nav') %>
+    <%- include('../partials/nav') %> 
 
-    <h2>Mi cuenta</h2>
-    <div class="mis-datos">
-        <h3>Datos Personales</h3>
-        <span><a id="edit-btn" href="/users/edit-user">Editar</a></span>
-        <div>
-            <p>Nombre Completo: Winston Reinhardt</p>
-            <p>Email: sirwr@gmail.com</p>
-            <p>Teléfono: 0123 45676</p>
-        </div>
+    <main>
+        <h2>Mi cuenta</h2>
+        
+        <table class="mis-datos"> 
+            <h3>Datos Personales</h3>
+            <img src="/images/<%= image %>" alt="<%= nombre %>,<%= apellido %>">  
+            <span><a id="edit-btn" href="/users/edit-user">Editar</a></span>
+            <tr>
+                <th>Nombre</th>
+                <td><%= nombre %></td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td><%= apellido %></td>
+            </tr>
+            <tr>
+                <th>Correo Eléctronico</th>
+                <td><%= email %></td>
+            </tr>
 
-    </div>
+        </table>
 
-    <div class="mis-compras">
-        <h3>Mis compras</h3>
-        <p>Orden #N</p>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
-                Column
-                </div>
-                <div class="col">
-                Column
-                </div>
-                <div class="col">
-                Column
-                </div>
-            </div>
-        </div>
-    </div>
+        <table class="mis-compras">    
+            <h3>Historial de Envios</h3> 
+            <tr>
+                <th>N° Pedido</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Monto</th>
+                <th>Dirección de Envio</th>
+            </tr>
+            <tr>
+                <td>N° Pedido</td>
+                <td>Fecha</td>
+                <td>Estado</td>
+                <td>Monto</td>
+                <td>Dirección de Envio</td>
+            </tr>
+            <tr>
+                <td>N° Pedido</td>
+                <td>Fecha</td>
+                <td>Estado</td>
+                <td>Monto</td>
+                <td>Dirección de Envio</td>
+            </tr>
+        </table>
+    </main>
 
     <%- include('../partials/footer') %>
 </body>

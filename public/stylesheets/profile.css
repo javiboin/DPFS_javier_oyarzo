@@ -1,27 +1,48 @@
-h2 {
-    text-align: center;
+main {
+    margin: 2rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.mis-compras {
-    background-color: #d6cece;
-    border: none;
-    border-radius: 8px;
-    width: 80%;
+main table {
     margin: 1rem auto;
-    padding: 1rem;
 }
 
-.mis-datos {
-    background-color: #d6cece;
-    border: none;
-    border-radius: 8px;
-    width: 60%;
-    margin: 1rem auto;
-    padding: 1rem;
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+table img {
+    display: block;
+    width: 500px;
+    object-fit: contain;
 }
 
 #edit-btn {
     float: right;
     color: var(--color1);
     text-decoration: none;
+}
+
+.mis-datos {
+    border-collapse: collapse;
+    width: 50%;
+    border: 0.2px solid #da8e8e;
+}
+
+.mis-datos *{
+    border: 0;
+}
+
+.mis-compras {
+    background-color: #d6cece;
+    width: 80%;
+}
+
+.mis-compras tr:nth-child(even) {
+    background-color: #da8e8e;
 }

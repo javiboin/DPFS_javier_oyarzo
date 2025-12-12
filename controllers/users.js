@@ -1,22 +1,24 @@
 const users = require("../data/users");
 
 const searchUser = (id) => {
-    return products.data.find(p => p.id === id);
+    return users.data.find(u => u.id === id);
 }
 
 const userController = {
     show: (req, res, next) => {
-        const id = parent(req.params.id);
+        const id = parseInt(req.params.id);
         const user = searchUser(id);
 
         if (!user){
             return res.status(404).render('not-found');
         }
 
-
         res.render('users/profile', { 
             title: 'Mi cuenta', 
-            user 
+            nombre: user.firstName,
+            apellido: user.lastName,
+            email: user.email,
+            image: user.image
         }); 
     },
     editUser: (req, res, next) => {

@@ -1,5 +1,5 @@
 module.exports = {
-	db:	[     
+	data:	[     
         {
             "id":1,
             "firstName":"Pedro",
