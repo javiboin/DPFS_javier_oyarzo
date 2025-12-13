@@ -10,14 +10,17 @@
     <%- include('./partials/nav') %>
 
     <main>
-
         <h2>Productos</h2>
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item"><a href="/">Productos</a></li>
         </ol>
-        
+     
+        <form class="add-product" action="/products/new-product" method="get"> 
+            <button id="submit" type="submit">Crear Producto Nuevo</button> 
+        </form>
+
         <div class="container">
 
         <% for (i=0; i < products.length; i++) { %>
