@@ -45,8 +45,33 @@ const userController = {
         if (!user){
             return res.status(404).render('not-found');
         }
-        
-        res.send(req.body);
+
+        if (req.body.action = 'edit-img') {
+            if (req.body.image == ""){
+                req.body.image = user.image
+                return res.status(200).redirect('/users/profile/1');
+            } else {
+
+                const data = {
+                    "id": id,
+                    "firstName": user.firstName,
+                    "lastName": user.lastName,
+                    "email": user.email,
+                    "password": user.password,
+                    "category": user.category,
+                    "image": req.body.image
+                }
+
+                const indice = users.data.findIndex(p => p.id == id)
+                
+                if (indice !== -1) {
+                    users.data[indice] = data;
+                } else {
+                    return res.status(404).render('not-found');
+                }
+                return res.status(200).redirect('/users/profile/1');
+            }
+        }
     },
     delete: (req, res, next) => {
         res.send('Entrar a la vista de eliminar cuenta');
