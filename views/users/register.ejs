@@ -10,30 +10,34 @@
     <%- include('../partials/nav') %>
 
     <form class="register" action="/users/register" method="post"> 
-        <h2>Registrarse</h2> 
+        <h2>Registrarse</h2>
+        
+        <div class="form-floating"> 
+            <input type="file" name="image" id="product-img-file" >
+        </div>
 
         <div class="form-floating"> 
-            <input type="email" class="form-control" id="email" placeholder="name@example.com"> 
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"> 
             <label for="email">Correo Electrónico</label> 
         </div>
 
         <div class="form-floating"> 
-            <input type="text" class="form-control" id="firstName" placeholder="Nombre" > 
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Nombre" > 
             <label for="firstName">Nombre</label> 
         </div>
 
         <div class="form-floating"> 
-            <input type="text" class="form-control" id="lastName" placeholder="Apellido" > 
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellido" > 
             <label for="lastName">Apellido</label> 
         </div>
         
         <div class="form-floating"> 
-            <input type="password" class="form-control" id="password" placeholder="password" >
+            <input type="password" class="form-control" id="password" name="password" placeholder="password" >
             <label for="password">Constraseña</label> 
         </div>
 
         <div class="form-floating"> 
-            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña" > 
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Contraseña" > 
             <label for="confirmPassword">Confirmar constraseña</label> 
             <span id="show-hide">Mostrar</span>
         </div> 
