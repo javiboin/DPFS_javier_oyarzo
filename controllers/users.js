@@ -1,4 +1,5 @@
 const users = require("../data/users");
+const { update } = require("./adminUsers");
 
 const searchUser = (id) => {
     return users.data.find(u => u.id === id);
@@ -46,60 +47,42 @@ const userController = {
             return res.status(404).render('not-found');
         }
 
-        if (req.body.action === 'edit-img') {
-            if (req.body.image == ""){
-                req.body.image = user.image
-                return res.status(200).redirect('/users/profile/1');
-            } else {
+        // formatear los datos del req.body
+        const { action, ...formData } = req.body;
+        let updatedData = { ...user };
 
-                const data = {
-                    "id": id,
-                    "firstName": user.firstName,
-                    "lastName": user.lastName,
-                    "email": user.email,
-                    "password": user.password,
-                    "category": user.category,
-                    "image": req.body.image
+        switch (req.body.action) {
+            case 'edit-img':
+                if (formData.image !== ''){
+                    updatedData.image = formData.image;
                 }
+                break;
 
-                const indice = users.data.findIndex(p => p.id == id)
-                
-                if (indice !== -1) {
-                    users.data[indice] = data;
-                } else {
-                    return res.status(404).render('not-found');
+            case 'edit-email':
+                if (formData.email !== ''){
+                    updatedData.email = formData.email;
                 }
-                return res.status(200).redirect('/users/profile/1');
-            }
-        } 
-
-        if (req.body.action === 'edit-email') {
-            if (req.body.email == ""){
-                req.body.email = user.email
-                return res.status(200).redirect('/users/profile/1');
-            } else {
-
-                const data = {
-                    "id": id,
-                    "firstName": user.firstName,
-                    "lastName": user.lastName,
-                    "email": req.body.email,
-                    "password": user.password,
-                    "category": user.category,
-                    "image": user.image
-                }
-
-                const indice = users.data.findIndex(p => p.id == id)
-                
-                if (indice !== -1) {
-                    users.data[indice] = data;
-                } else {
-                    return res.status(404).render('not-found');
-                }
-                return res.status(200).redirect('/users/profile/1');
-            }
+                break;
+        
+            case 'edit-password':
+                if (formData.password !== ''){
+                    updatedData.password = formData.password
+                }    
+            
+                break;
+            
+            default:
+                return res.status(404).render('not-found');
         }
-
+        
+        const indice = users.data.findIndex(p => p.id == id)
+                
+        if (indice !== -1) {
+            users.data[indice] = updatedData;
+        } else {
+            return res.status(404).render('not-found');
+        }
+        return res.status(200).redirect('/users/profile/1');
 
     },
     delete: (req, res, next) => {

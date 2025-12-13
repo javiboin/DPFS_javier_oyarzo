@@ -18,8 +18,7 @@ td, th {
 
 table img {
     display: block;
-    width: 500px;
-    object-fit: contain;
+    margin: 1rem auto;
 }
 
 .edit-btn {

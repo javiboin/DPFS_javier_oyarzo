@@ -4,7 +4,7 @@ h2 {
 }
 
 .edit-user {
-    width: 40%;
+    width: 60%;
     margin: 2rem auto;
     padding: 2rem;
     border: 0.4px solid var(--color1);
@@ -31,4 +31,11 @@ h2 {
 
 .edit-user input[type="file"]{
     margin-top: 1rem;
+    display: block;
+}
+
+.edit-user img{
+    display: block;
+    margin: 1rem auto;
+    width: 500px;
 }
