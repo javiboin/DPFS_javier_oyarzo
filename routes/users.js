@@ -3,16 +3,16 @@ var router = express.Router();
 
 const userController = require('../controllers/users');
 const authController = require('../controllers/auth');
-const adminUsersController = require('../controllers/adminUsers');
+//const adminUsersController = require('../controllers/adminUsers');
 
-// Admin
+/* // Admin
 router.get('/list-users', adminUsersController.index); 
 router.get('/create-user', adminUsersController.create); 
 router.post('/create-user', adminUsersController.store);
 router.get('/update-user', adminUsersController.edit); 
 router.put('/update-user', adminUsersController.update); 
 router.get('/delete-user', adminUsersController.delete); 
-router.delete('/delete-user', adminUsersController.destroy); 
+router.delete('/delete-user', adminUsersController.destroy);  */
 
 
 // Usuarios
