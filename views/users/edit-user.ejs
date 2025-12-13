@@ -9,37 +9,52 @@
 
     <%- include('../partials/nav') %>
 
-    <form class="edit-user"> 
-        <h2>Editar datos Personales</h2> 
+    <h2>Editar datos Personales</h2> 
 
+    <form class="edit-user" action="/users/edit-user/<%= id %>?_method=PUT" method="post"> 
+        <h3>Modificar Foto de perfil</h3>
+        <input type="hidden" name="action" value="edit-img">
+        <img id="product-img" src="/images/<%= image %>" alt="<%= nombre %>, <%= apellido %>">
+        <input type="file" name="image" id="product-img-file" >
+
+        <button id="submit" type="submit">Guardar cambios</button> 
+    </form>
+
+    <form class="edit-user" action="/users/edit-user/<%= id %>?_method=PUT" method="post"> 
+        <h3>Modificar Correo Eléctronico</h3>
+        <p>Correo Eléctronico Actual: <%= email %> </p>
         <div class="form-floating"> 
-            <input type="text" class="form-control" id="user" placeholder="Nombre de Usuario" > 
-            <label for="user">Nombre de Usuario</label> 
+            <input type="hidden" name="action" value="edit-email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"> 
+            <label for="email">Nuevo Correo Eléctronico</label> 
+        </div>
+
+        <button id="submit" type="submit">Guardar cambios</button> 
+    </form>
+
+    <form class="edit-user" action="/users/edit-user/<%= id %>?_method=PUT" method="post">
+        <h3>Modificar Contraseña</h3> 
+        <div class="form-floating"> 
+            <input type="hidden" name="action" value="edit-password">
+            <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="password" >
+            <label for="oldPassword">Constraseña Actual</label> 
         </div>
 
         <div class="form-floating"> 
-            <input type="email" class="form-control" id="email" placeholder="name@example.com"> 
-            <label for="email">Correo Electrónico</label> 
+            <input type="password" class="form-control" id="password" name="password" placeholder="password" >
+            <label for="password">Nueva Constraseña</label> 
         </div>
 
         <div class="form-floating"> 
-            <input type="text" class="form-control" id="firstName" placeholder="Nombre" > 
-            <label for="firstName">Nombre</label> 
-        </div>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Contraseña" > 
+            <label for="confirmpPassword">Confirmar Nueva constraseña</label> 
+            <span id="show-hide">Mostrar</span>
+        </div> 
 
-        <div class="form-floating"> 
-            <input type="text" class="form-control" id="lastName" placeholder="Apellido" > 
-            <label for="lastName">Apellido</label> 
-        </div>
-        
-        <div class="form-floating"> 
-            <input type="number" class="form-control" id="phone" placeholder="Telefono" > 
-            <label for="phone">Teléfono</label> 
-        </div>
-
-        <button id="submit" type="submit">Guardar</button> 
+        <button id="submit" type="submit">Guardar cambios</button> 
     </form>
 
     <%- include('../partials/footer') %>
+    <script src="/javascripts/register.js"></script>
 </body>
 </html>

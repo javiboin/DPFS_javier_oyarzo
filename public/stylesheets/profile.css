@@ -22,7 +22,7 @@ table img {
     object-fit: contain;
 }
 
-#edit-btn {
+.edit-btn {
     float: right;
     color: var(--color1);
     text-decoration: none;

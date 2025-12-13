@@ -22,10 +22,31 @@ const userController = {
         }); 
     },
     editUser: (req, res, next) => {
-        res.render('users/edit-user', { title: 'Modificar mis datos' });
+        const id = parseInt(req.params.id);
+        const user = searchUser(id);
+
+        if (!user){
+            return res.status(404).render('not-found');
+        }
+
+        res.render('users/edit-user', { 
+            title: 'Modificar mis datos',
+            id: user.id,
+            nombre: user.firstName,
+            apellido: user.lastName,
+            email: user.email,
+            image: user.image 
+        });
     },
     updateUser: (req, res, next) => {
-        res.send('guardar cambios');
+        const id = parseInt(req.params.id);
+        const user = searchUser(id);
+
+        if (!user){
+            return res.status(404).render('not-found');
+        }
+        
+        res.send(req.body);
     },
     delete: (req, res, next) => {
         res.send('Entrar a la vista de eliminar cuenta');
