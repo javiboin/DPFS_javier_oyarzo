@@ -46,7 +46,7 @@ const userController = {
             return res.status(404).render('not-found');
         }
 
-        if (req.body.action = 'edit-img') {
+        if (req.body.action === 'edit-img') {
             if (req.body.image == ""){
                 req.body.image = user.image
                 return res.status(200).redirect('/users/profile/1');
@@ -71,7 +71,36 @@ const userController = {
                 }
                 return res.status(200).redirect('/users/profile/1');
             }
+        } 
+
+        if (req.body.action === 'edit-email') {
+            if (req.body.email == ""){
+                req.body.email = user.email
+                return res.status(200).redirect('/users/profile/1');
+            } else {
+
+                const data = {
+                    "id": id,
+                    "firstName": user.firstName,
+                    "lastName": user.lastName,
+                    "email": req.body.email,
+                    "password": user.password,
+                    "category": user.category,
+                    "image": user.image
+                }
+
+                const indice = users.data.findIndex(p => p.id == id)
+                
+                if (indice !== -1) {
+                    users.data[indice] = data;
+                } else {
+                    return res.status(404).render('not-found');
+                }
+                return res.status(200).redirect('/users/profile/1');
+            }
         }
+
+
     },
     delete: (req, res, next) => {
         res.send('Entrar a la vista de eliminar cuenta');
