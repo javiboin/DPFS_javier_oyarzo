@@ -68,7 +68,10 @@ const userController = {
                 if (formData.password !== ''){
                     updatedData.password = formData.password
                 }    
-            
+
+                if (updatedData.password !== formData.oldPassword && formData.password !== formData.confirmPassword){
+                    return res.send('Las contraseñas no son iguales')
+                }
                 break;
             
             default:
