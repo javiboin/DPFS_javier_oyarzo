@@ -10,6 +10,29 @@ h2 {
     text-align: center;
 }
 
+.edit-product {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 2rem 3rem;
+
+}
+
+.edit-product #submit {
+    color: var(--color6);
+    background-color: var(--color1);
+    height: 2rem;
+    width: 120%;
+    padding: auto;
+    border: none;
+    border-radius: 10px;
+    transition: all .4s ease;
+}
+
+.edit-product #submit:hover {
+    background-color: var(--color4);
+    color: var(--color1);
+}
+
 .product-detail{
     padding: 1rem;
     margin-bottom: 1rem;

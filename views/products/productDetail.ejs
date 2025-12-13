@@ -10,6 +10,10 @@
     <%- include('../partials/nav') %>
 
     <main>
+        <form class="edit-product" action="/products/edit/<%= id %>" method="get"> 
+            <button id="submit" type="submit">Editar Producto</button> 
+        </form>
+
         <div class="product-detail">
             <div class="product-img">
                 <img src="/images/<%= image %>" alt="<%= name %>">
