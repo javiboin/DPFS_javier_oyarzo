@@ -1,5 +1,4 @@
 const users = require("../data/users");
-const { update } = require("./adminUsers");
 
 const searchUser = (id) => {
     return users.data.find(u => u.id === id);
