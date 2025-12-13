@@ -54,6 +54,11 @@
         <button id="submit" type="submit">Guardar cambios</button> 
     </form>
 
+    <form class="edit-user" action="/users/delete-profile/<%= id %>" method="get">
+        <h5>¿Desea Eliminar su cuenta?</h5> 
+        <button id="submit" type="submit">Eliminar Cuenta</button> 
+    </form>
+
     <%- include('../partials/footer') %>
     <script src="/javascripts/register.js"></script>
 </body>

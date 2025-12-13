@@ -89,10 +89,25 @@ const userController = {
 
     },
     delete: (req, res, next) => {
-        res.send('Entrar a la vista de eliminar cuenta');
+        const id = parseInt(req.params.id);
+        const user = searchUser(id);
+
+        if (!user){
+            return res.status(404).render('not-found');
+        }
+
+        res.render('users/delete-profile', { title: 'Eliminar mi cuenta', id: id });
     },
     destroy: (req, res, next) => {
-        res.send('Eliminar Usuario');
+        const id = parseInt(req.params.id);
+        const indice = users.data.findIndex(p => p.id === id);
+
+        if (indice !== -1) {
+            users.data.splice(indice, 1);
+            return res.redirect('/');
+        } else {
+            return res.status(404).send("Usuario no encontrado");
+        }
     }
 }
 

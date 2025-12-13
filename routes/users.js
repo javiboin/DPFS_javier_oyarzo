@@ -19,8 +19,8 @@ router.delete('/delete-user', adminUsersController.destroy);
 router.get('/profile/:id', userController.show); 
 router.get('/edit-user/:id', userController.editUser); 
 router.put('/edit-user/:id', userController.updateUser);
-router.get('/delete-profile', userController.delete); 
-router.delete('/delete-profile', userController.destroy);
+router.get('/delete-profile/:id', userController.delete); 
+router.delete('/delete-profile/:id', userController.destroy);
 
 
 // Autenticación
