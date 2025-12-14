@@ -14,22 +14,22 @@ const authController = {
         res.render('users/register', { title: 'Registro' });
     },
     register: (req, res, next) => {
-        const { firstName, lastName, email, password, confirmPassword, image } = req.body
+        const { firstName, lastName, email, password, confirmPassword } = req.body
         // Validar password
-        if (req.body.password !== '' && req.body.confirmPassword !== ''){
-            if (req.body.password !== req.body.confirmPassword){
+        if (password !== '' && confirmPassword !== ''){
+            if (password !== confirmPassword){
                 return res.send('Las contraseñas no son iguales')
             }
         } 
 
         const newUser = {
             id: users.data.length +1,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
             category: 'Cliente',
-            image: req.body.image 
+            image: req.file.filename 
         };
 
 

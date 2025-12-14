@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const multer = require('multer');
+const uploads = multer({dest: 'public/images/users/'});
 
 const userController = require('../controllers/users');
 const authController = require('../controllers/auth');
@@ -28,7 +30,7 @@ router.get('/login', authController.login);
 router.post('/login', authController.access); 
 router.post('/logout', authController.logout); 
 router.get('/register', authController.signup); 
-router.post('/register', authController.register); 
+router.post('/register', uploads.single('image'), authController.register); 
 router.get('/forgot', authController.forgot); 
 router.post('/forgot-sent', authController.forgotSent);
 
