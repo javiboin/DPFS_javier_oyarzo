@@ -25,17 +25,17 @@ const authController = {
         const user = searchEmailUser(email);
         
         if (!user) {
-            return res.status(404).render('not-found');
+            return res.redirect('/users/login');
         }
 
         const passwordDesencrypted = await compareHash(password, user.password);
 
-        if (user && passwordDesencrypted){ 
-            res.send('login correcto');
+        if (user && passwordDesencrypted){
+            req.session.currentUser = user; 
+            res.redirect('/');
         } else {
-            res.send('no logueado, contraseña incorrecta');
-        } 
-        
+            res.redirect('/users/login');
+        }
     },
     logout: (req, res, next) => {
         res.send('Deslogueate!');

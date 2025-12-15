@@ -9,10 +9,9 @@
             <button type="submit"><img src="/images/search-b.png" alt="Buscar"></button> 
         </form>
 
-        <div class="user-tools">
-            <a class="login" href="/users/login">
+        <div class="user-tools">            
+            <a class="login" href="<%= currentUser ? `/users/profile/${currentUser.id}` : '/users/login' %>" method="post">
                 <img src="/images/user-w.png" alt="Inicio de sesion" >
-                
             </a>
             <a class="cart position-relative" href="/products/product-cart">
                 <img src="/images/cart-w.png" alt="Carrito de compras" >
