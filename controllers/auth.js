@@ -6,13 +6,36 @@ const createHash = async (passwordToConvert) => {
   return newHash;
 };
 
+const compareHash = async (password, hashToConvert) => {
+    const compare = await bcryptjs.compare(password, hashToConvert);
+    return compare;
+};
+
+const searchEmailUser = (email) => {
+    return users.data.find(u => u.email === email)
+}
+
 const authController = {
     login: (req, res, next) => {
         res.render('users/login', { title: 'Inicio de Sesión' });
     },
-    access: (req, res, next) => {
+    access: async (req, res, next) => {
+        const { email, password } = req.body;
 
-        res.send('Login');
+        const user = searchEmailUser(email);
+        
+        if (!user) {
+            return res.status(404).render('not-found');
+        }
+
+        const passwordDesencrypted = await compareHash(password, user.password);
+
+        if (user && passwordDesencrypted){ 
+            res.send('login correcto');
+        } else {
+            res.send('no logueado, contraseña incorrecta');
+        } 
+        
     },
     logout: (req, res, next) => {
         res.send('Deslogueate!');

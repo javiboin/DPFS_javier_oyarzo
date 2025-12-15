@@ -5,7 +5,7 @@ module.exports = {
             "firstName":"Pedro",
             "lastName":"Vai",
             "email":"pedrovai@gmail.com",
-            "password":"admin1",
+            "password":"$2b$08$lDd2/EqeZpQNEVTYjDlaiea530FdWJgpcJcko9KCjBDDQn3Vqjvz2",
             "category":"Administrador",
             "image": "profile.jpg"
         },
