@@ -22,13 +22,20 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
-app.use(cookieParser());
+app.use(cookieParser('secret'));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(session({
     secret: 'secret',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+      secure: false, 
+      httpOnly: true,           
+      maxAge: null
+    }
 }));
+
 app.use(sessionMiddleware);
 
 app.use('/', indexRouter);

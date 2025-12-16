@@ -20,7 +20,7 @@ const authController = {
         res.render('users/login', { title: 'Inicio de Sesión' });
     },
     access: async (req, res, next) => {
-        const { email, password } = req.body;
+        const { email, password, rememberMe } = req.body;
 
         const user = searchEmailUser(email);
         
@@ -31,10 +31,23 @@ const authController = {
         const passwordDesencrypted = await compareHash(password, user.password);
 
         if (user && passwordDesencrypted){
-            req.session.currentUser = user; 
-            res.redirect('/');
+            req.session.currentUser = { 
+                id: user.id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email
+            }; 
+
+            if (rememberMe) {
+                req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 7;
+                req.session.cookie.httpOnly = true;
+            } else {
+                req.session.cookie.expires = false;
+            }
+
+            return res.redirect('/');
         } else {
-            res.redirect('/users/login');
+            return res.redirect('/users/login');
         }
     },
     logout: (req, res, next) => {

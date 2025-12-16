@@ -3,15 +3,17 @@ const router = express.Router();
 const multer = require('multer');
 const uploads = multer({dest: 'public/images/users/'});
 
+const requiredAuth = require('../middlewares/requiredAuth')
+
 const userController = require('../controllers/users');
 const authController = require('../controllers/auth');
 
 // Usuarios
-router.get('/profile/:id', userController.show); 
-router.get('/edit-user/:id', userController.editUser); 
-router.put('/edit-user/:id', userController.updateUser);
-router.get('/delete-profile/:id', userController.delete); 
-router.delete('/delete-profile/:id', userController.destroy);
+router.get('/profile/:id',  requiredAuth, userController.show); 
+router.get('/edit-user/:id', requiredAuth, userController.editUser); 
+router.put('/edit-user/:id', requiredAuth, userController.updateUser);
+router.get('/delete-profile/:id', requiredAuth, userController.delete); 
+router.delete('/delete-profile/:id', requiredAuth, userController.destroy);
 
 
 // Autenticación
