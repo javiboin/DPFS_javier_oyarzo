@@ -1,12 +1,11 @@
+h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
 
 .register {
     width: 40%;
     margin: 1rem auto;
-}
-
-h2 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
 }
 
 .register #submit {

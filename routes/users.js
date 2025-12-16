@@ -5,17 +5,6 @@ const uploads = multer({dest: 'public/images/users/'});
 
 const userController = require('../controllers/users');
 const authController = require('../controllers/auth');
-//const adminUsersController = require('../controllers/adminUsers');
-
-/* // Admin
-router.get('/list-users', adminUsersController.index); 
-router.get('/create-user', adminUsersController.create); 
-router.post('/create-user', adminUsersController.store);
-router.get('/update-user', adminUsersController.edit); 
-router.put('/update-user', adminUsersController.update); 
-router.get('/delete-user', adminUsersController.delete); 
-router.delete('/delete-user', adminUsersController.destroy);  */
-
 
 // Usuarios
 router.get('/profile/:id', userController.show); 
