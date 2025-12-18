@@ -79,6 +79,8 @@ CREATE TABLE product (
     foreign key (subcategory_id) references subcategory(subcategory_id)
 );
 
+alter table product modify column description varchar(5000);
+
 -- MARCAS
 CREATE TABLE brand (
 	brand_id INT NOT NULL auto_increment primary key,
