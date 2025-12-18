@@ -15,6 +15,13 @@ module.exports = (Sequelize, DataTypes) => {
         timestamps: true,
         underscored: true
     })
+
+    Brand.associate = (models) => {
+        Brand.hasMany(models.Product, {
+            as: 'product',
+            foreignKey: 'brand_id'
+        })
+    }
     
     return Brand
 }

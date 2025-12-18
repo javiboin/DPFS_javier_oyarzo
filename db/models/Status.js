@@ -16,5 +16,12 @@ module.exports = (Sequelize, DataTypes) => {
         underscored: true
     })
 
+    Status.associate = (models) => {
+        Status.hasMany(models.Cart, {
+            as: 'cart',
+            foreignKey: 'status_id'
+        })
+    }
+
     return Status
 }

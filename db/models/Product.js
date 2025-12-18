@@ -29,12 +29,29 @@ module.exports = (Sequelize, DataTypes) => {
         priceCash: DataTypes.DECIMAL(10,2),
         priceInstallmentCount: DataTypes.INTEGER,
         priceInstallment: DataTypes.DECIMAL(10,2)
-    },
-    {
-        tableName: 'product',
-        timestamps: true,
-        underscored: true
+        },
+        {
+            tableName: 'product',
+            timestamps: true,
+            underscored: true
     })
+
+    Product.associate = (models) => {
+        Product.belongsTo(models.Brand, {
+            as: 'brand',
+            foreignKey: 'brand_id'
+        });
+
+        Product.belongsTo(models.Subcategory, {
+            as: 'subcategory',
+            foreignKey: 'subcategory_id'
+        });
+
+        Product.hasMany(models.CartDetail, {
+            as: 'cart_detail',
+            foreignKey: 'product_id'
+        })
+    }
 
     return Product
 }

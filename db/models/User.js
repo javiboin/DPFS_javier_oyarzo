@@ -26,12 +26,24 @@ module.exports = (Sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: true
         }
-    },
-    {
-        tableName: 'user',
-        timestamps: true,
-        underscored: true
+        },
+        {
+            tableName: 'user',
+            timestamps: true,
+            underscored: true
     })
+
+    User.associate = (models) => {
+        User.belongsTo(models.UserRole, {
+            as: 'user_role',
+            foreignKey: 'user_role_id'
+        });
+
+        User.hasMany(models.Cart, {
+            as: 'cart',
+            foreignKey: 'user_id'
+        })
+    }
 
 
     return User

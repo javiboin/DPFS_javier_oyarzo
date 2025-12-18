@@ -15,6 +15,13 @@ module.exports = (Sequelize, DataTypes) => {
         timestamps: true,
         underscored: true
     })
+
+    Category.associate = (models) => {
+        Category.hasMany(models.Subcategory, {
+            as: 'subcategories',
+            foreignKey: 'category_id'
+        })
+    }
     
     return Category
 }
