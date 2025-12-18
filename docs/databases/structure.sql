@@ -39,7 +39,7 @@ CREATE TABLE cart (
 	created_at timestamp NULL DEFAULT NULL,
 	updated_at timestamp NULL DEFAULT NULL,
     shipping_address varchar(250) null,
-    date_start datetime not null,
+    date_start timestamp default current_timestamp not null,
     date_end datetime null,
     total_purchase decimal(10,2) not null,
     user_id int not null,
