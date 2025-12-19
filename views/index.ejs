@@ -25,7 +25,7 @@
 
         <% for (i=0; i < products.length; i++) { %>
             <div class="card">
-                <a href="/products/product-detail/<%= products[i].ProductId %>"><img src="/images/<%= products[i].image %>" class="card-img-top" alt="Imagen temporal"></a>
+                <a href="/products/product-detail/<%= products[i].productId %>"><img src="/images/<%= products[i].image %>" class="card-img-top" alt="Imagen temporal"></a>
                 <div class="card-body">
                     <h5 style="margin-bottom: 10px;"><%= products[i].name %></h5>
                     <p class="price"><b>$ <%= products[i].price %></b></p>
