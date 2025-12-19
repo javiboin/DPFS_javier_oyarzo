@@ -1,19 +1,26 @@
 const products = require("../data/products");
-
-const getAllProducts = () => {
-    return products.data
-}
+const db = require('../db/models');
 
 const searchProduct = (id) => {
     return products.data.find(p => p.id == id);
 }
 
 const productController = {
-    index: (req, res, next) => {
-        res.render('index', { title: "Sound City Music", products: getAllProducts() });
-    },
-    index_admin: (req, res, next) => {
-        res.render('products/read-products', { title: "Ver Productos", products: getAllProducts() });
+    index: async (req, res, next) => {
+        try {
+            const products = await db.Product.findAll({
+              include: [
+                { association: 'brand' },
+                { association: 'subcategory' }
+              ]
+            });
+            //res.json(products);
+            res.render('index', { title: 'Sound City Music', products })
+
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+        
     },
     show: (req, res, next) => {
         const id = req.params.id;
