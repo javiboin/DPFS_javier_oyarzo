@@ -32,7 +32,7 @@ const productController = {
                 ]
             })
             
-            //return res.send(showProduct);
+            //return res.send(product);
             res.render('products/productDetail', { 
                 title: 'Detalle de productos',
                 id: product.productId,
@@ -66,29 +66,29 @@ const productController = {
             subcategories
         });
     },
-    newStore: (req, res, next) => {
-        const { name, brand, description, image, category, subcategory, price, price_cash, price_installment_count, price_installment} = req.body
-    },
     store: (req, res, next) => {
-        const { name, brand, description, image, category, subcategory, price, price_cash, price_installment_count, price_installment} = req.body
-       
-        const newProduct = {
-            id: products.data.length + 1,
-            name: name,
-            brand: brand,
-            description: description,
-            image: image,
-            category: category,
-            subcategory: subcategory,
-            price: parseFloat(price),
-            price_cash: parseFloat(price_cash),
-            price_installment_count: parseInt(price_installment_count),
-            price_installment: parseFloat(price_installment)
-       };
-        // cargar el payload y cargar el nuevo id
-        products.data.push(newProduct);
-        // redirigir a la página de listado
-        res.redirect('/products/read-products');
+        try {
+            const { name, brand, description, image, subcategory, price, priceCash, priceInstallmentCount, priceInstallment} = req.body
+            
+            const newProduct = {
+                name: name,
+                brandId: parseInt(brand),
+                description: description,
+                image: image,
+                subcategoryId: parseInt(subcategory),
+                price: parseFloat(price),
+                priceCash: parseFloat(priceCash),
+                priceInstallmentCount: parseInt(priceInstallmentCount),
+                priceInstallment: parseFloat(priceInstallment)
+            }
+            //return res.send(newProduct);
+
+            db.Product.create(newProduct)
+                .then (() => { return res.redirect('/') })
+                .catch (error => { return res.status(500).json({ error: error.message }) })
+        } catch (error) {
+            return res.status(500).json({ error: error.message })
+        }
     },
     edit: (req, res, next) => {
         const id = req.params.id;
