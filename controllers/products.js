@@ -53,8 +53,21 @@ const productController = {
         }
        
     },
-    create: (req, res, next) => {
-        res.render('products/create', { title: 'Alta de Productos' });
+    create: async (req, res, next) => {
+        const brands = await db.Brand.findAll();
+        const subcategories = await db.Subcategory.findAll({
+              include: [ { association: 'category' } ]
+            });
+
+        //res.send(subcategories)
+        res.render('products/create', { 
+            title: 'Alta de Productos',
+            brands,
+            subcategories
+        });
+    },
+    newStore: (req, res, next) => {
+        const { name, brand, description, image, category, subcategory, price, price_cash, price_installment_count, price_installment} = req.body
     },
     store: (req, res, next) => {
         const { name, brand, description, image, category, subcategory, price, price_cash, price_installment_count, price_installment} = req.body

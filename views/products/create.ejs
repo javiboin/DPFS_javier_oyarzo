@@ -21,18 +21,21 @@
         </div>
 
         <div class="form-floating inputs"> 
-            <input type="text" class="form-control" id="brand" name="brand" placeholder="Ej: Ibanez, Shure, Gibson" > 
+            <select class="form-control" name="brand" id="brand">
+                <% for (let i = 0; i < brands.length; i++) { %>
+                    <option value="<%= brands[i].brandId %>"><%= brands[i].name %></option>
+                <% } %>
+            </select>
             <label for="brand">Marca</label> 
         </div>
 
         <div class="form-floating inputs"> 
-            <input type="text" class="form-control" id="category" name="category" placeholder="Nombre de la categoría" > 
-            <label for="category">Categoría</label> 
-        </div>
-        
-        <div class="form-floating inputs"> 
-            <input type="text" class="form-control" id="subcategory" name="subcategory" placeholder="Nombre de la subcategoría" > 
-            <label for="subcategory">Subcategoría</label> 
+            <select class="form-control" name="subcategory" id="subcategory">
+                <% for (let i=0; i< subcategories.length; i++) { %>
+                <option value="<%= subcategories[i].subcategoryId %>"><%= subcategories[i].category.name %> / <%= subcategories[i].name %></option>
+                <% } %>
+            </select>
+            <label for="subcategory">Categoría / Subcategoría</label> 
         </div>
 
         <div class="form-floating inputs"> 
@@ -64,5 +67,6 @@
     </form>
 
     <%- include('../partials/footer') %>
+    <script src="/javascripts/productsFormSelect.js"></script>
 </body>
 </html>
