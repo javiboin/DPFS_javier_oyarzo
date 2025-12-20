@@ -23,18 +23,21 @@
         </div>
 
         <div class="form-floating inputs"> 
-            <input type="text" class="form-control" id="brand" value="<%= brand %>" name="brand"> 
+            <select class="form-control" name="brand" id="brand">
+                <% for (let i = 0; i < brands.length; i++) { %>
+                    <option value="<%= brands[i].brandId %>"><%= brands[i].name %></option>
+                <% } %>
+            </select>
             <label for="brand">Marca</label> 
         </div>
 
         <div class="form-floating inputs"> 
-            <input type="text" class="form-control" id="category" value="<%= category %>" name="category"> 
-            <label for="category">Categoría</label> 
-        </div>
-        
-        <div class="form-floating inputs"> 
-            <input type="text" class="form-control" id="subcategory" name="subcategory" value="<%= subcategory %>" > 
-            <label for="subcategory">Subcategoría</label> 
+            <select class="form-control" name="subcategory" id="subcategory">
+                <% for (let i=0; i< subcategories.length; i++) { %>
+                <option value="<%= subcategories[i].subcategoryId %>"><%= subcategories[i].category.name %> / <%= subcategories[i].name %></option>
+                <% } %>
+            </select>
+            <label for="subcategory">Categoría / Subcategoría</label> 
         </div>
 
         <div class="form-floating inputs"> 
@@ -43,17 +46,17 @@
         </div>
 
         <div class="form-floating inputs"> 
-            <input type="number" class="form-control" id="price_cash" name="price_cash" value="<%= price_cash %>" step="0.01" min="0" > 
-            <label for="price_cash">Precio al contado o transferencia ($)</label> 
+            <input type="number" class="form-control" id="priceCash" name="priceCash" value="<%= priceCash %>" step="0.01" min="0" > 
+            <label for="priceCash">Precio al contado o transferencia ($)</label> 
         </div>
 
         <div class="form-floating inputs"> 
-            <input type="number" class="form-control" id="price_installment_count" name="price_installment_count" value="<%= price_installment_count %>" min="1" >  
-            <label for="price_installment_count">Cantidad de coutas</label> 
+            <input type="number" class="form-control" id="priceInstallmentCount" name="priceInstallmentCount" value="<%= priceInstallmentCount %>" min="1" >  
+            <label for="priceInstallmentCount">Cantidad de coutas</label> 
         </div>
 
         <div class="form-floating inputs"> 
-            <input type="number" class="form-control" id="price_installment" name="price_installment" value="<%= price_installment %>" step="0.01" min="0"> 
+            <input type="number" class="form-control" id="priceInstallment" name="priceInstallment" value="<%= priceInstallment %>" step="0.01" min="0"> 
             <label for="price_installment">Precio en coutas ($)</label> 
         </div>
 
@@ -70,5 +73,9 @@
     </form>
 
     <%- include('../partials/footer') %>
+    <script>
+        document.getElementById('brand').value = '<%= brand %>';
+        document.getElementById('subcategory').value = '<%= subcategory %>';
+    </script>
 </body>
 </html>

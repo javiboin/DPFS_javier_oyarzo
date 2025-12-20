@@ -90,7 +90,40 @@ const productController = {
             return res.status(500).json({ error: error.message })
         }
     },
-    edit: (req, res, next) => {
+    edit: async (req, res, next) => {
+        try {
+            const id = parseInt(req.params.id);
+            const product = await db.Product.findByPk(id);
+
+            // utilizar una funcion para estos dos
+            const brands = await db.Brand.findAll();
+            const subcategories = await db.Subcategory.findAll({
+              include: [ { association: 'category' } ]
+            });
+
+            //res.send(product);
+            res.render('products/edit', { 
+                title: 'Modificar Producto',
+                id: product.id,
+                name: product.name,
+                brands,
+                subcategories,
+                brand: product.brandId,
+                description: product.description,
+                image: product.image,
+                subcategory: product.subcategoryId,
+                price: parseFloat(product.price),
+                priceCash: parseFloat(product.priceCash),
+                priceInstallmentCount: parseInt(product.priceInstallmentCount),
+                priceInstallment: parseFloat(product.priceInstallment)
+            });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+        
+
+    },
+    oldEdit: (req, res, next) => {
         const id = req.params.id;
         const product = searchProduct(id);
         
