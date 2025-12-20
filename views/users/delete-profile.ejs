@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/stylesheets/user-edit-delete.css">
+    <link rel="stylesheet" href="/stylesheets/form.css">
 </head>
 <body>
     <%- include('../partials/header') %>
     <%- include('../partials/nav') %>
 
-    <form class="edit-user" action="/users/delete-profile/<%= id %>?_method=DELETE" method="post">
+    <form class="form" action="/users/delete-profile/<%= id %>?_method=DELETE" method="post">
         <h5>¿Esta seguro que desea Eliminar su cuenta?</h5> 
         <button id="submit" type="submit">Eliminar Cuenta</button> 
         <a href="/users/profile/<%= id %>">Volver Atras</a>

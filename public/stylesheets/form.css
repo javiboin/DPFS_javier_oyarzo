@@ -3,14 +3,14 @@ h2 {
     text-align: center;
 }
 
-.edit-user {
+.form {
     width: 60%;
     margin: 2rem auto;
     padding: 2rem;
     border: 0.4px solid var(--color1);
 }
 
-.edit-user #submit {
+.form #submit {
     color: var(--color6);
     background-color: var(--color1);
     height: 4rem;
@@ -20,21 +20,21 @@ h2 {
     transition: all .4s ease;
 }
 
-.edit-user #submit:hover {
+.form #submit:hover {
     background-color: var(--color4);
     color: var(--color1);
 }
 
-.edit-user button, .form-floating {
+.form button, .form-floating {
     margin-top: 1rem;
 }
 
-.edit-user input[type="file"]{
+.form input[type="file"]{
     margin-top: 1rem;
     display: block;
 }
 
-.edit-user img{
+.form img{
     display: block;
     margin: 1rem auto;
     width: 500px;
