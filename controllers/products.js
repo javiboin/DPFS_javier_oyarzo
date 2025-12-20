@@ -123,29 +123,6 @@ const productController = {
         
 
     },
-    oldEdit: (req, res, next) => {
-        const id = req.params.id;
-        const product = searchProduct(id);
-        
-        if (!product) {
-            res.send('Producto no encontrado');
-        }
-        
-        res.render('products/edit', { 
-            title: 'Modificar Producto',
-            id: product.id,
-            name: product.name,
-            brand: product.brand,
-            description: product.description,
-            image: product.image,
-            category: product.category,
-            subcategory: product.subcategory,
-            price: product.price,
-            price_cash: product.price_cash,
-            price_installment_count: product.price_installment_count,
-            price_installment: product.price_installment
-        });
-    },
     update: (req, res, next) => {
         let id = req.params.id;
         let product = searchProduct(id);
