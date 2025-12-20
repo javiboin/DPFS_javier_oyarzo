@@ -156,35 +156,41 @@ const productController = {
         }
     },
     delete: async (req, res, next) => {
-        const id = parseInt(req.params.id);
+        try { 
+            const id = parseInt(req.params.id);
 
-        const product = await db.Product.findByPk(id, {
-            include: [ { association: 'brand' } ]
-        });
-        
-        if (!product) {
-            return res.status(404).render('not-found');
-        }
-
-        res.render('products/delete', { 
-            title: 'Eliminar producto', 
-            id: id,
-            name: product.name,
-            brand: product.brand.name,
-            image: product.image
-        });
-    },
-    destroy: (req, res, next) => {
-        try {
-            let id = parseInt(req.params.id);
-            let indice = products.data.findIndex(p => p.id === id);
-
-            if (indice !== -1) {
-                products.data.splice(indice, 1);
-                return res.redirect('/');
-            } else {
-                return res.status(404).send("Producto no encontrado");
+            const product = await db.Product.findByPk(id, {
+                include: [ { association: 'brand' } ]
+            });
+            
+            if (!product) {
+                return res.status(404).render('not-found');
             }
+
+            res.render('products/delete', { 
+                title: 'Eliminar producto', 
+                id: id,
+                name: product.name,
+                brand: product.brand.name,
+                image: product.image
+            });
+        } catch (error) {
+            return res.status(500).json({ error: error.message });
+        }
+    },
+    destroy: async (req, res, next) => {
+        try {
+            const id = parseInt(req.params.id);
+            const product = await db.Product.findByPk(id);
+            
+            if (!product) {
+                return res.status(404).render('not-found');
+            }
+
+            await product.destroy({ where: { productId: id } })
+                .then(() => { return res.redirect('/') })
+                .catch(error => { return res.status(500).json({ error: error.message }) 
+            })
         } catch (error) {
             return res.status(500).json({ error: error.message });
         }
