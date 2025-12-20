@@ -104,7 +104,7 @@ const productController = {
             //res.send(product);
             res.render('products/edit', { 
                 title: 'Modificar Producto',
-                id: product.id,
+                id: id,
                 name: product.name,
                 brands,
                 subcategories,
@@ -120,41 +120,40 @@ const productController = {
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
-        
-
     },
-    update: (req, res, next) => {
-        let id = req.params.id;
-        let product = searchProduct(id);
+    update: async (req, res, next) => {
+        try {
+            const id = parseInt(req.params.id);
+            const { name, brand, description, image, subcategory, price, priceCash, priceInstallmentCount, priceInstallment} = req.body;
 
-        if (req.body.image == ""){
-            req.body.image = product.image
+            const updatedProduct = {
+                name: name,
+                brandId: parseInt(brand),
+                description: description,
+                image: image,
+                subcategoryId: parseInt(subcategory),
+                price: parseFloat(price),
+                priceCash: parseFloat(priceCash),
+                priceInstallmentCount: parseInt(priceInstallmentCount),
+                priceInstallment: parseFloat(priceInstallment)
+            };
+
+            // Verificar si el producto existe antes de actualizar
+            const product = await db.Product.findByPk(id);
+            if (!product) {
+                return res.status(404).send('Producto no encontrado');
+            }
+
+            // Actualizar el producto
+            await db.Product.update(updatedProduct, {
+                where: { productId: id }
+            });
+            
+            return res.redirect('/');
+            
+        } catch (error) {
+            return res.status(500).json({ error: error.message });
         }
-
-        let data = {
-            id: id, 
-            name: req.body.name, 
-            brand: req.body.brand, 
-            description: req.body.description, 
-            image: req.body.image, 
-            category: req.body.category, 
-            subcategory: req.body.subcategory, 
-            price: req.body.price, 
-            price_cash: req.body.price_cash, 
-            price_installment_count: req.body.price_installment_count, 
-            price_installment: req.body.price_installment
-        }; 
-
-        // guardar en products
-        let indice = products.data.findIndex(p => p.id == id)
-
-        if (indice !== -1) {
-            products.data[indice] = data;
-        } else {
-            return res.status(404).send("Producto no encontrado");
-        }
-        
-        return res.status(200).redirect('/');
     },
     destroy: (req, res, next) => {
         let id = parseInt(req.params.id);
