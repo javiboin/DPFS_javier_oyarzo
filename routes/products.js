@@ -7,7 +7,8 @@ router.get('/new-product', productController.create);
 router.post('/create', productController.store);
 router.get('/edit/:id', productController.edit);
 router.put('/update/:id', productController.update);
-router.delete('/delete-product/:id', productController.destroy);
+router.get('/delete/:id', productController.delete);
+router.delete('/delete/:id', productController.destroy);
 
 router.get('/product-cart', function(req, res, next) {
   res.render('products/productCart', { title: 'Carrito de Compras' });

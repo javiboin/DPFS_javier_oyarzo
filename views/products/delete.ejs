@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/form.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+
+    <form class="form" action="/products/delete/<%= id %>?_method=DELETE" method="post">
+        <h5>¿Esta seguro que desea Eliminar?</h5> 
+        <p>Identificador: <%= id %></p>
+        <p>Nombre: <%= name %></p>
+        <p>Marca: <%= brand %></p>
+        <img src="/images/<%= image %>" alt="<%= name %>" width="10px" height="auto">
+
+        <button id="submit" type="submit">Eliminar Producto</button> 
+        <a href="/products/edit/<%= id %>">Volver Atras</a>
+    </form>
+
+     <%- include('../partials/footer') %>
+</body>
+</html>
