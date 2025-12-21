@@ -1,9 +1,5 @@
-const products = require("../data/products");
 const db = require('../db/models');
-
-const searchProduct = (id) => {
-    return products.data.find(p => p.id == id);
-}
+const productServices = require('../services/productServices');
 
 const productController = {
     index: async (req, res, next) => {
@@ -54,12 +50,9 @@ const productController = {
        
     },
     create: async (req, res, next) => {
-        const brands = await db.Brand.findAll();
-        const subcategories = await db.Subcategory.findAll({
-              include: [ { association: 'category' } ]
-            });
+        const brands = await productServices.getAllBrands();
+        const subcategories = await productServices.getAllSubcategories();
 
-        //res.send(subcategories)
         res.render('products/create', { 
             title: 'Alta de Productos',
             brands,
@@ -81,8 +74,8 @@ const productController = {
                 priceInstallmentCount: parseInt(priceInstallmentCount),
                 priceInstallment: parseFloat(priceInstallment)
             }
-            //return res.send(newProduct);
 
+            //return res.send(newProduct);
             db.Product.create(newProduct)
                 .then (() => { return res.redirect('/') })
                 .catch (error => { return res.status(500).json({ error: error.message }) })
@@ -93,13 +86,10 @@ const productController = {
     edit: async (req, res, next) => {
         try {
             const id = parseInt(req.params.id);
-            const product = await db.Product.findByPk(id);
+            const product = await productServices.getProductById(id);
 
-            // utilizar una funcion para estos dos
-            const brands = await db.Brand.findAll();
-            const subcategories = await db.Subcategory.findAll({
-              include: [ { association: 'category' } ]
-            });
+            const brands = await productServices.getAllBrands();
+            const subcategories = await productServices.getAllSubcategories();
 
             //res.send(product);
             res.render('products/edit', { 
@@ -138,11 +128,7 @@ const productController = {
                 priceInstallment: parseFloat(priceInstallment)
             };
 
-            // Verificar si el producto existe antes de actualizar
-            const product = await db.Product.findByPk(id);
-            if (!product) {
-                return res.status(404).send('Producto no encontrado');
-            }
+            await productServices.getProductById(id);
 
             // Actualizar el producto
             await db.Product.update(updatedProduct, {
@@ -159,13 +145,7 @@ const productController = {
         try { 
             const id = parseInt(req.params.id);
 
-            const product = await db.Product.findByPk(id, {
-                include: [ { association: 'brand' } ]
-            });
-            
-            if (!product) {
-                return res.status(404).render('not-found');
-            }
+            const product = productServices.getProductById(id);
 
             res.render('products/delete', { 
                 title: 'Eliminar producto', 
@@ -181,11 +161,7 @@ const productController = {
     destroy: async (req, res, next) => {
         try {
             const id = parseInt(req.params.id);
-            const product = await db.Product.findByPk(id);
-            
-            if (!product) {
-                return res.status(404).render('not-found');
-            }
+            const product = await productServices.getProductById(id);
 
             await product.destroy({ where: { productId: id } })
                 .then(() => { return res.redirect('/') })
