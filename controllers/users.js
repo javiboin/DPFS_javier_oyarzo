@@ -1,22 +1,19 @@
 const users = require("../data/users");
+const userService = require("../services/userService");
 
 const searchUser = (id) => {
     return users.data.find(u => u.id === id);
 }
 
 const userController = {
-    show: (req, res, next) => {
+    show: async (req, res, next) => {
         const id = parseInt(req.params.id);
-        const user = searchUser(id);
-
-        if (!user){
-            return res.status(404).render('not-found');
-        }
+        const user = await userService.searchUser(id);
 
         res.render('users/profile', { 
             title: 'Mi cuenta', 
-            nombre: user.firstName,
-            apellido: user.lastName,
+            nombre: user.firstname,
+            apellido: user.lastname,
             email: user.email,
             image: user.image
         }); 
