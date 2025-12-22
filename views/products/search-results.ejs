@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <%- include('./partials/head') %>
+    <%- include('../partials/head') %>
     <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 
-    <%- include('./partials/nav') %>
+    <%- include('../partials/nav') %>
 
     <main>
-        <h2>Productos</h2>
+        <h2>Resultados para: <%= searchTerm %></h2>
 
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/">Productos</a></li>
-        </ol>
-     
-        <form class="add-product" action="/products/new-product" method="get"> 
-            <button id="submit" type="submit">Crear Producto Nuevo</button> 
-        </form>
-
+        <% if (products && products.length > 0) { %>
         <div class="container">
 
         <% products.forEach(product => { %>
@@ -37,8 +29,12 @@
         <% }); %>
 
         </div>
+
+        <% } else { %>
+            <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+        <% } %>
     </main>
 
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
 </body>
 </html>

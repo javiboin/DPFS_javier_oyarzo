@@ -4,8 +4,14 @@
             <h1>Sound City Instrumentos</h1>
         </a>
 
-        <form class="busquedas" role="search">
-            <input type="search" placeholder="Buscar productos, marcas..." aria-label="Buscar productos, marcas..."/>
+        <form class="busquedas" role="search" action="/products/search" method="get">
+            <input 
+                type="search" 
+                placeholder="Buscar productos, marcas..." 
+                aria-label="Buscar productos, marcas..."
+                name="q"
+                value=""
+            />
             <button type="submit"><img src="/images/search-b.png" alt="Buscar"></button> 
         </form>
 

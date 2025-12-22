@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const productController = require("../controllers/products")
+const productController = require("../controllers/products");
+const searchController = require("../controllers/search");
 
 router.get('/product-detail/:id', productController.show);
 router.get('/new-product', productController.create);
@@ -13,5 +14,7 @@ router.delete('/delete/:id', productController.destroy);
 router.get('/product-cart', function(req, res, next) {
   res.render('products/productCart', { title: 'Carrito de Compras' });
 });
+
+router.get('/search', searchController.search);
 
 module.exports = router;
