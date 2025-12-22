@@ -154,6 +154,10 @@ ul {
     background-color: var(--color4);
 }
 
+#userName {
+    margin-left: 1rem;
+}
+
 /* ----------------FOOTER---------------- */
 
 footer{
