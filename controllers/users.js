@@ -1,9 +1,4 @@
-const users = require("../data/users");
 const userService = require("../services/userService");
-
-const searchUser = (id) => {
-    return users.data.find(u => u.id === id);
-}
 
 const userController = {
     show: async (req, res, next) => {
