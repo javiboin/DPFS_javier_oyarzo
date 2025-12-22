@@ -1,5 +1,14 @@
 const db = require('../db/models');
 const productServices = {
+    getAllProducts: async () => {
+    return await db.Product.findAll({
+            include: [
+            { association: 'brand' },
+            { association: 'subcategory' }
+            ]
+        });
+    },
+
     getProductById: async (id) => {
         const product = await db.Product.findByPk(id, {
             include: ['brand', 'subcategory']
@@ -20,6 +29,20 @@ const productServices = {
         return await db.Subcategory.findAll({
             include: [{ association: 'category' }]
         });
+    },
+
+    createProduct: async (data) => {
+        return await db.Product.create(data);
+    },
+
+    updateProduct: async (id, updatedData) => {
+        return await db.Product.update(updatedData, {
+            where: { productId: id }
+        });
+    },
+
+    destroyProduct: async (id) => {
+        return await db.Product.destroy({ where: { productId: id } });
     }
 };
 module.exports = productServices;

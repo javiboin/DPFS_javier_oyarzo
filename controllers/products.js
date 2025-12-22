@@ -1,34 +1,20 @@
-const db = require('../db/models');
 const productServices = require('../services/productServices');
 
 const productController = {
     index: async (req, res, next) => {
         try {
-            const products = await db.Product.findAll({
-              include: [
-                { association: 'brand' },
-                { association: 'subcategory' }
-              ]
-            });
-            //res.json(products);
+            const products = await productServices.getAllProducts();
             return res.render('index', { title: 'Sound City Music', products })
 
         } catch (error) {
             return res.status(500).json({ error: error.message });
         }
-        
     },
     show: async (req, res, next) => {
         try {
             const id = parseInt(req.params.id);
-            const product = await db.Product.findByPk(id, {
-                include: [
-                    { association: 'brand' },
-                    { association: 'subcategory' }
-                ]
-            })
+            const product = await productServices.getProductById(id);
             
-            //return res.send(product);
             res.render('products/productDetail', { 
                 title: 'Detalle de productos',
                 id: product.productId,
@@ -45,9 +31,7 @@ const productController = {
             });
         } catch (error) {
             return res.status(500).json({ error: error.message})
-            //return res.status(404).render('not-found');
         }
-       
     },
     create: async (req, res, next) => {
         const brands = await productServices.getAllBrands();
@@ -59,7 +43,7 @@ const productController = {
             subcategories
         });
     },
-    store: (req, res, next) => {
+    store: async (req, res, next) => {
         try {
             const { name, brand, description, image, subcategory, price, priceCash, priceInstallmentCount, priceInstallment} = req.body
             
@@ -75,8 +59,7 @@ const productController = {
                 priceInstallment: parseFloat(priceInstallment)
             }
 
-            //return res.send(newProduct);
-            db.Product.create(newProduct)
+            await  productServices.createProduct(newProduct)
                 .then (() => { return res.redirect('/') })
                 .catch (error => { return res.status(500).json({ error: error.message }) })
         } catch (error) {
@@ -91,7 +74,6 @@ const productController = {
             const brands = await productServices.getAllBrands();
             const subcategories = await productServices.getAllSubcategories();
 
-            //res.send(product);
             res.render('products/edit', { 
                 title: 'Modificar Producto',
                 id: id,
@@ -129,14 +111,8 @@ const productController = {
             };
 
             await productServices.getProductById(id);
-
-            // Actualizar el producto
-            await db.Product.update(updatedProduct, {
-                where: { productId: id }
-            });
-            
+            await productServices.updateProduct(id, updatedProduct);
             return res.redirect('/');
-            
         } catch (error) {
             return res.status(500).json({ error: error.message });
         }
@@ -161,12 +137,10 @@ const productController = {
     destroy: async (req, res, next) => {
         try {
             const id = parseInt(req.params.id);
-            const product = await productServices.getProductById(id);
 
-            await product.destroy({ where: { productId: id } })
+            await productServices.destroyProduct(id)
                 .then(() => { return res.redirect('/') })
-                .catch(error => { return res.status(500).json({ error: error.message }) 
-            })
+                .catch(error => { return res.status(500).json({ error: error.message }) });
         } catch (error) {
             return res.status(500).json({ error: error.message });
         }
