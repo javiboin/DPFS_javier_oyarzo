@@ -7,7 +7,7 @@ const authController = {
     access: async (req, res, next) => {
         try {
             const { email, password, rememberMe } = req.body;
-            const user = userServices.searchEmailUser(email);
+            const user = await userServices.searchEmailUser(email);
             
             if (!user) {
                 return res.redirect('/users/login');
@@ -18,12 +18,12 @@ const authController = {
             if (user && passwordDesencrypted){
                 req.session.currentUser = { 
                     id: user.id,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
+                    firstName: user.firstname,
+                    lastName: user.lastname,
                     email: user.email
                 }; 
 
-                if (rememberMe) {
+                if (rememberMe === 'on') {
                     req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 7;
                     req.session.cookie.httpOnly = true;
                 } else {

@@ -27,7 +27,7 @@ const userService = {
     },
 
     searchEmailUser: async (email) => {
-        return await db.User.findAll({ where: { email: email } });
+        return await db.User.findOne({ where: { email: email } });
     },
 
     updateUser: async (id, updatedData) => {
