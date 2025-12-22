@@ -20,9 +20,9 @@
             <img class="product-delete" src="/images/trash.svg" width="20px" height="20px" alt="Eliminar">
 
             <div class="product-quantity">
-                <button style="width: 20px;">-</button>
-                <input type="number" name="quantity" id="quantity" style="width: 40px;">
-                <button style="width: 20px;">+</button>
+                <button class="down" style="width: 20px;">-</button>
+                <input type="number" name="quantity" class="quantity" style="width: 40px;" min="1" value="1">
+                <button class="up" style="width: 20px;">+</button>
             </div>
 
             <p class="product-price">$ 1.000.000</p>
@@ -38,9 +38,9 @@
             <button class="product-delete"><img src="/images/trash.svg" width="20px" height="20px" alt="Eliminar"></button>
 
             <div class="product-quantity">
-                <button style="width: 20px;">-</button>
-                <input type="number" name="quantity" id="quantity" style="width: 40px;">
-                <button style="width: 20px;">+</button>
+                <button class="down" style="width: 20px;">-</button>
+                <input type="number" name="quantity" class="quantity" style="width: 40px;" min="1" value="1">
+                <button class="up" style="width: 20px;">+</button>
             </div>
 
             <p class="product-price">$ 1.000.000</p>
@@ -56,5 +56,6 @@
     </main>
 
     <%- include('../partials/footer') %>
+    <script src="/javascripts/changeQuantity.js"></script>
 </body>
 </html>

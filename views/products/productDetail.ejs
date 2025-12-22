@@ -29,9 +29,9 @@
             <h3 class="product-name"><%= name %></h3>
             <p class="product-brand"><b>Marca:</b> <%= brand %></p>
             <div class="product-quantity">
-                <button>-</button>
-                <input type="number" name="quantity" id="quantity">
-                <button>+</button>
+                <button class="down">-</button>
+                <input type="number" name="quantity" class="quantity" value="1" min="1" >
+                <button class="up">+</button>
             </div>
 
             <div class="product-price">
@@ -50,5 +50,6 @@
     </main>
 
     <%- include('../partials/footer') %>
+    <script src="/javascripts/changeQuantity.js"></script>
 </body>
 </html>

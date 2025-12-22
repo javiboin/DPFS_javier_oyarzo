@@ -131,6 +131,10 @@ h2 {
     margin: 1rem 4rem;
 }
 
+.quantity {
+    text-align: center;
+}
+
 @media (max-width: 1180px) {
     .product-detail {
         display: inline-block;
