@@ -9,13 +9,17 @@
 
     <%- include('../partials/nav') %> 
 
+    <form action="/users/logout" method="post">
+        <button id="logout" type="submit">Cerrar Sesión</button>
+    </form>
     <main>
         <h2>Mi cuenta</h2>
         
+        <h3>Datos Personales</h3>
+        <img src="/images/<%= image %>" alt="<%= nombre %>,<%= apellido %>">  
+        <span><a class="edit-btn" href="/users/edit/<%= id %>">Modificar Datos</a></span>
+        
         <table class="mis-datos"> 
-            <h3>Datos Personales</h3>
-            <img src="/images/<%= image %>" alt="<%= nombre %>,<%= apellido %>">  
-            <span><a class="edit-btn" href="/users/edit/<%= id %>">Modificar Datos</a></span>
             <tr>
                 <th>Nombre</th>
                 <td><%= nombre %></td>
@@ -28,7 +32,6 @@
                 <th>Correo Eléctronico</th>
                 <td><%= email %></td>
             </tr>
-
         </table>
 
         <table class="mis-compras">    

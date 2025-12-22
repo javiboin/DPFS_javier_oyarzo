@@ -17,7 +17,7 @@ const authController = {
 
             if (user && passwordDesencrypted){
                 req.session.currentUser = { 
-                    id: user.id,
+                    id: user.userId,
                     firstName: user.firstname,
                     lastName: user.lastname,
                     email: user.email
@@ -39,7 +39,8 @@ const authController = {
         }
     },
     logout: (req, res, next) => {
-        res.send('Deslogueate!');
+        req.session.destroy();
+        return res.redirect('/');
     },
     signup: (req, res, next) => {
         res.render('users/register', { title: 'Registro' });
@@ -56,8 +57,8 @@ const authController = {
 
             const passwordEncrypted = await userServices.createHash(password);
             const newUser = {
-                firstName: firstName,
-                lastName: lastName,
+                firstname: firstName,
+                lastname: lastName,
                 email: email,
                 password: passwordEncrypted,
                 category: parseInt(2),
