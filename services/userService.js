@@ -28,8 +28,8 @@ const userService = {
 
     updateUser: async (id, updatedData) => {
         return await db.User.update(updatedData, {
-                where: { userId: id }
-            });
+            where: { userId: id }
+        });
     }
 
 };

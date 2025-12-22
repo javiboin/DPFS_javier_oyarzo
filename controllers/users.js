@@ -92,15 +92,17 @@ const userController = {
             return res.status(500).render('error', { error: error.message });
         }
     },
-    destroy: (req, res, next) => {
-        const id = parseInt(req.params.id);
-        const indice = users.data.findIndex(p => p.id === id);
+    destroy: async (req, res, next) => {
+        try {
+            const id = parseInt(req.params.id);
+            const user = await userService.searchUser(id);
 
-        if (indice !== -1) {
-            users.data.splice(indice, 1);
-            return res.redirect('/');
-        } else {
-            return res.status(404).send("Usuario no encontrado");
+            await user.destroy({ where: { userId: id } })
+                .then(() => { return res.redirect('/') })
+                .catch(error => { return res.status(500).json({ error: error.message }) 
+            })
+        } catch (error) {
+            return res.status(500).render('error', { error: error.message });
         }
     }
 }
