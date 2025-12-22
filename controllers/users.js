@@ -12,19 +12,16 @@ const userController = {
 
         res.render('users/profile', { 
             title: 'Mi cuenta', 
+            id: user.userId,
             nombre: user.firstname,
             apellido: user.lastname,
             email: user.email,
             image: user.image
         }); 
     },
-    editUser: (req, res, next) => {
+    edit: async (req, res, next) => {
         const id = parseInt(req.params.id);
-        const user = searchUser(id);
-
-        if (!user){
-            return res.status(404).render('not-found');
-        }
+        const user = await userService.searchUser(id);
 
         res.render('users/edit-user', { 
             title: 'Modificar mis datos',

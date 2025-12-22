@@ -10,7 +10,7 @@ const authController = require('../controllers/auth');
 
 // Usuarios
 router.get('/profile/:id',  requiredAuth, userController.show); 
-router.get('/edit-user/:id', requiredAuth, userController.editUser); 
+router.get('/edit/:id', requiredAuth, userController.edit); 
 router.put('/edit-user/:id', requiredAuth, userController.updateUser);
 router.get('/delete-profile/:id', requiredAuth, userController.delete); 
 router.delete('/delete-profile/:id', requiredAuth, userController.destroy);
