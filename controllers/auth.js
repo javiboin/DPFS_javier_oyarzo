@@ -1,11 +1,4 @@
-const users = require("../data/users");
-const bcryptjs = require('bcryptjs');
 const userServices = require('../services/userServices');
-
-const createHash = async (passwordToConvert) => {
-  const newHash = await bcryptjs.hash(passwordToConvert, 8);
-  return newHash;
-};
 
 const authController = {
     login: (req, res, next) => {
@@ -52,28 +45,31 @@ const authController = {
         res.render('users/register', { title: 'Registro' });
     },
     register: async (req, res, next) => {
-        const { firstName, lastName, email, password, confirmPassword } = req.body
+        try {
+            const { firstName, lastName, email, password, confirmPassword } = req.body
 
-        if (password !== '' && confirmPassword !== ''){
-            if (password !== confirmPassword){
-                return res.send('Las contraseñas no son iguales')
-            }
-        } 
+            if (password !== '' && confirmPassword !== ''){
+                if (password !== confirmPassword){
+                    return res.send('Las contraseñas no son iguales')
+                }
+            } 
 
-        const passwordEncrypted = await userServices.createHash(password);
+            const passwordEncrypted = await userServices.createHash(password);
+            const newUser = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: passwordEncrypted,
+                category: parseInt(2),
+                image: req.file.filename 
+            };
 
-        const newUser = {
-            id: users.data.length +1,
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: passwordEncrypted,
-            category: 'Cliente',
-            image: req.file.filename 
-        };
-
-        users.data.push(newUser);
-        res.redirect('/users/login');
+            await userServices.createUser(newUser)
+                .then (() => { return res.redirect('/users/login') })
+                .catch (error => { return res.status(500).json({ error: error.message }) });
+        } catch (error) {
+            return res.status(500).json({ error: error.message });
+        }
     },
     forgot: (req, res, next) => {
         res.render('users/recovery-user', { title: 'Recuperar contraseña' });

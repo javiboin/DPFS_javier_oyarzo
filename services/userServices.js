@@ -12,6 +12,10 @@ const userService = {
     return compare;
     },
 
+    createUser: async (userToCreate) => {
+        return await db.User.create(userToCreate);
+    },
+
     searchUser: async (id) => {
         const user = await db.User.findByPk(id);
 
