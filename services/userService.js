@@ -30,6 +30,10 @@ const userService = {
         return await db.User.update(updatedData, {
             where: { userId: id }
         });
+    },
+
+    destroyUser: async (id) => {
+        return await db.User.destroy({ where: { userId: id } });
     }
 
 };

@@ -90,12 +90,9 @@ const userController = {
     destroy: async (req, res, next) => {
         try {
             const id = parseInt(req.params.id);
-            const user = await userService.searchUser(id);
-
-            await user.destroy({ where: { userId: id } })
+            await userService.destroyUser(id)
                 .then(() => { return res.redirect('/') })
-                .catch(error => { return res.status(500).json({ error: error.message }) 
-            })
+                .catch(error => { return res.status(500).json({ error: error.message }) });
         } catch (error) {
             return res.status(500).render('error', { error: error.message });
         }
