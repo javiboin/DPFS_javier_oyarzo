@@ -24,15 +24,21 @@ const productServices = {
     getAllBrands: async () => {
         return await db.Brand.findAll();
     },
+
+    getCategory: async (categoryId) => {
+        return await db.Category.findByPk(categoryId);
+    },
+
+    getAllCategories: async () => {
+        return await db.Category.findAll({
+            include: [{ association: 'subcategories' }]
+        });
+    },
     
     getAllSubcategories: async () => {
         return await db.Subcategory.findAll({
             include: [{ association: 'category' }]
         });
-    },
-
-    getCategory: async (categoryId) => {
-        return await db.Category.findByPk(categoryId);
     },
 
     createProduct: async (data) => {

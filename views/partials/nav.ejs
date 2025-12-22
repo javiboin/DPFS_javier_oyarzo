@@ -11,19 +11,17 @@
                 <li class="nav-item">
                     <p>Categorías</p>
                     <ul class="menu-v">
-                        <li><a href="">Guitarras y Bajos</a></li>
-                        <li><a href="">Teclados</a></li>
-                        <li><a href="">Baterías y Percusión</a></li>
-                        <li><a href="">Estudio y Grabación</a></li>
+                        <% categories.forEach(category => { %>
+                            <li><a href="/products/search?q=<%= category.name %>"><%= category.name %></a></li>
+                        <% }) %>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <p>Marcas</p>
                     <ul class="menu-v">
-                        <li><a href="">Fender</a></li>
-                        <li><a href="">Arturia</a></li>
-                        <li><a href="">Tama</a></li>
-                        <li><a href="">Shure</a></li>
+                        <% brands.forEach(brand => { %>
+                            <li><a href="/products/search?q=<%= brand.name %>"><%= brand.name %></a></li>
+                        <% }) %>
                     </ul>
                 </li>
             </ul>

@@ -11,6 +11,8 @@ const productsRouter = require('./routes/products');
 const session = require('express-session');
 
 const sessionMiddleware = require('./middlewares/session');
+const categoriesMiddleware = require('./middlewares/categories');
+const brandsMiddleware = require('./middlewares/brands');
 
 const app = express();
 
@@ -37,6 +39,8 @@ app.use(session({
 }));
 
 app.use(sessionMiddleware);
+app.use(categoriesMiddleware);
+app.use(brandsMiddleware);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
