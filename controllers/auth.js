@@ -1,19 +1,11 @@
 const users = require("../data/users");
 const bcryptjs = require('bcryptjs');
+const userServices = require('../services/userServices');
 
 const createHash = async (passwordToConvert) => {
   const newHash = await bcryptjs.hash(passwordToConvert, 8);
   return newHash;
 };
-
-const compareHash = async (password, hashToConvert) => {
-    const compare = await bcryptjs.compare(password, hashToConvert);
-    return compare;
-};
-
-const searchEmailUser = (email) => {
-    return users.data.find(u => u.email === email)
-}
 
 const authController = {
     login: (req, res, next) => {
@@ -21,14 +13,13 @@ const authController = {
     },
     access: async (req, res, next) => {
         const { email, password, rememberMe } = req.body;
-
-        const user = searchEmailUser(email);
+        const user = userServices.searchEmailUser(email);
         
         if (!user) {
             return res.redirect('/users/login');
         }
 
-        const passwordDesencrypted = await compareHash(password, user.password);
+        const passwordDesencrypted = await userServices.compareHash(password, user.password);
 
         if (user && passwordDesencrypted){
             req.session.currentUser = { 
