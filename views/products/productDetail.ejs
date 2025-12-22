@@ -9,6 +9,13 @@
 
     <%- include('../partials/nav') %>
 
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/">Productos</a></li>
+        <li class="breadcrumb-item"><a href="/"><%= category %></a></li>
+        <li class="breadcrumb-item"><a href="/"><%= subcategory %></a></li>
+    </ol>
+
     <main>
         <form class="edit-product" action="/products/edit/<%= id %>" method="get"> 
             <button id="submit" type="submit">Editar Producto</button> 

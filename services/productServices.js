@@ -31,6 +31,10 @@ const productServices = {
         });
     },
 
+    getCategory: async (categoryId) => {
+        return await db.Category.findByPk(categoryId);
+    },
+
     createProduct: async (data) => {
         return await db.Product.create(data);
     },

@@ -14,6 +14,7 @@ const productController = {
         try {
             const id = parseInt(req.params.id);
             const product = await productServices.getProductById(id);
+            const category = await productServices.getCategory(product.subcategory.categoryId);
             
             res.render('products/productDetail', { 
                 title: 'Detalle de productos',
@@ -22,8 +23,8 @@ const productController = {
                 brand: product.brand.name,
                 description: product.description,
                 image: product.image,
-                category: product.category,
-                subcategory: product.subcategory,
+                category: category.name,
+                subcategory: product.subcategory.name,
                 price: product.price,
                 price_cash: product.priceCash,
                 price_installment_count: product.priceInstallmentCount,

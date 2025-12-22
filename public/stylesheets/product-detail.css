@@ -10,6 +10,16 @@ h2 {
     text-align: center;
 }
 
+.breadcrumb {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: var(--color5);
+}
+
 .edit-product {
     display: inline-block;
     align-self: flex-start;
