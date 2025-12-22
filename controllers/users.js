@@ -7,30 +7,38 @@ const searchUser = (id) => {
 
 const userController = {
     show: async (req, res, next) => {
-        const id = parseInt(req.params.id);
-        const user = await userService.searchUser(id);
+        try {
+            const id = parseInt(req.params.id);
+            const user = await userService.searchUser(id);
 
-        res.render('users/profile', { 
-            title: 'Mi cuenta', 
-            id: user.userId,
-            nombre: user.firstname,
-            apellido: user.lastname,
-            email: user.email,
-            image: user.image
-        }); 
+            res.render('users/profile', { 
+                title: 'Mi cuenta', 
+                id: user.userId,
+                nombre: user.firstname,
+                apellido: user.lastname,
+                email: user.email,
+                image: user.image
+            }); 
+        } catch (error) {
+            return res.status(500).render('error', { error: error.message });
+        }
     },
     edit: async (req, res, next) => {
-        const id = parseInt(req.params.id);
-        const user = await userService.searchUser(id);
+        try {
+            const id = parseInt(req.params.id);
+            const user = await userService.searchUser(id);
 
-        res.render('users/edit', { 
-            title: 'Modificar mis datos',
-            id: user.userId,
-            nombre: user.firstname,
-            apellido: user.lastname,
-            email: user.email,
-            image: user.image 
-        });
+            res.render('users/edit', { 
+                title: 'Modificar mis datos',
+                id: user.userId,
+                nombre: user.firstname,
+                apellido: user.lastname,
+                email: user.email,
+                image: user.image 
+            });
+        } catch (error) {
+            return res.status(500).render('error', { error: error.message });
+        }
     },
     update: async (req, res, next) => {
         try {
