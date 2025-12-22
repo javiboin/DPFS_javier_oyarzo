@@ -82,15 +82,15 @@ const userController = {
             return res.status(500).render('error', { error: error.message });
         }
     },
-    delete: (req, res, next) => {
-        const id = parseInt(req.params.id);
-        const user = searchUser(id);
+    delete: async (req, res, next) => {
+        try {
+            const id = parseInt(req.params.id);
+            const user = await userService.searchUser(id);
 
-        if (!user){
-            return res.status(404).render('not-found');
+            res.render('users/delete-profile', { title: 'Eliminar mi cuenta', id: user.userId });
+        } catch (error) {
+            return res.status(500).render('error', { error: error.message });
         }
-
-        res.render('users/delete-profile', { title: 'Eliminar mi cuenta', id: id });
     },
     destroy: (req, res, next) => {
         const id = parseInt(req.params.id);
