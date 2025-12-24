@@ -48,6 +48,19 @@ const validations = {
 
                 return true;
             })
+    ],
+    acces: [
+        body('email')
+            .notEmpty().withMessage('El email es obligatorio')
+            .isEmail().withMessage('Debe ser un email válido')
+            .custom(async value => {
+                const user = await userServices.searchEmailUser(value);
+                if (!user) {
+                    throw new Error('Correo electrónico no encontrado');
+                }
+            }),
+        body('password')
+            .notEmpty().withMessage('La contraseña es obligatoria')
     ]
 };
 

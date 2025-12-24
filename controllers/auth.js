@@ -7,13 +7,20 @@ const authController = {
     },
     access: async (req, res, next) => {
         try {
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                const errorMessages = errors.array().map(error => error.msg);
+                /* return res.status(400).render('users/login', { 
+                    title: 'Inicio de Sesión',
+                    errors: errorMessages,
+                }); */
+
+                return res.send(errorMessages)
+            };
+
             const { email, password, rememberMe } = req.body;
             const user = await userServices.searchEmailUser(email);
-            
-            if (!user) {
-                return res.redirect('/users/login');
-            }
-
             const passwordDesencrypted = await userServices.compareHash(password, user.password);
 
             if (user && passwordDesencrypted){
