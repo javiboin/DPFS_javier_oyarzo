@@ -34,7 +34,7 @@ const validations = {
                 return true;
             }),
         body('file')
-            .custom((value, { req }) => {
+            .custom(({ req }) => {
                 if (!req.file) {
                     throw new Error('La imagen es obligatoria');
                 }
