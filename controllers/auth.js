@@ -1,4 +1,5 @@
 const userServices = require('../services/userServices');
+const { validationResult } = require('express-validator');
 
 const authController = {
     login: (req, res, next) => {
@@ -43,10 +44,26 @@ const authController = {
         return res.redirect('/');
     },
     signup: (req, res, next) => {
-        res.render('users/register', { title: 'Registro' });
+        res.render('users/register', { 
+            title: 'Registro',
+            errors: [],
+            oldData: {}
+        });
     },
     register: async (req, res, next) => {
         try {
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                const errorMessages = errors.array().map(error => error.msg);
+                /* return res.status(400).render('users/register', { 
+                    errors: errorMessages,
+                    oldData: req.body
+                }); */
+
+                return res.send(errorMessages)
+            };
+
             const { firstName, lastName, email, password, confirmPassword } = req.body
 
             if (password !== '' && confirmPassword !== ''){
