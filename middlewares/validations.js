@@ -49,7 +49,7 @@ const validations = {
                 return true;
             })
     ],
-    acces: [
+    access: [
         body('email')
             .notEmpty().withMessage('El email es obligatorio')
             .isEmail().withMessage('Debe ser un email válido')

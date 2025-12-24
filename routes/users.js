@@ -19,7 +19,7 @@ router.delete('/delete-profile/:id', requiredAuth, userController.destroy);
 
 // Autenticación
 router.get('/login', authController.login);  
-router.post('/login', authController.access); 
+router.post('/login', validations.access, authController.access); 
 router.post('/logout', authController.logout); 
 router.get('/register', authController.signup); 
 router.post('/register', uploads.single('image'), validations.register, authController.register); 
