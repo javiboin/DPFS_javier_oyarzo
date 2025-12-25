@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 
 const productValidations = {
-    create: [
+    save: [
         body('name')
         .notEmpty().withMessage('El nombre es obligatorio')
         .isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
