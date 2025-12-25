@@ -4,7 +4,7 @@ const multer = require('multer');
 const uploads = multer({dest: 'public/images/users/'});
 
 const requiredAuth = require('../middlewares/requiredAuth');
-const validations = require('../middlewares/validations');
+const userValidations = require('../middlewares/validations/userValidations');
 
 const userController = require('../controllers/users');
 const authController = require('../controllers/auth');
@@ -19,10 +19,10 @@ router.delete('/delete-profile/:id', requiredAuth, userController.destroy);
 
 // Autenticación
 router.get('/login', authController.login);  
-router.post('/login', validations.access, authController.access); 
+router.post('/login', userValidations.access, authController.access); 
 router.post('/logout', authController.logout); 
 router.get('/register', authController.signup); 
-router.post('/register', uploads.single('image'), validations.register, authController.register); 
+router.post('/register', uploads.single('image'), userValidations.register, authController.register); 
 router.get('/forgot', authController.forgot); 
 router.post('/forgot-sent', authController.forgotSent);
 

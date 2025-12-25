@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const productController = require("../controllers/products");
 const searchController = require("../controllers/search");
+const productValidations = require('../middlewares/validations/productValidations');
 
 router.get('/product-detail/:id', productController.show);
 router.get('/new-product', productController.create);
-router.post('/create', productController.store);
+router.post('/create', productValidations.create, productController.store);
 router.get('/edit/:id', productController.edit);
 router.put('/update/:id', productController.update);
 router.get('/delete/:id', productController.delete);

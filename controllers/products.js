@@ -1,4 +1,5 @@
 const productServices = require('../services/productServices');
+const { validationResult } = require('express-validator');
 
 const productController = {
     index: async (req, res, next) => {
@@ -46,6 +47,19 @@ const productController = {
     },
     store: async (req, res, next) => {
         try {
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                const errorMessages = errors.array().map(error => error.msg);
+                /* return res.status(400).render('users/login', { 
+                    title: 'Inicio de Sesión',
+                    errors: errorMessages,
+                }); */
+
+                return res.send(errorMessages)
+            };
+
+
             const { name, brand, description, image, subcategory, price, priceCash, priceInstallmentCount, priceInstallment} = req.body
             
             const newProduct = {

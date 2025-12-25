@@ -1,8 +1,8 @@
 const { body } = require('express-validator');
-const userServices = require('../services/userServices');
+const userServices = require('../../services/userServices');
 const path = require('path');
 
-const validations = {
+const userValidations = {
     register: [
        body('firstName')
         .notEmpty().withMessage('El nombre es obligatorio')
@@ -64,4 +64,4 @@ const validations = {
     ]
 };
 
-module.exports = validations;
+module.exports = userValidations;
