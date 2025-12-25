@@ -3,7 +3,10 @@ const { validationResult } = require('express-validator');
 
 const authController = {
     login: (req, res, next) => {
-        res.render('users/login', { title: 'Inicio de Sesión' });
+        res.render('users/login', { 
+            title: 'Inicio de Sesión',
+            errors: []
+        });
     },
     access: async (req, res, next) => {
         try {
@@ -11,12 +14,10 @@ const authController = {
 
             if (!errors.isEmpty()) {
                 const errorMessages = errors.array().map(error => error.msg);
-                /* return res.status(400).render('users/login', { 
+                return res.status(400).render('users/login', { 
                     title: 'Inicio de Sesión',
                     errors: errorMessages,
-                }); */
-
-                return res.send(errorMessages)
+                });
             };
 
             const { email, password, rememberMe } = req.body;

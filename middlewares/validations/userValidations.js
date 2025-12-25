@@ -45,7 +45,6 @@ const userValidations = {
                 if (!allowedExt.includes(fileExt)) {
                     throw new Error(`Extensiones permitidas: ${allowedExt.join(', ')}`);
                 }
-
                 return true;
             })
     ],
@@ -61,6 +60,14 @@ const userValidations = {
             }),
         body('password')
             .notEmpty().withMessage('La contraseña es obligatoria')
+            .custom(async (value, { req }) => {
+                const user = await userServices.searchEmailUser(req.body.email);
+                const passwordDesencrypted = await userServices.compareHash(value, user.password);
+                if (!passwordDesencrypted) {
+                    throw new Error('La contraseña no es correcta');
+                }
+                return true;
+            })
     ]
 };
 
