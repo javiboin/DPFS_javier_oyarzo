@@ -6,9 +6,9 @@ const productValidations = require('../middlewares/validations/productValidation
 
 router.get('/product-detail/:id', productController.show);
 router.get('/new-product', productController.create);
-router.post('/create', productValidations.create, productController.store);
+router.post('/create', productValidations.save, productController.store);
 router.get('/edit/:id', productController.edit);
-router.put('/update/:id', productController.update);
+router.put('/update/:id', productValidations.save, productController.update);
 router.get('/delete/:id', productController.delete);
 router.delete('/delete/:id', productController.destroy);
 
