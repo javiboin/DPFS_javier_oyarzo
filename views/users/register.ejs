@@ -9,7 +9,7 @@
 
     <%- include('../partials/nav') %>
 
-    <form class="register" action="/users/register" enctype="multipart/form-data" method="post"> 
+    <form class="register" id="registerForm" action="/users/register" enctype="multipart/form-data" method="post"> 
         <h2>Registrarse</h2>
         
         <div class="form-floating"> 
@@ -43,7 +43,7 @@
         </div> 
 
         <% errors.forEach(error => { %>
-            <p style="color: red;"><%= error %></p>
+            <p style="color: red; font-size: 12px;"><%= error %></p>
         <% }); %>
 
         <p>¿Tienes una cuenta? <a href="/users/login">Iniciar sesión</a></p>
@@ -51,6 +51,7 @@
     </form>
     
     <%- include('../partials/footer') %>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
     <script src="/javascripts/register.js"></script>
 </body>
 </html>

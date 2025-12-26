@@ -8,7 +8,9 @@ h2 {
     margin: 1rem auto;
 }
 
-.register #submit {
+#submit {
+    opacity: 1;
+    cursor: pointer;
     color: var(--color6);
     background-color: var(--color1);
     height: 50px;
@@ -18,7 +20,7 @@ h2 {
     transition: all .4s ease;
 }
 
-.register #submit:hover {
+#submit:hover {
     background-color: var(--color4);
     color: var(--color1);
 }
