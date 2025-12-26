@@ -42,21 +42,24 @@ const productController = {
         res.render('products/create', { 
             title: 'Alta de Productos',
             brands,
-            subcategories
+            subcategories,
+            errors: []
         });
     },
     store: async (req, res, next) => {
         try {
+            const brands = await productServices.getAllBrands();
+            const subcategories = await productServices.getAllSubcategories();
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
                 const errorMessages = errors.array().map(error => error.msg);
-                /* return res.status(400).render('users/login', { 
-                    title: 'Inicio de Sesión',
+                return res.status(400).render('products/create', { 
+                    title: 'Alta de Productos',
+                    brands,
+                    subcategories,
                     errors: errorMessages,
-                }); */
-
-                return res.send(errorMessages)
+                });
             };
 
 

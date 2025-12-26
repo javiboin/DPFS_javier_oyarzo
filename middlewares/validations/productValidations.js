@@ -1,4 +1,5 @@
 const { body } = require('express-validator');
+const path = require('path');
 
 const productValidations = {
     save: [
@@ -14,7 +15,7 @@ const productValidations = {
         .isLength({ min: 20 }).withMessage('La descripción debe tener al menos 20 caracteres'),
 
         body('file')
-            .custom(({ req }) => {
+            .custom((value, { req }) => {
                 if (!req.file) {
                     throw new Error('La imagen es obligatoria');
                 }
@@ -25,7 +26,6 @@ const productValidations = {
                 if (!allowedExt.includes(fileExt)) {
                     throw new Error(`Extensiones permitidas: ${allowedExt.join(', ')}`);
                 }
-
                 return true;
             }),
         body('subcategoryId')
