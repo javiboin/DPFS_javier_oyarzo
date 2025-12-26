@@ -17,17 +17,17 @@
         </div>
 
         <div class="form-floating"> 
-            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"> 
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" value="<%= oldData.email %>" > 
             <label for="email">Correo Electrónico</label> 
         </div>
 
         <div class="form-floating"> 
-            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Nombre" > 
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Nombre" value="<%= oldData.firstName %>" > 
             <label for="firstName">Nombre</label> 
         </div>
 
         <div class="form-floating"> 
-            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellido" > 
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellido" value="<%= oldData.lastName %>" > 
             <label for="lastName">Apellido</label> 
         </div>
         
@@ -41,6 +41,10 @@
             <label for="confirmPassword">Confirmar constraseña</label> 
             <span id="show-hide">Mostrar</span>
         </div> 
+
+        <% errors.forEach(error => { %>
+            <p style="color: red;"><%= error %></p>
+        <% }); %>
 
         <p>¿Tienes una cuenta? <a href="/users/login">Iniciar sesión</a></p>
         <button id="submit" type="submit">Ingresar</button> 

@@ -1,5 +1,7 @@
 const userServices = require('../services/userServices');
 const { validationResult } = require('express-validator');
+const fs = require('fs');
+const path = require('path');
 
 const authController = {
     login: (req, res, next) => {
@@ -55,30 +57,34 @@ const authController = {
         res.render('users/register', { 
             title: 'Registro',
             errors: [],
-            oldData: {}
+            oldData: {
+                email: '',
+                firstName: '',
+                lastName: ''
+            }
         });
     },
     register: async (req, res, next) => {
         try {
+            const { firstName, lastName, email, password } = req.body;
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
                 const errorMessages = errors.array().map(error => error.msg);
-                /* return res.status(400).render('users/register', { 
-                    errors: errorMessages,
-                    oldData: req.body
-                }); */
 
-                return res.send(errorMessages)
-            };
-
-            const { firstName, lastName, email, password, confirmPassword } = req.body
-
-            if (password !== '' && confirmPassword !== ''){
-                if (password !== confirmPassword){
-                    return res.send('Las contraseñas no son iguales')
+                if (req.file) {
+                    fs.unlinkSync(path.join(__dirname, '../public/images/users', req.file.filename));
                 }
-            } 
+                return res.status(400).render('users/register', { 
+                    title: 'Registro',
+                    errors: errorMessages,
+                    oldData: {
+                        email: email,
+                        firstName: firstName,
+                        lastName: lastName
+                    }
+                });
+            };
 
             const passwordEncrypted = await userServices.createHash(password);
             const newUser = {

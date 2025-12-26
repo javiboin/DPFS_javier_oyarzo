@@ -18,6 +18,7 @@ const userValidations = {
                 if (user) {
                     throw new Error('El correo electronico ya se encuentra registrado');
                 }
+                return true;
             }),
         body('password')
             .notEmpty().withMessage('La contraseña es obligatoria')
@@ -28,13 +29,15 @@ const userValidations = {
             .matches(/[^a-zA-Z0-9]/).withMessage('La contraseña debe contener al menos un carácter especial'),
         body('confirmPassword')
             .custom((value, { req }) => {
-                if (value !== req.body.password) {
-                    throw new Error('Las contraseñas no coinciden');
+                if (value !== '' && req.body.password !== '') {
+                    if (value !== req.body.password) {
+                        throw new Error('Las contraseñas no coinciden');
+                    }
                 }
                 return true;
             }),
         body('file')
-            .custom(({ req }) => {
+            .custom((value, { req }) => {
                 if (!req.file) {
                     throw new Error('La imagen es obligatoria');
                 }
