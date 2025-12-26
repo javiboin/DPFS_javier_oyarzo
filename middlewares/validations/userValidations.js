@@ -66,6 +66,7 @@ const userValidations = {
             }),
         body('password')
             .notEmpty().withMessage('La contraseña es obligatoria')
+            .bail()
             .custom(async (value, { req }) => {
                 const user = await userServices.searchEmailUser(req.body.email);
                 const passwordDesencrypted = await userServices.compareHash(value, user.password);

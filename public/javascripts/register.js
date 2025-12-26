@@ -25,7 +25,7 @@ const confirmPasswordInput = document.getElementById('confirmPassword');
 const fileInput = document.getElementById('file');
 
 
-function showError(input, message) {
+const showError = (input, message) => {
     const formGroup = input.parentElement;
     let errorElement = formGroup.querySelector('.error-message');
     
@@ -42,7 +42,7 @@ function showError(input, message) {
     input.classList.add('is-invalid');
 }
 
-function clearError(input) {
+const clearError = (input) => {
     const formGroup = input.parentElement;
     const errorElement = formGroup.querySelector('.error-message');
     
@@ -52,19 +52,14 @@ function clearError(input) {
     }
 }
 
-const emailValidations = () => {
+emailInput.addEventListener('input', () => {
     clearError(emailInput);
   
     if (validator.isEmpty(emailInput.value)) {
         showError(emailInput, 'El email es obligatorio');
     } else if (!validator.isEmail(emailInput.value)) {
         showError(emailInput, 'Por favor ingresa un email válido');
-        return false;
     }
-}
-
-emailInput.addEventListener('input', () => {
-    emailValidations();
 });
 
 firstName.addEventListener('input', () => {
