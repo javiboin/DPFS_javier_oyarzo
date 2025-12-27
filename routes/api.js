@@ -27,7 +27,21 @@ router.get('/users', async (req, res) => {
 });
 
 router.get('/users/:id', async (req, res) => {
-    res.json(await userServices.searchUser(req.params.id));
+    try {
+        const getUser = await userServices.searchUser(req.params.id);
+        const urlProfile = '/public/images/' + getUser.image;
+        const user = {
+            id: getUser.userId,
+            firstname: getUser.firstname,
+            lastname: getUser.lastname,
+            email: getUser.email,
+            image: urlProfile
+        }
+
+        return res.json(user);
+    } catch (error) {
+        return res.status(500).json({ error: 'Error al obtener el usuario' });
+    }
 });
 
 router.get('/products', async (req, res) => {

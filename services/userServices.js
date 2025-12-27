@@ -25,7 +25,11 @@ const userService = {
     },
 
     searchUser: async (id) => {
-        const user = await db.User.findByPk(id);
+        const user = await db.User.findByPk(id, {
+            include: [
+                { association: 'user_role' }
+            ]
+        });
 
         if (!user){
             return res.status(404).render('not-found');
