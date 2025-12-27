@@ -12,6 +12,14 @@ const userService = {
     return compare;
     },
 
+    getAllUsers: async () => {
+        return await db.User.findAll({
+            include: [
+                { association: 'user_role' }
+            ]
+        });
+    },
+    
     createUser: async (userToCreate) => {
         return await db.User.create(userToCreate);
     },
