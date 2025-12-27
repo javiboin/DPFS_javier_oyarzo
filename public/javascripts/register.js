@@ -16,14 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }) 
 });
 
-const form = document.getElementById('registerForm');
 const emailInput = document.getElementById('email');
 const firstName = document.getElementById('firstName');
 const lastName = document.getElementById('lastName');
 const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirmPassword');
 const fileInput = document.getElementById('file');
-
 
 const showError = (input, message) => {
     const formGroup = input.parentElement;
