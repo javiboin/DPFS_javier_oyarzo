@@ -27,19 +27,18 @@ router.get('/users', async (req, res) => {
 
 router.get('/users/:id', async (req, res) => {
     try {
-        const getUser = await userServices.searchUser(req.params.id);
-        const urlProfile = '/public/images/' + getUser.image;
-        const user = {
-            id: getUser.userId,
-            firstname: getUser.firstname,
-            lastname: getUser.lastname,
-            email: getUser.email,
-            image: urlProfile
+        const user = await userServices.searchUser(req.params.id);
+        const result = {
+            id: user.userId,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            url: `http://127.0.0.1:3000/images/${user.image}`
         }
 
-        return res.json(user);
+        return res.json(result);
     } catch (error) {
-        return res.status(500).json({ error: 'Error al obtener el usuario' });
+        return res.status(500).json({ error: `Error al obtener el usuario ${req.params.id}` });
     }
 });
 
