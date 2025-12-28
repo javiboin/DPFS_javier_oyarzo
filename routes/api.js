@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
 const productServices = require('../services/productServices');
 const userServices = require('../services/userServices');
+const queries = require('../services/queries');
 
 router.get('/', (req, res) => {
     res.json({ message: 'API de Sound City Instrumentos' });
@@ -11,14 +11,13 @@ router.get('/', (req, res) => {
 router.get('/users', async (req, res) => {
     try {
         const getUsers = await userServices.getAllUsers();
+        const count = getUsers.length;
         const users = getUsers.map((user) => ({
             id: user.userId,
             firstname: user.firstname,
             lastname: user.lastname,
-            email: user.email,
-            url: `http://127.0.0.1:3000/products/product-detail/${user.userId}`
+            email: user.email
         }));
-        const count = users.length;
 
         return res.json({count, users});
     } catch (error) {
@@ -45,7 +44,41 @@ router.get('/users/:id', async (req, res) => {
 });
 
 router.get('/products', async (req, res) => {
-    res.json(await productServices.getAllProducts());
+    try {
+        /* COUNT de productos */
+        const getProducts = await productServices.getAllProducts();
+        const count = getProducts.length;
+
+        /* QUERIES */
+        const countByCategory = await queries.getCountByCategory();
+        const countBySubcategory = await queries.getCountBySubcategory();
+        
+        /* Obtener Productos */
+        const products = await Promise.all(getProducts.map(async (product) => {
+            /* Obtener categoria */
+            const userCategory = await productServices.getCategory(product.subcategory.category_id);
+
+            return {  
+                id: product.productId,
+                name: product.name,
+                brand: product.brand.name,
+                category: userCategory.name,
+                subcategory: product.subcategory.name,
+                url: `http://127.0.0.1:3000/products/product-detail/${product.productId}`,
+                description: product.description,
+            };
+        }));
+        
+        return res.json({
+            cantidad_de_productos: count,
+            cantidad_de_productos_por_categoria: countByCategory,
+            cantidad_de_productos_por_subcategoria: countBySubcategory,
+            productos: products
+        });
+
+    } catch (error) {
+        return res.status(500).json({ error: 'Error al obtener productos' });
+    }
 });
 
 router.get('/products/:id', async (req, res) => {
