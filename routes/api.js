@@ -82,7 +82,24 @@ router.get('/products', async (req, res) => {
 });
 
 router.get('/products/:id', async (req, res) => {
-    res.json(await productServices.getProductById(req.params.id));
+    try {
+        const product = await productServices.getProductById(req.params.id);
+        const userCategory = await productServices.getCategory(product.subcategory.category_id);
+
+        const result = {
+            id: product.productId,
+            name: product.name,
+            brand: product.brand.name,
+            category: userCategory.name,
+            subcategory: product.subcategory.name,
+            url: `http://127.0.0.1:3000/images/${product.image}`,
+            description: product.description,
+        }
+
+        return res.json(result);
+    } catch (error) {
+        return res.status(500).json({ error: `Error al obtener el producto ${req.params.id}` });
+    }
 });
 
 module.exports = router;
