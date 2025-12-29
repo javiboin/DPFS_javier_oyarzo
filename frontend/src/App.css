@@ -1,0 +1,6 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 1vw;
+    gap: 2vh;
+}
