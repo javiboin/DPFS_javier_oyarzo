@@ -10,6 +10,7 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const apiRouter = require('./routes/api');
 const session = require('express-session');
+const cors = require('cors');
 
 const sessionMiddleware = require('./middlewares/session');
 const categoriesMiddleware = require('./middlewares/categories');
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(cookieParser('secret'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use(session({
     secret: 'secret',
