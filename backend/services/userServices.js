@@ -50,7 +50,15 @@ const userService = {
 
     destroyUser: async (id) => {
         return await db.User.destroy({ where: { userId: id } });
-    }
+    },
+
+    lastUser: async () => {
+        return await db.User.findOne({
+            order: [['createdAt', 'DESC']],
+            attributes: ['userId', 'firstname', 'lastname', 'email'],
+            limit: 1
+        });
+    }   
 
 };
 module.exports = userService;

@@ -1,6 +1,8 @@
 import './App.css'
 import { CountUsers } from './countUsers'
 import { CountProducts } from './CountProducts'
+import { LastProduct } from './LastProduct'
+import { LastUser } from './LastUser'
 
 function App() {
 
@@ -9,8 +11,8 @@ function App() {
         <h1>Sound City Instrumentos - Dashboard React</h1>
         <CountUsers />
         <CountProducts />
-        
-        <h2>Último producto o usuario creado</h2>
+        <LastProduct />
+        <LastUser />
 
         <h2>Panel de Categorías con el total de productos de cada una</h2>
 

@@ -25,6 +25,28 @@ router.get('/users', async (req, res) => {
     }
 });
 
+router.get('/users/last-user', async (req, res) => {
+    try {
+        const lastUser = await userServices.lastUser();
+        
+        if (!lastUser) {
+            return res.status(404).json({ error: 'No se encontró el último usuario' });
+        }
+        
+        const result = {
+            createdAt: lastUser.createdAt,
+            id: lastUser.userId,
+            firstname: lastUser.firstname,
+            lastname: lastUser.lastname,
+            email: lastUser.email,
+        };
+        
+        return res.json(result);
+    } catch (error) {
+        return res.status(500).json({ error: 'Error al obtener el último usuario', details: error.message });
+    }
+});
+
 router.get('/users/:id', async (req, res) => {
     try {
         const user = await userServices.searchUser(req.params.id);
@@ -80,6 +102,28 @@ router.get('/products', async (req, res) => {
 
     } catch (error) {
         return res.status(500).json({ error: 'Error al obtener productos' });
+    }
+});
+
+router.get('/products/last-product', async (req, res) => {
+    try {
+        const lastProduct = await productServices.lastProduct();
+        console.log(lastProduct);
+        
+        if (!lastProduct) {
+            return res.status(404).json({ error: 'No se encontró el último producto' });
+        }
+        
+        const result = {
+            createdAt: lastProduct.createdAt,
+            id: lastProduct.productId,
+            name: lastProduct.name,
+            url: `http://127.0.0.1:3000/products/product-detail/${lastProduct.productId}`,
+        };
+        
+        return res.json(result);
+    } catch (error) {
+        return res.status(500).json({ error: 'Error al obtener el último producto', details: error.message });
     }
 });
 

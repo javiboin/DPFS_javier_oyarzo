@@ -53,6 +53,14 @@ const productServices = {
 
     destroyProduct: async (id) => {
         return await db.Product.destroy({ where: { productId: id } });
+    },
+
+    lastProduct: async () => {
+        return await db.Product.findOne({
+            order: [['createdAt', 'DESC']],
+            attributes: ['productId', 'name'],
+            limit: 1
+        });
     }
 };
 module.exports = productServices;
