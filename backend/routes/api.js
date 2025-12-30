@@ -67,11 +67,14 @@ router.get('/products', async (req, res) => {
                 description: product.description,
             };
         }));
+
+        const getBrands = await productServices.getAllBrands();
         
         return res.json({
             cantidad_de_productos: count,
             cantidad_de_productos_por_categoria: countByCategory,
             cantidad_de_productos_por_subcategoria: countBySubcategory,
+            cantidad_de_marcas: getBrands.length,
             productos: products
         });
 
