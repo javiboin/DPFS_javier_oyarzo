@@ -69,10 +69,6 @@ router.get('/products', async (req, res) => {
         /* COUNT de productos */
         const getProducts = await productServices.getAllProducts();
         const count = getProducts.length;
-
-        /* QUERIES */
-        const countByCategory = await queries.getCountByCategory();
-        const countBySubcategory = await queries.getCountBySubcategory();
         
         /* Obtener Productos */
         const products = await Promise.all(getProducts.map(async (product) => {
@@ -90,13 +86,8 @@ router.get('/products', async (req, res) => {
             };
         }));
 
-        const getBrands = await productServices.getAllBrands();
-        
         return res.json({
             cantidad_de_productos: count,
-            cantidad_de_productos_por_categoria: countByCategory,
-            cantidad_de_productos_por_subcategoria: countBySubcategory,
-            cantidad_de_marcas: getBrands.length,
             productos: products
         });
 
@@ -104,6 +95,39 @@ router.get('/products', async (req, res) => {
         return res.status(500).json({ error: 'Error al obtener productos' });
     }
 });
+
+router.get('/products/by-category', async (req, res) => {
+    try {
+        /* QUERIES */
+        const countByCategory = await queries.getCountByCategory();
+
+        return res.json({ cantidad_de_productos_por_categoria: countByCategory });
+    } catch (error) {
+       return res.status(500).json({ error: 'Error al obtener productos' }); 
+    }
+})
+
+router.get('/products/by-subcategory', async (req, res) => {
+    try {
+        /* QUERIES */
+        const countBySubcategory = await queries.getCountBySubcategory();
+
+        return res.json({ cantidad_de_productos_por_subcategoria: countBySubcategory });
+    } catch (error) {
+       return res.status(500).json({ error: 'Error al obtener productos' }); 
+    }
+})
+
+router.get('/products/brands', async (req, res) => {
+    try {
+        const getBrands = await productServices.getAllBrands();
+        
+        return res.json({ cantidad_de_marcas: getBrands.length });
+
+    } catch (error) {
+        return res.status(500).json({ error: 'Error al obtener productos' });
+    }
+})
 
 router.get('/products/last-product', async (req, res) => {
     try {
@@ -125,7 +149,7 @@ router.get('/products/last-product', async (req, res) => {
     } catch (error) {
         return res.status(500).json({ error: 'Error al obtener el último producto', details: error.message });
     }
-});
+})
 
 router.get('/products/:id', async (req, res) => {
     try {
@@ -146,6 +170,6 @@ router.get('/products/:id', async (req, res) => {
     } catch (error) {
         return res.status(500).json({ error: `Error al obtener el producto ${req.params.id}` });
     }
-});
+})
 
 module.exports = router;
