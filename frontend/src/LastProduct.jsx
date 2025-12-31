@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useFetch } from "./hooks/useFetch";
 
 export const LastProduct = () => {
@@ -13,7 +13,7 @@ export const LastProduct = () => {
 
     return (
         <>
-            <h2>Último producto o usuario creado</h2>
+            <h2>Último producto creado</h2>
             { isLoading 
                 ? <h4>Cargando...</h4>
                 : error
