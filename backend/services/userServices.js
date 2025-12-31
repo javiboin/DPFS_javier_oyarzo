@@ -55,7 +55,7 @@ const userService = {
     lastUser: async () => {
         return await db.User.findOne({
             order: [['createdAt', 'DESC']],
-            attributes: ['userId', 'firstname', 'lastname', 'email'],
+            attributes: ['userId', 'firstname', 'lastname', 'email', 'createdAt'],
             limit: 1
         });
     }   
