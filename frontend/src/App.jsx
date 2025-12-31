@@ -1,5 +1,5 @@
 import './App.css'
-import { CountUsers } from './countUsers'
+import { CountUsers } from './CountUsers'
 import { CountProducts } from './CountProducts'
 import { LastProduct } from './LastProduct'
 import { LastUser } from './LastUser'
