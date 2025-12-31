@@ -1,29 +1,35 @@
 import { useEffect, useState } from "react";
+import { useFetch } from "./hooks/useFetch";
 
 export const LastProduct = () => {
-    const urlBase = 'http://127.0.0.1:3000/api/products/last-product'
-    const [items, setItems] = useState([]);
+    const url = 'http://127.0.0.1:3000/api/products/last-product'
 
-    const fetchLastProduct = async () => {
-        try {
-            const res = await fetch(urlBase)
-            const data = await res.json()
-            setItems(data)
-        } catch (error) {
-            console.error('Error:', error)
-        }
-    }
+    const { data, isLoading, error, fetchData } = useFetch()
 
     useEffect(() => {
-        fetchLastProduct();
+        fetchData(url, 'GET');
     }, [])
 
 
     return (
         <>
             <h2>Último producto o usuario creado</h2>
-            <p>{items.name}</p>
-            <p>{items.createdAt}</p>
+            { isLoading 
+                ? <h4>Cargando...</h4>
+                : error
+                    ? <h4>Ha ocurrido un error: {error}</h4>
+                    :
+                    <>
+                        <p>{data.name}</p>
+                        <p>
+                            Creado el {new Date(data.createdAt).toLocaleDateString('es-ES')} a las{' '}
+                            {new Date(data.createdAt).toLocaleTimeString('es-ES', {
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}
+                        </p>
+                    </>
+            } 
         </>
     )
 }

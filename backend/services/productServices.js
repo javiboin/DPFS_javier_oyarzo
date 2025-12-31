@@ -58,7 +58,7 @@ const productServices = {
     lastProduct: async () => {
         return await db.Product.findOne({
             order: [['createdAt', 'DESC']],
-            attributes: ['productId', 'name'],
+            attributes: ['productId', 'name', 'createdAt'],
             limit: 1
         });
     }
