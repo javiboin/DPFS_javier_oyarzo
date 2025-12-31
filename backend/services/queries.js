@@ -4,8 +4,8 @@ const queries = {
     getCountByCategory: async () => {
         const query = `
             SELECT 
-                category.name AS Categoría, 
-                COUNT(distinct product_id) AS Cantidad
+                category.name AS name, 
+                COUNT(distinct product_id) AS count
             FROM product 
             JOIN 
                 subcategory ON subcategory.subcategory_id = product.subcategory_id
@@ -14,7 +14,7 @@ const queries = {
             GROUP BY  
                 category.category_id, category.name
             ORDER BY 
-                cantidad DESC;
+                count DESC;
         `;
         const result = await sequelize.query(query, {
             type: sequelize.QueryTypes.SELECT
@@ -26,9 +26,9 @@ const queries = {
     getCountBySubcategory: async () => {
         const query = `
             SELECT 
-            category.name AS Categoría,
-            subcategory.name AS Subcategoría, 
-            COUNT(distinct product_id) AS Cantidad
+            category.name AS category,
+            subcategory.name AS subcategory, 
+            COUNT(distinct product_id) AS count
             FROM product 
             JOIN 
                 subcategory ON subcategory.subcategory_id = product.subcategory_id
@@ -36,7 +36,7 @@ const queries = {
                 category ON category.category_id = subcategory.category_id
             GROUP BY 
                 subcategory.subcategory_id, subcategory.name
-            ORDER BY Categoría ASC, Subcategoría ASC
+            ORDER BY category ASC, subcategory ASC
         `;
         const result = await sequelize.query(query, {
             type: sequelize.QueryTypes.SELECT
