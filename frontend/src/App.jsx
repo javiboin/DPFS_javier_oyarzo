@@ -23,14 +23,9 @@ function App() {
 
             <hr />
 
-            <div className="lastCreated">
-                <div className="lastCreated-card">
-                    <LastProduct />
-                </div>
-
-                <div className="lastCreated-card">
-                    <LastUser />
-                </div>
+            <div className="container">
+                <LastProduct />
+                <LastUser />
             </div>
 
             <hr />

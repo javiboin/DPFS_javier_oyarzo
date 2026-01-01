@@ -13,23 +13,25 @@ export const LastUser = () => {
 
     return (
         <>
-            <h2>Último usuario creado</h2>
             { isLoading 
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
                     :
                     <>
-                        <p>{data.firstname}</p>
-                        <p>{data.lastname}</p>
-                        <p>{data.email}</p>
-                        <p>
-                            Creado el {new Date(data.createdAt).toLocaleDateString('es-ES')} a las{' '}
-                            {new Date(data.createdAt).toLocaleTimeString('es-ES', {
-                                hour: '2-digit',
-                                minute: '2-digit'
-                            })}
-                        </p>
+                        <div className="group lastCreated">
+                            <h2 className="title">Último usuario creado</h2>
+                            <div className="item">
+                                <span className="name">{data.firstname} {data.lastname} - Email: {data.email}</span>
+                                <span className="count">
+                                    Creado el {new Date(data.createdAt).toLocaleDateString('es-ES')} a las{' '}
+                                    {new Date(data.createdAt).toLocaleTimeString('es-ES', {
+                                        hour: '2-digit',
+                                        minute: '2-digit'
+                                    })}
+                                </span>
+                            </div>
+                        </div>
                     </>
             } 
         </>
