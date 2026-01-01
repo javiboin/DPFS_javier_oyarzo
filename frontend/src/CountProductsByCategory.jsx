@@ -12,13 +12,18 @@ export const CountProductsByCategory = () => {
 
     return (
         <>
-            <h2>Total de Categorías</h2>
             { isLoading 
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
                     :
-                    <p>{data.cantidad_de_productos_por_categoria?.length || 0} categorías encontradas</p>
+                    <div className="group">
+                        <h2 className="title">Total de Productos</h2>
+                        <div className="item">
+                            <span className="name">Categorías encontradas</span>
+                            <span className="count">{data.cantidad_de_productos_por_categoria?.length || 0}</span>
+                        </div>
+                    </div>
                 } 
             
         </>

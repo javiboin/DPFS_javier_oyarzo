@@ -12,14 +12,19 @@ export const CountUsers = () => {
 
   
     return (
-        <>
-            <h2>Total de Usuarios</h2>
+        <> 
             { isLoading 
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
                     :
-                    <p>{data.count} usuarios encontrados</p>
+                    <div className="group">
+                        <h2 className="title">Total de Usuarios</h2>
+                        <div className="item">
+                            <span className="name">Usuarios encontrados</span>
+                            <span className="count">{data.count}</span>
+                        </div>
+                    </div>
             } 
         </>
     )

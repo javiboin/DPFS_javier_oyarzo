@@ -12,17 +12,19 @@ export const CountProducts = () => {
 
     return (
         <>
-            <h2>Total de Productos</h2>
             { isLoading 
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
                     :
-                    <>
-                        <p>{data.cantidad_de_productos} productos encontrados</p>
-                    </>
-                } 
-            
+                    <div className="group">
+                        <h2 className="title">Total de Productos</h2>
+                        <div className="item">
+                            <span className="name">Productos encontrados</span>
+                            <span className="count">{data.cantidad_de_productos}</span>
+                        </div>
+                    </div>
+                }
         </>
     )
 }

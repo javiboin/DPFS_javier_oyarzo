@@ -12,14 +12,19 @@ export const CountProductsBySubcategory = () => {
 
     return (
         <>
-            <h2>Total de Subcategorías</h2>
             { isLoading 
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
                     :
-                    <p>{data.cantidad_de_productos_por_subcategoria?.length || 0} subcategorías encontradas</p>
-                }
+                    <div className="group">
+                        <h2 className="title">Total de Subcategorías</h2>
+                        <div className="item">
+                            <span className="name">Subcategorías encontradas</span>
+                            <span className="count">{data.cantidad_de_productos_por_subcategoria?.length || 0}</span>
+                        </div>
+                    </div>
+            }
         </>
     )
 }

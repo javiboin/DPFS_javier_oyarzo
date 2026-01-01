@@ -12,13 +12,18 @@ export const CountBrands = () => {
 
     return (
         <>
-            <h2>Total de Marcas</h2>
             { isLoading 
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
                     :
-                    <p>{data.cantidad_de_marcas || 0} marcas encontradas</p>
+                    <div className="group">
+                        <h2 className="title">Total de Marcas</h2>
+                        <div className="item">
+                            <span className="name">Marcas encontradas</span>
+                            <span className="count">{data.cantidad_de_marcas || 0}</span>
+                        </div>
+                    </div>
                 } 
             
         </>
