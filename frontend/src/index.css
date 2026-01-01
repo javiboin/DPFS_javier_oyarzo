@@ -17,8 +17,8 @@ body {
     font-family: "Public Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    background-color: var(--color4);
-    color: var(--color6);
+    background-color: var(--color6);
+    color: var(--color5);
 }
 
 
@@ -34,5 +34,5 @@ h1 {
 }
 
 h1:hover{
-    color: var(--color6);
+    color: var(--color1);
 }
