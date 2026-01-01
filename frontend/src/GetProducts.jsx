@@ -12,34 +12,27 @@ export const GetProducts = () => {
 
     return (
         <>
-            <h2>Listado de Productos</h2>
             { isLoading 
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
                     :
-                    <>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nombre</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    data.productos.map(product => {
-                                        return (
-                                            <tr key={product.id}>
-                                                <th scope="row">{product.id}</th>
-                                                <td>{product.name}</td>
-                                            </tr>  
-                                        )
-                                    })
-                                }
-                            </tbody>
-                        </table>
-                    </>
+                    <div className="list-products">
+                        {data?.cantidad_de_productos > 0 ? (
+                            <div className="group">
+                            <h2 className="title">Listado de Productos</h2>
+                                <ul className="list">
+                                    {data.productos.map((product, index) => (
+                                        <li key={index} className="item">
+                                            <span className="name">{product.name}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ) : (
+                            <p>No hay productos disponibles.</p>
+                        )}
+                    </div>
                 } 
             
         </>
