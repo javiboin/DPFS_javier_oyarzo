@@ -46,7 +46,8 @@ const userController = {
 
             switch (req.body.action) {
                 case 'edit-img':
-                    if (formData.image !== ''){
+                    if (req.file){
+                        formData.image = req.file.filename;
                         updatedData.image = formData.image;
                     }
                     break;
@@ -71,8 +72,10 @@ const userController = {
                     return res.status(404).render('not-found');
             }
 
+
+
             await userService.updateUser(id, updatedData);
-            return res.redirect('/users/profile/<%= id %>');
+            return res.redirect(`/users/profile/${id}`);
         } catch (error) {
             return res.status(500).render('error', { error: error.message });
         }

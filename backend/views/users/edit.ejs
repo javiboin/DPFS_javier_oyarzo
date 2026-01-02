@@ -11,10 +11,10 @@
 
     <h2>Editar datos Personales</h2> 
 
-    <form class="form" action="/users/edit/<%= id %>?_method=PUT" method="post"> 
+    <form class="form" action="/users/edit/<%= id %>?_method=PUT" method="post" enctype="multipart/form-data"> 
         <h3>Modificar Foto de perfil</h3>
         <input type="hidden" name="action" value="edit-img">
-        <img id="product-img" src="/images/<%= image %>" alt="<%= nombre %>, <%= apellido %>">
+        <img id="product-img" src="/images/users/<%= image %>" alt="<%= nombre %>, <%= apellido %>">
         <input type="file" name="image" id="product-img-file" >
 
         <button id="submit" type="submit">Guardar cambios</button> 

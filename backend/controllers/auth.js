@@ -92,7 +92,7 @@ const authController = {
                 lastname: lastName,
                 email: email,
                 password: passwordEncrypted,
-                category: parseInt(2),
+                userRoleId: parseInt(2),
                 image: req.file.filename 
             };
 
