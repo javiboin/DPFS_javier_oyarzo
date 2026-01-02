@@ -9,7 +9,7 @@
 
     <%- include('../partials/nav') %>
 
-    <form action="/products/update/<%= id %>?_method=PUT" method="post" > 
+    <form action="/products/update/<%= id %>?_method=PUT" method="post" enctype="multipart/form-data" > 
 
         <h2>Modificar Producto</h2>
 

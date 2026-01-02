@@ -63,13 +63,13 @@ const productController = {
             };
 
 
-            const { name, brand, description, image, subcategory, price, priceCash, priceInstallmentCount, priceInstallment} = req.body
+            const { name, brand, description, subcategory, price, priceCash, priceInstallmentCount, priceInstallment} = req.body
             
             const newProduct = {
                 name: name,
                 brandId: parseInt(brand),
                 description: description,
-                image: image,
+                image: req.file.filename ,
                 subcategoryId: parseInt(subcategory),
                 price: parseFloat(price),
                 priceCash: parseFloat(priceCash),
@@ -114,13 +114,13 @@ const productController = {
     update: async (req, res, next) => {
         try {
             const id = parseInt(req.params.id);
-            const { name, brand, description, image, subcategory, price, priceCash, priceInstallmentCount, priceInstallment} = req.body;
+            const { name, brand, description, subcategory, price, priceCash, priceInstallmentCount, priceInstallment} = req.body;
 
             const updatedProduct = {
                 name: name,
                 brandId: parseInt(brand),
                 description: description,
-                image: image,
+                image: req.file.filename,
                 subcategoryId: parseInt(subcategory),
                 price: parseFloat(price),
                 priceCash: parseFloat(priceCash),
