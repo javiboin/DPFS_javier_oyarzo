@@ -1,13 +1,13 @@
 import './App.css'
-import { CountUsers } from './CountUsers'
-import { CountProducts } from './CountProducts'
-import { LastProduct } from './LastProduct'
-import { LastUser } from './LastUser'
-import { CountProductsByCategory } from './CountProductsByCategory'
-import { CountProductsBySubcategory } from './CountProductsBySubcategory'
-import { CountBrands } from './CountBrands'
-import { GetProducts } from './GetProducts'
-import { ProductsBySubcategory } from './ProductsBySubcategory'
+import { CountUsers } from './components/CountUsers'
+import { CountProducts } from './components/CountProducts'
+import { LastProduct } from './components/LastProduct'
+import { LastUser } from './components/LastUser'
+import { CountProductsByCategory } from './components/CountProductsByCategory'
+import { CountProductsBySubcategory } from './components/CountProductsBySubcategory'
+import { CountBrands } from './components/CountBrands'
+import { GetProducts } from './components/GetProducts'
+import { ProductsBySubcategory } from './components/ProductsBySubcategory'
 
 function App() {
     return (

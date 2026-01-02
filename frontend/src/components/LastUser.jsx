@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useFetch } from "./hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 
 export const LastUser = () => {
     const url = 'http://127.0.0.1:3000/api/users/last-user'

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useFetch } from "./hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 
-export const CountProducts = () => {
-    const url = 'http://127.0.0.1:3000/api/products'
+export const CountProductsByCategory = () => {
+    const url = 'http://127.0.0.1:3000/api/products/by-category'
 
     const { data, isLoading, error, fetchData } = useFetch()
 
@@ -20,11 +20,12 @@ export const CountProducts = () => {
                     <div className="group">
                         <h2 className="title">Total de Productos</h2>
                         <div className="item">
-                            <span className="name">Productos encontrados</span>
-                            <span className="count">{data.cantidad_de_productos}</span>
+                            <span className="name">Categorías encontradas</span>
+                            <span className="count">{data.cantidad_de_productos_por_categoria?.length || 0}</span>
                         </div>
                     </div>
-                }
+                } 
+            
         </>
     )
 }

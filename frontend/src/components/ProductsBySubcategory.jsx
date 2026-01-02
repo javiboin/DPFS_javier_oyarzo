@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useFetch } from "./hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 
 export const ProductsBySubcategory = () => {
     const url = 'http://127.0.0.1:3000/api/products/by-subcategory'
