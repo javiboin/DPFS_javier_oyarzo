@@ -21,18 +21,57 @@ body {
     color: var(--color5);
 }
 
+.header{
+    background: linear-gradient(4deg, var(--color2) 1%, var(--color3) 55%, var(--color5) 95%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.5rem;
+}
 
 h1 {
-    color: var(--color3);
+    color: var(--color5);
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 6vh;
     padding-left: 16px;
     transition: color .8s ease;
-    margin: 3vh 1vw;
 }
 
 h1:hover{
-    color: var(--color1);
+    color: var(--color6);
+}
+
+footer{
+    height: 100%;
+    background-color: var(--color4);
+    color: var(--color6);
+}
+
+footer a{
+    text-decoration: none;
+    color: inherit;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    
+    gap: 1rem;
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+footer .titulo{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    padding-left: 16px;
+}
+
+.legal {
+    display: block;
+    line-height: 0.8;
+    padding-bottom: 0.8rem;
 }
