@@ -49,7 +49,7 @@ function App() {
                     <img src="/logo-b.png" alt="Sound City Instrumentos Músicales" />
                     <h3 className="titulo">API Sound City Instrumentos</h3>
                 </div>
-                <p className="legal">Todos los derechos reservados. © 2025 - Hecho por Javier Oyarzo.<a href="https://github.com/javiboin">@javiboin</a></p>
+                <p className="legal">Todos los derechos reservados. © 2025 - Hecho por Javier Oyarzo. <a href="https://github.com/javiboin">@javiboin</a></p>
             </footer>
         </div>
     )
