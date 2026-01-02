@@ -5,104 +5,141 @@ USE soundcity_db;
 -- CREACIÓN DE TABLAS --
 -- ROL DE USUARIOS
 CREATE TABLE user_role (
-	user_role_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    name varchar(100) null
+	user_role_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    name VARCHAR(100) NULL
 );
 
 -- USUARIOS
 CREATE TABLE user (
-	user_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    firstname varchar (50) not null,
-    lastname varchar(50) not null,
-    email varchar(100) not null,
-    password varchar(100) not null,
-    image varchar(500) null,
-    user_role_id int null,
-    foreign key (user_role_id) references user_role(user_role_id)
+	user_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    firstname VARCHAR (50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    image VARCHAR(500) NULL,
+    user_role_id INT NULL
 );
 
 -- ESTADO DEL CARRITO DE COMPRAS
 CREATE TABLE status (
-	status_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    name varchar(50) null
+	status_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    name VARCHAR(50) NULL
 );
 
 -- CARRITO DE COMPRAS
 CREATE TABLE cart (
-	cart_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    shipping_address varchar(250) null,
-    date_start timestamp default current_timestamp not null,
-    date_end datetime null,
-    total_purchase decimal(10,2) not null,
-    user_id int not null,
-    status_id int null,
-    foreign key (user_id) references user(user_id),
-    foreign key (status_id) references status(status_id)
+	cart_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    shipping_address VARCHAR(250) NULL,
+    date_start TIMESTAMP default current_timestamp NOT NULL,
+    date_end DATETIME NULL,
+    total_purchase DECIMAL(10,2) NOT NULL,
+    user_id INT NOT NULL,
+    status_id INT NULL
 );
 
 -- DETALLE DE CARRITO DE COMPRAS
 CREATE TABLE cart_detail (
-	cart_detail_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    cart_id int not null,
-    product_id int not null,
-    quantity int not null DEFAULT 1,
-    price decimal(10,2),
-    foreign key (cart_id) references cart(cart_id),
-    foreign key (product_id) references product(product_id)
+	cart_detail_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    cart_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    price DECIMAL(10,2) NOT NULL
 );
 
 -- PRODUCTOS
 CREATE TABLE product (
-	product_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    name varchar(150),
-    brand_id int null,
-    description varchar(500),
-    image varchar(500),
-    subcategory_id int,
-    price decimal(10,2),
-    price_cash decimal(10,2),
-    price_installment_count int,
-    price_installment decimal(10,2),
-    foreign key (brand_id) references brand(brand_id),
-    foreign key (subcategory_id) references subcategory(subcategory_id)
+	product_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    name VARCHAR(150),
+    brand_id INT NULL,
+    description VARCHAR(5000),
+    image VARCHAR(500),
+    subcategory_id INT,
+    price DECIMAL(10,2),
+    price_cash DECIMAL(10,2),
+    price_installment_count INT,
+    price_installment DECIMAL(10,2) NULL
 );
-
-alter table product modify column description varchar(5000);
 
 -- MARCAS
 CREATE TABLE brand (
-	brand_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    name varchar(100) null
+	brand_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    name VARCHAR(100) NULL
 );
 
 -- CATEGORÍA
 CREATE TABLE category (
-	category_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    name varchar(150) null
+	category_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    name VARCHAR(150) NULL
 );
 
 -- SUBCATEGORÍA
 CREATE TABLE subcategory (
-	subcategory_id INT NOT NULL auto_increment primary key,
-	created_at timestamp NULL DEFAULT NULL,
-	updated_at timestamp NULL DEFAULT NULL,
-    name varchar(150) null,
-    category_id int null,
-    foreign key (category_id) references category(category_id)
+	subcategory_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    name VARCHAR(150) NULL,
+    category_id INT NULL
 );
+
+-- RELACIONES
+
+-- USUARIO
+ALTER TABLE user
+ADD CONSTRAINT fk_user_user_role
+FOREIGN KEY (user_role_id)
+REFERENCES user_role(user_role_id);
+
+-- CARRITO DE COMPRAS
+ALTER TABLE cart
+ADD CONSTRAINT fk_cart_user
+FOREIGN KEY (user_id) 
+REFERENCES user(user_id);
+
+ALTER TABLE cart
+ADD CONSTRAINT fk_cart_status
+FOREIGN KEY (status_id) 
+REFERENCES status(status_id);
+
+-- DETALLE CARRITO DE COMPRAS
+ALTER TABLE cart_detail
+ADD CONSTRAINT fk_cart_detail_cart
+FOREIGN KEY (cart_id) 
+REFERENCES cart(cart_id);
+
+ALTER TABLE cart_detail
+ADD CONSTRAINT fk_cart_detail_product
+FOREIGN KEY (product_id) 
+REFERENCES product(product_id);
+
+-- PRODUCTOS
+ALTER TABLE product
+ADD CONSTRAINT fk_product_brand
+FOREIGN KEY (brand_id) 
+REFERENCES brand(brand_id);
+
+ALTER TABLE product
+ADD CONSTRAINT fk_product_subcategory
+FOREIGN KEY (subcategory_id) 
+REFERENCES subcategory(subcategory_id);
+
+-- SUBCATEGORÍAS
+ALTER TABLE subcategory
+ADD CONSTRAINT fk_subcategory_category
+FOREIGN KEY (category_id) 
+REFERENCES category(category_id);
