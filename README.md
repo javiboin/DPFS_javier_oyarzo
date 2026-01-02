@@ -3,7 +3,7 @@ Con esta aplicación doy el primer paso en el mundo del desarrollo fullstack, cr
 
 Para esto, crearemos una aplicación monolítica con HTML, CSS, NodeJs, Express, MySQL, y con React haremos un dashboard para consumir una API que también crearemos.
 
-## Enlace al Proyecto en GitHub:
+## Enlace al Tablero de trabajo en GitHub:
  [Proyecto E-Commerce - Sound City Instrumentos](https://github.com/users/javiboin/projects/6)
 
 
@@ -30,14 +30,68 @@ Como bien sabemos, el poder de internet es inmenso: nos brinda posibilidades inf
 
 
 ## Tecnologías utilizadas 💻
-- Frontend: React, CSS, Bootstrap
+- Frontend: HTML, CSS, JavaScript, Bootstrap, y React
 
-- Backend: Node.js, Express
+- Backend: Node.js, Express, EJS, API REST, Sequelize, BcryptJS, Multer
 
-- Base de datos: MySQL
+- Base de datos: MySQL, MySQL Workbench
 
 - Metodologías: Agile / Scrum
 
+## Guía de instalación del proyecto
+
+### Clonar repositorio
+```bash
+git clone https://github.com/javiboin/DPFS_javier_oyarzo.git
+```
+
+### Instalar Base de datos en Gestor de bases de datos (MySQL Workbench)
+Ejecutar archivo `docs/databases/data.sql` para crear la base de datos, sus tablas y sus relaciones.
+
+## Agregar datos de ejemplo
+Ejecutar archivo `docs/databases/structure.sql`.
+
+## Modificar variables de entorno en Gestor de bases de datos (MySQL Workbench)
+Modificar el archivo .env.example y renombrarlo a .env para agregar las credenciales de la base de datos, como el nombre de usuario y contraseña necesarios para la conexión.
+
+```
+DB_USER=root
+DB_PASSWORD=root    
+DB_NAME=soundcity_db
+DB_HOST=localhost
+```
+
+Una vez configurado el gestor de bases de datos, ejecutar los siguientes comandos en orden:
+
+1. Instalar dependencias:
+
+- En el directorio backend:
+```bash
+cd backend/
+npm install
+```
+
+- En el directorio frontend:
+```bash
+cd ../frontend/
+npm install
+```
+
+2. Correr el proyecto:
+```bash
+cd ../backend/
+npm run dev:fullstack
+```
+
+Con esto ejecutaremos el servidor backend y el frontend con el dashboard de React.
+
+```bash
+Puerto: 3000 para el servidor express
+Puerto: 5173 para el proyecto React
+```
+
+Importante:
+Probar login: para logear usuarios, se escogió como contraseña "Admin123!" para todos los usuarios en el backend.
 
 ## Descrpción Personal 🚀
 Soy Javier Oyarzo, desarrollador web fullstack en etapa de certificación. Este proyecto forma parte de mi formación profesional y consiste en un e‑commerce dedicado a la venta de instrumentos musicales, diseñado para combinar solidez técnica con una experiencia de usuario intuitiva.
@@ -57,3 +111,5 @@ Estos son algunos referentes del mercado que me ayudaron a definir ideas sobre c
 - [Swan Music](https://www.swanmusic.com.ar/)
 
 Se eligieron estas páginas porque reúnen varias de las características que quiero implementar en mi proyecto: buena organización de secciones, claridad en la información y propuestas visuales atractivas. Algunas destacan por la calidad de sus imágenes y el nivel de detalle en las fichas de producto, mientras que otras sobresalen por la agilidad en las búsquedas y filtros.
+
+
