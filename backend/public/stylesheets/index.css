@@ -19,13 +19,13 @@ main {
     max-width: 100%;
 }
 
-.card {
+.card-products {
     min-width: 18rem;
     max-width: 18rem;
     margin: 1rem;    
 }
 
-.card img {
+.card-products img {
     display: block;
     width: 260px;       
     height: 260px;
@@ -33,11 +33,11 @@ main {
     max-height: 286px;   
 }
 
-.card h5 {
+.card-products h5 {
     height: 80px;
 }
 
-.card button {
+.card-products button {
     background-color: var(--color2);
     height: 38px;
     width: 100%;
@@ -46,11 +46,11 @@ main {
     transition: all .8s ease;
 }
 
-.card button:hover {
+.card-products button:hover {
     background-color: var(--color1);
 }
 
-.card a {
+.card-products a {
     text-decoration: none;
     color: var(--color6);
 }
@@ -59,7 +59,7 @@ main {
     color: var(--color5);
 }
 
-.card-body button {
+.card-body-products button {
     height: 3rem;
 }
 
@@ -97,7 +97,7 @@ main {
         width: 90%;
     } 
 
-    .cart img {
+    .cart-products img {
         width: 30px;
         height: 30px;
     }
