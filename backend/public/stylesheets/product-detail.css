@@ -124,6 +124,11 @@ h2 {
     color: var(--color6);
 }
 
+.add-cart a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .product-spec {
     font-size: 16px;
     display: block;
