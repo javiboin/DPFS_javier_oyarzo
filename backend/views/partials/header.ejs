@@ -27,39 +27,4 @@
         </div>
     </header>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightLabel" aria-labelledby="offcanvasRightLabel">
-    
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de Compras</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-
-        <div class="offcanvas-body">
-
-            <div class="cart-product-detail card p-2">
-
-                <img class="cart-product-img" src="/images/placeholder_view_vector.svg" width="140px" height="140px" alt="Imagen del producto">
-                
-                <p class="cart-product-name">Arturia MiniLab 3 Controlador MIDI 25 Teclas</p>
-
-                <img class="cart-product-delete" src="/images/trash.svg" width="20px" height="20px" alt="Eliminar">
-
-                <div class="cart-product-quantity">
-                    <button class="down" style="width: 20px;">-</button>
-                    <input type="number" name="quantity" class="quantity" style="width: 40px;" min="1" value="1">
-                    <button class="up" style="width: 20px;">+</button>
-                </div>
-
-                <p class="cart-product-price">$ 1.000.000</p>
-
-            </div>
-
-            <div class="card mt-4 w-100 payment">
-                <p><b>TOTAL</b></p>
-                <p>$ 2.000.000 (calculo)</p>
-                <button>Pagar</button>
-            </div>
-
-        </div>
-
-    </div>
+    <%- include('../products/cart') %>
