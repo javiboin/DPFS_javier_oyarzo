@@ -40,7 +40,26 @@ Como bien sabemos, el poder de internet es inmenso: nos brinda posibilidades inf
 
 ## Guía de instalación del proyecto
 
-### Clonar repositorio
+### Opción 1: Docker Compose (Recomendado) 🐳
+```bash
+# 1. Clonar repositorio
+git clone https://github.com/javiboin/DPFS_javier_oyarzo.git
+cd DPFS_javier_oyarzo
+
+# 2. Configurar variables de entorno
+cp .env.demo .env
+
+# 3. Iniciar servicios
+docker-compose up
+```
+
+La aplicación estará disponible en:
+- Backend: http://localhost:3000
+- Base de datos: localhost:3306
+
+### Opción 2: Instalación Manual
+
+#### Clonar repositorio
 ```bash
 git clone https://github.com/javiboin/DPFS_javier_oyarzo.git
 ```
