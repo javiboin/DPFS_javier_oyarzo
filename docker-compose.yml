@@ -1,0 +1,39 @@
+services:
+  backend:                    # Servidor Backend
+    build: ./backend          # Imagen de Node 
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+    environment:
+      DB_HOST: ${DB_HOST:-db}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME:-soundcity_db}
+    depends_on:
+      - db
+  db:                         # Motor de Base de Datos MySQL
+    image: mysql:lts
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-soundcity_db}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+  frontend:                   # Frontend React
+    build: ./frontend         # Imagen de React
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      VITE_HOST: 0.0.0.0
+    depends_on:
+      - backend
+volumes:
+  db_data:
