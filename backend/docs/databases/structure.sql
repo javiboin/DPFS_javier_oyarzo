@@ -56,6 +56,56 @@ CREATE TABLE cart_detail (
     price DECIMAL(10,2) NOT NULL
 );
 
+-- ELIMINAR TABLAS DE CARRITO DE COMPRAS Y SU DETALLE
+DROP TABLE cart;
+DROP TABLE cart_detail;
+
+-- ACTUALIZAR TABLAS DE CARRITO DE COMPRAS Y SU DETALLE
+
+-- CARRITO DE COMPRAS
+CREATE TABLE cart (
+	cart_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    total_purchase DECIMAL(10,2) NOT NULL,
+    user_id INT NOT NULL
+);
+
+-- DETALLE DE CARRITO DE COMPRAS
+CREATE TABLE cart_detail (
+	cart_detail_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    cart_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    price DECIMAL(10,2) NOT NULL
+);
+
+-- ORDENES DE COMPRA
+CREATE TABLE order (
+	order_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    shipping_address VARCHAR(250) NULL,
+    date_start TIMESTAMP default current_timestamp NOT NULL,
+    date_end DATETIME NULL,
+    total_purchase DECIMAL(10,2) NOT NULL,
+    user_id INT NOT NULL,
+    status_id INT NULL
+);
+
+-- DETALLE DE ORDENES DE COMPRA
+CREATE TABLE order_detail (
+	order_detail_id INT NOT NULL auto_increment PRIMARY KEY,
+	created_at TIMESTAMP NULL DEFAULT NULL,
+	updated_at TIMESTAMP NULL DEFAULT NULL,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    price DECIMAL(10,2) NOT NULL
+);
+
 -- PRODUCTOS
 CREATE TABLE product (
 	product_id INT NOT NULL auto_increment PRIMARY KEY,
@@ -111,11 +161,6 @@ ADD CONSTRAINT fk_cart_user
 FOREIGN KEY (user_id) 
 REFERENCES user(user_id);
 
-ALTER TABLE cart
-ADD CONSTRAINT fk_cart_status
-FOREIGN KEY (status_id) 
-REFERENCES status(status_id);
-
 -- DETALLE CARRITO DE COMPRAS
 ALTER TABLE cart_detail
 ADD CONSTRAINT fk_cart_detail_cart
@@ -124,6 +169,28 @@ REFERENCES cart(cart_id);
 
 ALTER TABLE cart_detail
 ADD CONSTRAINT fk_cart_detail_product
+FOREIGN KEY (product_id) 
+REFERENCES product(product_id);
+
+-- ORDENES DE COMPRAS
+ALTER TABLE order
+ADD CONSTRAINT fk_order_user
+FOREIGN KEY (user_id) 
+REFERENCES user(user_id);
+
+ALTER TABLE order
+ADD CONSTRAINT fk_order_status
+FOREIGN KEY (status_id) 
+REFERENCES status(status_id);
+
+-- DETALLE ORDENES DE COMPRAS
+ALTER TABLE order_detail
+ADD CONSTRAINT fk_order_detail_order
+FOREIGN KEY (order_id) 
+REFERENCES order(order_id);
+
+ALTER TABLE order_detail
+ADD CONSTRAINT fk_order_detail_product
 FOREIGN KEY (product_id) 
 REFERENCES product(product_id);
 
