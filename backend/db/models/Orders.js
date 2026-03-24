@@ -47,7 +47,7 @@ module.exports = (Sequelize, DataTypes) => {
             foreignKey: 'status_id'
         });
 
-        Orders.hasMany(models.OrdersDetail, {
+        Orders.hasMany(models.OrderDetail, {
             as: 'order_detail',
             foreignKey: 'order_id'
         })
