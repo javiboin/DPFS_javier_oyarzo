@@ -5,27 +5,11 @@ module.exports = (Sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        shippingAddress: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        dateStart: {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
-        dateEnd: {
-            type: DataTypes.DATE,
-            allowNull: true
-        },
         totalPurchase: {
             type: DataTypes.DECIMAL,
             allowNull: false
         },
         userId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        statusId: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
@@ -40,11 +24,6 @@ module.exports = (Sequelize, DataTypes) => {
         Cart.belongsTo(models.User, {
             as: 'user',
             foreignKey: 'user_id'
-        });
-
-        Cart.belongsTo(models.Status, {
-            as: 'status',
-            foreignKey: 'status_id'
         });
 
         Cart.hasMany(models.CartDetail, {

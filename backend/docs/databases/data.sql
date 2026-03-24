@@ -161,6 +161,8 @@ insert into soundcity_db.status (
     'Recibido'
 );
 
+-- TODO: MODIFICAR CARRITO Y DETALLE
+
 -- CARRITO DE COMPRAS
 insert into soundcity_db.cart (
 	created_at, updated_at,
