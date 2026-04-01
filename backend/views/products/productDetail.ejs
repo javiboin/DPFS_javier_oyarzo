@@ -40,7 +40,7 @@
                 <p><%= price_installment_count %> cuotas de $ <%= price_installment %></p>
             </div>
             
-            <button class="add-cart"><a data-bs-toggle="offcanvas" href="#offcanvasRightLabel" role="button" aria-controls="offcanvasRightLabel" >Agregar al Carrito</a></button>
+            <button class="add-cart" id="add-to-cart-btn" data-id="<%= id %>" data-name="<%= name %>" data-price="<%= price %>" data-img="/images/products/<%= image %>">Agregar al Carrito</button>
         </div>
 
         <div class="product-spec">
@@ -50,6 +50,5 @@
     </main>
 
     <%- include('../partials/footer') %>
-    <script src="/javascripts/changeQuantity.js"></script>
 </body>
 </html>

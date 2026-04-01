@@ -1,30 +1,30 @@
-    <header>
-        <a href="/" class="title">
-            <img src="/images/logo-b.png" alt="Sound City Instrumentos Músicales">
-            <h1>Sound City Instrumentos</h1>
+<header>
+    <a href="/" class="title">
+        <img src="/images/logo-b.png" alt="Sound City Instrumentos Músicales">
+        <h1>Sound City Instrumentos</h1>
+    </a>
+
+    <form class="busquedas" role="search" action="/products/search" method="get">
+        <input 
+            type="search" 
+            placeholder="Buscar productos, marcas..." 
+            aria-label="Buscar productos, marcas..."
+            name="q"
+            value=""
+        />
+        <button type="submit"><img src="/images/search-b.png" alt="Buscar"></button> 
+    </form>
+
+    <div class="user-tools">            
+        <a class="login" href="<%= currentUser ? `/users/profile/${currentUser.id}` : '/users/login' %>">
+            <img src="/images/user-w.png" alt="Inicio de sesion" >
         </a>
 
-        <form class="busquedas" role="search" action="/products/search" method="get">
-            <input 
-                type="search" 
-                placeholder="Buscar productos, marcas..." 
-                aria-label="Buscar productos, marcas..."
-                name="q"
-                value=""
-            />
-            <button type="submit"><img src="/images/search-b.png" alt="Buscar"></button> 
-        </form>
+        <a class="cart position-relative" data-bs-toggle="offcanvas" href="#offcanvasRightLabel" role="button" aria-controls="offcanvasRightLabel">
+            <img src="/images/cart-w.png" alt="Carrito de compras" >
+            <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </a>
+    </div>
+</header>
 
-        <div class="user-tools">            
-            <a class="login" href="<%= currentUser ? `/users/profile/${currentUser.id}` : '/users/login' %>">
-                <img src="/images/user-w.png" alt="Inicio de sesion" >
-            </a>
-
-            <a class="cart position-relative" data-bs-toggle="offcanvas" href="#offcanvasRightLabel" role="button" aria-controls="offcanvasRightLabel">
-                <img src="/images/cart-w.png" alt="Carrito de compras" >
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
-            </a>
-        </div>
-    </header>
-
-    <%- include('../products/cart') %>
+<%- include('./cart-offcanvas') %>
