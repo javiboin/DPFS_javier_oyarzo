@@ -1,62 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/stylesheets/cart.css">
+        <link rel="stylesheet" href="/stylesheets/cart.css">
 </head>
+
 <body>
     <%- include('../partials/header') %>
 
-    <%- include('../partials/nav') %>
+        <%- include('../partials/nav') %>
 
-    <main>
-        <h2>Carrito de Compras</h2>
-        
-        <div class="product-detail">
+            <main>
+                <h2>Carrito de Compras</h2>
+                <div id="cart-page-items">
+                    <!-- Lógica para agregar/quitar items en cart.js -->
+                </div>
 
-            <img class="product-img" src="/images/placeholder_view_vector.svg" width="140px" height="140px" alt="Imagen del producto">
-            
-            <p class="product-name">Arturia MiniLab 3 Controlador MIDI 25 Teclas</p>
+                <div class="payment">
+                    <p><b>TOTAL</b></p>
+                    <p id="cart-page-total">$ 0</p>
+                    <button>Pagar</button>
+                </div>
 
-            <img class="product-delete" src="/images/trash.svg" width="20px" height="20px" alt="Eliminar">
+            </main>
 
-            <div class="product-quantity">
-                <button class="down" style="width: 20px;">-</button>
-                <input type="number" name="quantity" class="quantity" style="width: 40px;" min="1" value="1">
-                <button class="up" style="width: 20px;">+</button>
-            </div>
-
-            <p class="product-price">$ 1.000.000</p>
-
-        </div>
-
-        <div class="product-detail">
-
-            <img class="product-img" src="/images/placeholder_view_vector.svg" width="140px" height="140px" alt="Imagen del producto">
-            
-            <p class="product-name">Arturia MiniLab 3 Controlador MIDI 25 Teclas</p>
-
-            <button class="product-delete"><img src="/images/trash.svg" width="20px" height="20px" alt="Eliminar"></button>
-
-            <div class="product-quantity">
-                <button class="down" style="width: 20px;">-</button>
-                <input type="number" name="quantity" class="quantity" style="width: 40px;" min="1" value="1">
-                <button class="up" style="width: 20px;">+</button>
-            </div>
-
-            <p class="product-price">$ 1.000.000</p>
-
-        </div>
-
-        <div class="payment">
-            <p><b>TOTAL</b></p>
-            <p>$ 2.000.000</p>
-            <button>Pagar</button>
-        </div>
-
-    </main>
-
-    <%- include('../partials/footer') %>
-    <script src="/javascripts/changeQuantity.js"></script>
+            <%- include('../partials/footer') %>
 </body>
+
 </html>
