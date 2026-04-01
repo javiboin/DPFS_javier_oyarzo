@@ -10,15 +10,15 @@ module.exports = (Sequelize, DataTypes) => {
             allowNull: false
         }
     },
-    {
-        tableName: 'status',
-        timestamps: true,
-        underscored: true
-    })
+        {
+            tableName: 'status',
+            timestamps: true,
+            underscored: true
+        })
 
     Status.associate = (models) => {
-        Status.hasMany(models.Cart, {
-            as: 'cart',
+        Status.hasMany(models.Orders, {
+            as: 'orders',
             foreignKey: 'status_id'
         })
     }
