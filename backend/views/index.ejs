@@ -22,21 +22,20 @@
         </form>
 
         <div class="container">
-
-        <% products.forEach(product => { %>
-            <div class="card card-products">
-                <a href="/products/product-detail/<%= product.productId %>"><img src="/images/products/<%= product.image %>" class="card-img-top" alt="<%= product.name %>"></a>
-                <div class="card-body card-body-products">
-                    <h5 style="margin-bottom: 10px;"><%= product.name %></h5>
-                    <p class="price"><b>$ <%= product.price %></b></p>
-                    <p style="color: grey; font-size: 14px;">$ <%= product.priceCash %> con Transferencia o depósito</p>
-                    <p style="color: red; font-size: 12px;"><%= product.priceInstallmentCount %> Coutas de $ <%= product.priceInstallment %></p>
-                    <button><a data-bs-toggle="offcanvas" href="#offcanvasRightLabel" role="button" aria-controls="offcanvasRightLabel" >Comprar</a></button>
+            <% products.forEach(product => { %>
+                <div class="card card-products">
+                    <a href="/products/product-detail/<%= product.productId %>"><img src="/images/products/<%= product.image %>" class="card-img-top" alt="<%= product.name %>"></a>
+                    <div class="card-body card-body-products">
+                        <h5 style="margin-bottom: 10px;"><%= product.name %></h5>
+                        <p class="price"><b>$ <%= product.price %></b></p>
+                        <p style="color: grey; font-size: 14px;">$ <%= product.priceCash %> con Transferencia o depósito</p>
+                        <p style="color: red; font-size: 12px;"><%= product.priceInstallmentCount %> Coutas de $ <%= product.priceInstallment %></p>
+                        <button><a data-bs-toggle="offcanvas" href="#offcanvasRightLabel" role="button" aria-controls="offcanvasRightLabel" >Comprar</a></button>
+                    </div>
                 </div>
-            </div>
-        <% }); %>
-
+            <% }); %>
         </div>
+
     </main>
 
     <%- include('./partials/footer') %>
