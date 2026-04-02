@@ -1,62 +1,74 @@
-// carrito de compras usando LocalStorage
-const CART_KEY = 'shopping_cart';
+// Carrito de compras conectado a la API del Backend (Session & DB)
 
-function getCart() {
-    const cart = localStorage.getItem(CART_KEY);
-    return cart ? JSON.parse(cart) : [];
-}
-
-function saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    updateCartUI();
-}
-
-function addToCart(product) {
-    const cart = getCart();
-    const existingProductIndex = cart.findIndex(p => p.id === product.id);
-
-    if (existingProductIndex >= 0) {
-        cart[existingProductIndex].quantity += product.quantity;
-    } else {
-        cart.push(product);
+async function getCartFromAPI() {
+    try {
+        const response = await fetch('/api/cart');
+        return await response.json();
+    } catch (e) {
+        console.error("Error al obtener el carrito:", e);
+        return { items: [], total: 0 };
     }
+}
 
-    saveCart(cart);
+async function addToCart(product) {
+    try {
+        await fetch('/api/cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ productId: product.id, quantity: product.quantity })
+        });
 
-    // Abrir offcanvas si está definido en bootstrap
-    if (typeof bootstrap !== 'undefined') {
-        const offcanvasEl = document.getElementById('offcanvasRightLabel');
-        if (offcanvasEl) {
-            const offcanvasInfo = bootstrap.Offcanvas.getInstance(offcanvasEl) || new bootstrap.Offcanvas(offcanvasEl);
-            offcanvasInfo.show();
+        await updateCartUI();
+
+        // Abrir offcanvas si está definido en bootstrap
+        if (typeof bootstrap !== 'undefined') {
+            const offcanvasEl = document.getElementById('offcanvasRightLabel');
+            if (offcanvasEl) {
+                const offcanvasInfo = bootstrap.Offcanvas.getInstance(offcanvasEl) || new bootstrap.Offcanvas(offcanvasEl);
+                offcanvasInfo.show();
+            }
         }
+    } catch (e) {
+        console.error("Error al agregar producto:", e);
     }
 }
 
-function removeFromCart(productId) {
-    const cart = getCart();
-    const newCart = cart.filter(p => p.id !== productId);
-    saveCart(newCart);
+async function removeFromCart(productId) {
+    try {
+        await fetch(`/api/cart/${productId}`, { method: 'DELETE' });
+        await updateCartUI();
+    } catch (error) {
+        console.error("Error al eliminar producto:", error);
+    }
 }
 
-function updateQuantity(productId, newQuantity) {
+async function updateQuantity(productId, newQuantity) {
     if (newQuantity < 1) return;
-    const cart = getCart();
-    const product = cart.find(p => p.id === productId);
-    if (product) {
-        product.quantity = newQuantity;
-        saveCart(cart);
+    try {
+        await fetch(`/api/cart/${productId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ quantity: newQuantity })
+        });
+        await updateCartUI();
+    } catch (error) {
+        console.error("Error al actualizar cantidad:", error);
     }
 }
 
 function formatCurrency(amount) {
-    return '$ ' + amount.toLocaleString('es-AR');
+    return '$ ' + parseFloat(amount).toLocaleString('es-AR');
 }
 
-function updateCartUI() {
-    const cart = getCart();
+async function updateCartUI() {
+    const data = await getCartFromAPI();
+    const cart = data.items || [];
+    const totalPrice = data.total || 0;
     const totalItems = cart.reduce((acc, curr) => acc + curr.quantity, 0);
-    const totalPrice = cart.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
 
     // Actualizar badge del header
     const badge = document.getElementById('cart-badge');
@@ -135,8 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const id = addCartBtn.getAttribute('data-id');
             const name = addCartBtn.getAttribute('data-name');
-            const price = parseFloat(addCartBtn.getAttribute('data-price'));
-            const image = addCartBtn.getAttribute('data-img');
+            // La data es requerida solo para fallback, backend usara el ID.
             
             // Buscar la cantidad ingresada por el usuario
             let quantity = 1;
@@ -147,9 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const product = {
                 id,
-                name,
-                price,
-                image,
                 quantity
             };
 
@@ -157,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fix event listener for plus/minus in productDetail since changeQuantity.js might crash
+    // Fix event listener for plus/minus in productDetail
     const productDetailQuantity = document.querySelector('.product-detail .product-quantity:not(.cart-product-quantity)');
     if (productDetailQuantity && document.getElementById('add-to-cart-btn')) {
         const upBtn = productDetailQuantity.querySelector('.up');

@@ -2,6 +2,7 @@ const userServices = require('../services/userServices');
 const { validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
+const db = require('../db/models');
 
 const authController = {
     login: (req, res, next) => {
@@ -33,6 +34,38 @@ const authController = {
                     lastName: user.lastname,
                     email: user.email
                 }; 
+
+                // --- MERGE SESSION CART TO DB CART ---
+                if (req.session.cart && req.session.cart.length > 0) {
+                    let [cart] = await db.Cart.findOrCreate({
+                        where: { userId: user.userId },
+                        defaults: { userId: user.userId, totalPurchase: 0 }
+                    });
+
+                    for (const item of req.session.cart) {
+                        let detail = await db.CartDetail.findOne({
+                            where: { cartId: cart.cartId, productId: item.productId }
+                        });
+                        
+                        const product = await db.Product.findByPk(item.productId);
+                        if (!product) continue;
+
+                        if (detail) {
+                            detail.quantity += item.quantity;
+                            detail.price = product.price;
+                            await detail.save();
+                        } else {
+                            await db.CartDetail.create({
+                                cartId: cart.cartId,
+                                productId: item.productId,
+                                quantity: item.quantity,
+                                price: product.price
+                            });
+                        }
+                    }
+                    req.session.cart = []; // clear session cart
+                }
+                // --- END MERGE ---
 
                 if (rememberMe === 'on') {
                     req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 7;
