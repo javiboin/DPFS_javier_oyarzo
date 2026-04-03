@@ -87,9 +87,9 @@ async function updateCartUI() {
                 <p class="cart-product-name">${product.name}</p>
                 <img class="cart-product-delete" src="/images/trash.svg" width="20px" height="20px" alt="Eliminar" style="cursor: pointer;" onclick="removeFromCart('${product.id}')">
                 <div class="cart-product-quantity">
-                    <button class="down" style="width: 20px;" onclick="updateQuantity('${product.id}', ${product.quantity - 1})">-</button>
-                    <input type="number" class="quantity text-center" style="width: 40px;" min="1" value="${product.quantity}" onchange="updateQuantity('${product.id}', parseInt(this.value))">
-                    <button class="up" style="width: 20px;" onclick="updateQuantity('${product.id}', ${product.quantity + 1})">+</button>
+                    <button class="down" onclick="updateQuantity('${product.id}', ${product.quantity - 1})">-</button>
+                    <input type="number" class="quantity text-center" min="1" value="${product.quantity}" onchange="updateQuantity('${product.id}', parseInt(this.value))">
+                    <button class="up" onclick="updateQuantity('${product.id}', ${product.quantity + 1})">+</button>
                 </div>
                 <p class="cart-product-price">${formatCurrency(product.price * product.quantity)}</p>
             </div>
@@ -118,9 +118,9 @@ async function updateCartUI() {
                         <img src="/images/trash.svg" width="20px" height="20px" alt="Eliminar">
                     </button>
                     <div class="product-quantity mt-2">
-                        <button class="down" style="width: 20px;" onclick="updateQuantity('${product.id}', ${product.quantity - 1})">-</button>
-                        <input type="number" class="quantity text-center" style="width: 40px;" min="1" value="${product.quantity}" onchange="updateQuantity('${product.id}', parseInt(this.value))">
-                        <button class="up" style="width: 20px;" onclick="updateQuantity('${product.id}', ${product.quantity + 1})">+</button>
+                        <button class="down" onclick="updateQuantity('${product.id}', ${product.quantity - 1})">-</button>
+                        <input type="number" class="quantity text-center" min="1" value="${product.quantity}" onchange="updateQuantity('${product.id}', parseInt(this.value))">
+                        <button class="up" onclick="updateQuantity('${product.id}', ${product.quantity + 1})">+</button>
                     </div>
                     <p class="product-price">${formatCurrency(product.price * product.quantity)}</p>
                 </div>

@@ -12,8 +12,12 @@ h2 {
 
 .product-img {
     grid-area: product-img;
-    width: 50%;
-    padding-left: 1rem;
+    width: 100%;
+    max-width: 140px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    justify-self: center;
 }
 
 .product-name {
@@ -27,6 +31,49 @@ h2 {
 
 .product-quantity {
     grid-area: product-quantity;
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    overflow: hidden;
+    width: max-content;
+    height: 36px;
+}
+
+.product-quantity button {
+    background-color: #f8f9fa;
+    border: none;
+    color: #333;
+    width: 32px;
+    height: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-quantity button:hover {
+    background-color: #e2e6ea;
+}
+
+.product-quantity input.quantity {
+    border: none;
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    width: 48px;
+    height: 100%;
+    text-align: center;
+    outline: none;
+    margin: 0;
+    font-weight: 500;
+}
+
+.product-quantity input.quantity::-webkit-outer-spin-button,
+.product-quantity input.quantity::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .product-price {
@@ -34,21 +81,31 @@ h2 {
 }
 
 .product-detail {
-    border: var(--color4) 1px solid;
-    border-radius: 5px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    width: 40%;
+    background-color: #ffffff; /* Fonde blanco limpio */
+    border: 1px solid #eaeaec;
+    border-radius: 16px; /* Bordes más redondeados */
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 65%; /* Más grandes */
+    max-width: 800px;
     display: grid;
     justify-self: center;
     justify-items: start;
     align-items: center;
-    grid-template-rows: 50px 50px;
-    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.2fr 0.2fr;
-    column-gap: 0;
+    grid-template-rows: auto auto; /* No forzar altos fijos de 50px */
+    grid-template-columns: 140px 1fr 1fr auto auto; /* Optimiza columnas */
+    column-gap: 1.5rem;
+    row-gap: 0.5rem;
     grid-template-areas:
         "product-img product-name product-name product-name product-delete"
         "product-img product-quantity . product-price product-price";
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04); /* Sombra elegante */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Microanimación */
+}
+
+.product-detail:hover {
+    transform: translateY(-4px); /* Se levanta sutilmente */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* Sombra más profunda */
 }
 
 button {
