@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/stylesheets/index.css">
+        <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
+
 <body>
     <%- include('./partials/header') %>
 
-    <%- include('./partials/nav') %>
+        <%- include('./partials/nav') %>
 
-    <main>
-        <h2>Productos</h2>
+            <main>
+                <h2>Productos</h2>
 
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/">Productos</a></li>
-        </ol>
-     
-        <form class="add-product" action="/products/new-product" method="get"> 
-            <button id="submit" type="submit">Crear Producto Nuevo</button> 
-        </form>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Productos</a></li>
+                </ol>
 
-        <div class="container">
-            <% products.forEach(product => { %>
-                <div class="card card-products">
-                    <a href="/products/product-detail/<%= product.productId %>"><img src="/images/products/<%= product.image %>" class="card-img-top" alt="<%= product.name %>"></a>
-                    <div class="card-body card-body-products">
-                        <h5 style="margin-bottom: 10px;"><%= product.name %></h5>
-                        <p class="price"><b>$ <%= product.price %></b></p>
-                        <p style="color: grey; font-size: 14px;">$ <%= product.priceCash %> con Transferencia o depósito</p>
-                        <p style="color: red; font-size: 12px;"><%= product.priceInstallmentCount %> Coutas de $ <%= product.priceInstallment %></p>
-                        <button><a data-bs-toggle="offcanvas" href="#offcanvasRightLabel" role="button" aria-controls="offcanvasRightLabel" >Comprar</a></button>
-                    </div>
+                <form class="add-product" action="/products/new-product" method="get">
+                    <button id="submit" type="submit">Crear Producto Nuevo</button>
+                </form>
+
+                <div class="container">
+                    <% products.forEach(product=> { %>
+                        <div class="card card-products">
+                            <a href="/products/product-detail/<%= product.productId %>"><img
+                                    src="/images/products/<%= product.image %>" class="card-img-top"
+                                    alt="<%= product.name %>"></a>
+                            <div class="card-body card-body-products">
+                                <h5 style="margin-bottom: 10px;">
+                                    <%= product.name %>
+                                </h5>
+                                <p class="price"><b>$ <%= product.price %></b></p>
+                                <p style="color: grey; font-size: 14px;">$ <%= product.priceCash %> con Transferencia o
+                                        depósito</p>
+                                <p style="color: red; font-size: 12px;">
+                                    <%= product.priceInstallmentCount %> Coutas de $ <%= product.priceInstallment %>
+                                </p>
+                                <button><a href="/products/product-detail/<%= product.productId %>">Comprar</a></button>
+                            </div>
+                        </div>
+                        <% }); %>
                 </div>
-            <% }); %>
-        </div>
 
-    </main>
+            </main>
 
-    <%- include('./partials/footer') %>
+            <%- include('./partials/footer') %>
 </body>
+
 </html>
