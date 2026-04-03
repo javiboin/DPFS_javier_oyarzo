@@ -83,7 +83,7 @@ async function updateCartUI() {
         cart.forEach(product => {
             offcanvasContainer.innerHTML += `
             <div class="cart-product-detail card p-2 mb-2">
-                <img class="cart-product-img" src="${product.image}" width="140px" height="140px" alt="${product.name}">
+                <img class="cart-product-img" src="${product.image}" alt="${product.name}">
                 <p class="cart-product-name">${product.name}</p>
                 <img class="cart-product-delete" src="/images/trash.svg" width="20px" height="20px" alt="Eliminar" style="cursor: pointer;" onclick="removeFromCart('${product.id}')">
                 <div class="cart-product-quantity">
@@ -112,7 +112,7 @@ async function updateCartUI() {
             cart.forEach(product => {
                 pageContainer.innerHTML += `
                 <div class="product-detail position-relative mb-3">
-                    <img class="product-img" src="${product.image}" width="140px" height="140px" alt="${product.name}">
+                    <img class="product-img" src="${product.image}" alt="${product.name}">
                     <p class="product-name">${product.name}</p>
                     <button class="product-delete border-0 bg-transparent position-absolute" style="top: 10px; right: 10px;" onclick="removeFromCart('${product.id}')">
                         <img src="/images/trash.svg" width="20px" height="20px" alt="Eliminar">
@@ -144,11 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addCartBtn) {
         addCartBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             const id = addCartBtn.getAttribute('data-id');
             const name = addCartBtn.getAttribute('data-name');
             // La data es requerida solo para fallback, backend usara el ID.
-            
+
             // Buscar la cantidad ingresada por el usuario
             let quantity = 1;
             const quantityInput = document.querySelector('.product-detail .quantity');
