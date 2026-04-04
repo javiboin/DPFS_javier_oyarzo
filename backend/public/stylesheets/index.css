@@ -2,6 +2,81 @@ main {
     padding: 1.6rem 2rem;
 }
 
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--color5) 0%, var(--color4) 100%);
+    color: var(--color6);
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(230, 99, 42, 0.15), transparent);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 1;
+}
+
+.hero-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 4.5rem;
+    color: var(--color2);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-left: 0;
+    transition: color .4s ease;
+}
+
+.hero-title:hover {
+    color: var(--color1);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.btn-hero {
+    display: inline-block;
+    background-color: var(--color1);
+    color: var(--color6);
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(230, 66, 41, 0.3);
+}
+
+.btn-hero:hover {
+    background-color: var(--color6);
+    color: var(--color1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(250, 240, 240, 0.3);
+}
+
 .breadcrumb-item+.breadcrumb-item::before {
     float: none;
 }
@@ -100,5 +175,18 @@ main {
     .cart-products img {
         width: 30px;
         height: 30px;
+    }
+
+    /* Hero Responsive */
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
     }
 }
