@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useFetch } from "../../hooks/useFetch";
 
 export const ProductsBySubcategory = () => {
-    const url = 'http://127.0.0.1:3000/api/products/by-subcategory'
+    const url = 'http://127.0.0.1:3002/api/products/by-subcategory'
 
     const { data, isLoading, error, fetchData } = useFetch()
 
@@ -11,18 +11,18 @@ export const ProductsBySubcategory = () => {
     }, [])
 
     const groupByCategory = (subcategories) => {
-    return subcategories.reduce((acc, item) => {
-        if (!acc[item.category]) {
-            acc[item.category] = [];
-        }
-        acc[item.category].push(item);
-        return acc;
-    }, {});
-};
+        return subcategories.reduce((acc, item) => {
+            if (!acc[item.category]) {
+                acc[item.category] = [];
+            }
+            acc[item.category].push(item);
+            return acc;
+        }, {});
+    };
 
     return (
         <>
-            { isLoading 
+            {isLoading
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
@@ -46,9 +46,9 @@ export const ProductsBySubcategory = () => {
                             </div>
                         ) : (
                             <p>No hay subcategorías disponibles</p>
-                        )}          
+                        )}
                     </>
-                }
+            }
         </>
     )
 }

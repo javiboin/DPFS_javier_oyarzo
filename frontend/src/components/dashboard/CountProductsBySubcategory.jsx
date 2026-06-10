@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useFetch } from "../../hooks/useFetch";
 
 export const CountProductsBySubcategory = () => {
-    const url = 'http://127.0.0.1:3000/api/products/by-subcategory'
+    const url = 'http://127.0.0.1:3002/api/products/by-subcategory'
 
     const { data, isLoading, error, fetchData } = useFetch()
 
@@ -12,7 +12,7 @@ export const CountProductsBySubcategory = () => {
 
     return (
         <>
-            { isLoading 
+            {isLoading
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>

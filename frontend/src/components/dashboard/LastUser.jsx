@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useFetch } from "../../hooks/useFetch";
 
 export const LastUser = () => {
-    const url = 'http://127.0.0.1:3000/api/users/last-user'
+    const url = 'http://127.0.0.1:3002/api/users/last-user'
 
     const { data, isLoading, error, fetchData } = useFetch()
 
@@ -13,7 +13,7 @@ export const LastUser = () => {
 
     return (
         <>
-            { isLoading 
+            {isLoading
                 ? <h4>Cargando...</h4>
                 : error
                     ? <h4>Ha ocurrido un error: {error}</h4>
@@ -33,7 +33,7 @@ export const LastUser = () => {
                             </div>
                         </div>
                     </>
-            } 
+            }
         </>
     )
 }
